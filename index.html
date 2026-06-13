@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foco Estudio — Aprendizaje que se transforma en resultados</title>
+  <meta name="description" content="Foco Estudio diseña y produce cursos de aprendizaje para organizaciones. Une pedagogía y producción audiovisual con obsesión por la experiencia del aprendiz.">
+  <meta name="theme-color" id="theme-color-meta" content="#f5f5f7">
+  <link rel="canonical" href="https://focoestudio.com.ar/">
+  <meta property="og:title" content="Foco Estudio — Aprendizaje que se transforma en resultados">
+  <meta property="og:description" content="Estudio de e-learning y producción audiovisual. Diseñamos y producimos cursos para organizaciones que quieren dar un espacio formativo real a su gente.">
+  <meta property="og:site_name" content="Foco Estudio">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://focoestudio.com.ar/">
+  <meta property="og:image" content="https://focoestudio.com.ar/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Foco Estudio — Aprendizaje que se transforma en resultados">
+  <meta name="twitter:description" content="Estudio de e-learning y producción audiovisual. Diseñamos y producimos cursos para organizaciones que quieren dar un espacio formativo real a su gente.">
+  <meta name="twitter:image" content="https://focoestudio.com.ar/og-image.png">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='30' height='30' rx='3' fill='%236366f1'/%3E%3Crect x='6' y='6' width='18' height='18' fill='%23ffffff'/%3E%3Crect x='22' y='22' width='14' height='14' fill='%23f59e0b'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('foco-theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = stored || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+        var meta = document.getElementById('theme-color-meta');
+        if (meta) meta.setAttribute('content', theme === 'dark' ? '#0a0a0a' : '#f5f5f7');
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#hero">Saltar al contenido</a>
+
+<header class="nav" role="banner">
+  <nav class="nav-inner" aria-label="Navegación principal">
+    <a href="#hero" class="brand" aria-label="Foco Estudio — Ir al inicio">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+        <rect width="30" height="30" rx="3" fill="var(--indigo)"/>
+        <rect x="6" y="6" width="18" height="18" fill="#ffffff"/>
+        <rect x="22" y="22" width="14" height="14" fill="var(--amber)"/>
+      </svg>
+      <span class="brand-word" aria-hidden="true">
+        <span>Fo</span><span class="brand-c">c</span><span>o</span><span class="brand-dot">·</span>
+      </span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#foco">Foco</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#proceso">Proceso</a></li>
+      <li><a href="#casos">Casos</a></li>
+      <li><a href="#recursos">Recursos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar entre modo claro y oscuro">
+        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="4" fill="currentColor"/>
+          <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="12" y1="2" x2="12" y2="5"/>
+            <line x1="12" y1="19" x2="12" y2="22"/>
+            <line x1="2" y1="12" x2="5" y2="12"/>
+            <line x1="19" y1="12" x2="22" y2="12"/>
+            <line x1="4.93" y1="4.93" x2="7.05" y2="7.05"/>
+            <line x1="16.95" y1="16.95" x2="19.07" y2="19.07"/>
+            <line x1="4.93" y1="19.07" x2="7.05" y2="16.95"/>
+            <line x1="16.95" y1="7.05" x2="19.07" y2="4.93"/>
+          </g>
+        </svg>
+        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/>
+        </svg>
+      </button>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <ul>
+      <li><a href="#foco">Foco</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#proceso">Proceso</a></li>
+      <li><a href="#casos">Casos</a></li>
+      <li><a href="#por-que">Por qué</a></li>
+      <li><a href="#recursos">Recursos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <svg viewBox="0 0 400 400" class="hero-symbol" preserveAspectRatio="xMidYMid meet">
+        <rect x="20" y="20" width="280" height="280" rx="14" fill="var(--indigo)"/>
+        <rect x="76" y="76" width="168" height="168" fill="var(--bg)"/>
+        <rect x="224" y="224" width="140" height="140" fill="var(--amber)"/>
+      </svg>
+    </div>
+
+    <div class="hero-content">
+      <span class="eyebrow">Foco Estudio · E-learning + audiovisual</span>
+      <h1 class="hero-title">
+        Aprendizaje que se transforma <span class="hero-accent">en resultados</span>.
+      </h1>
+      <p class="hero-sub">
+        Diseñamos y producimos cursos para organizaciones que quieren dar un espacio formativo real a su gente. Pedagogía y producción audiovisual, en un mismo proceso.
+      </p>
+      <div class="hero-cta">
+        <a href="#contacto" class="btn btn-primary">Conversemos</a>
+        <a href="#recursos" class="btn btn-ghost">Ver recursos</a>
+      </div>
+    </div>
+
+    <a href="#foco" class="hero-scroll" aria-label="Ir a la siguiente sección">
+      <span></span>
+    </a>
+  </section>
+
+  <!-- ========== QUÉ ES FOCO (narrativa) ========== -->
+  <section class="section section-narrative section-divider" id="foco">
+    <div class="section-inner">
+      <div class="narrative reveal">
+        <span class="section-eyebrow">Qué es Foco Estudio</span>
+        <p class="narrative-lead">
+          Diseñamos y producimos <strong>cursos de aprendizaje para organizaciones</strong> que quieren dar un espacio formativo real a su gente. Unimos pedagogía y producción audiovisual con obsesión por la experiencia del aprendiz: <em>fácil, dinámica y de calidad</em>.
+        </p>
+        <div class="narrative-foot">
+          <span class="narrative-foot-label">Lo que genera el aprendizaje bien diseñado</span>
+          <ul class="pills">
+            <li>Fidelización</li>
+            <li>Estandarización</li>
+            <li>Pertenencia</li>
+            <li>Resolución de conflictos</li>
+            <li>Reducción de tiempos</li>
+            <li>Profesionalismo</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICIOS ========== -->
+  <section class="section section-alt" id="servicios">
+    <div class="section-inner">
+      <header class="section-header reveal">
+        <span class="section-eyebrow">Servicios</span>
+        <h2 class="section-title">
+          Cuatro formas <span class="text-indigo">de trabajar con nosotros</span>.
+        </h2>
+        <p class="section-lead">
+          Desde el curso completo llave en mano hasta etapas puntuales del proceso. Trabajamos con lo que necesites, sin paquetes rígidos.
+        </p>
+      </header>
+
+      <div class="services">
+        <article class="service-card reveal">
+          <div class="service-head">
+            <span class="service-num">01</span>
+            <span class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="6" width="20" height="12" rx="2"/>
+                <path d="M2 10h20"/>
+                <path d="M7 6V4M17 6V4"/>
+                <circle cx="8" cy="14" r="1" fill="currentColor"/>
+                <path d="M12 14h6"/>
+              </svg>
+            </span>
+          </div>
+          <h3 class="service-title">Diseño y producción de cursos</h3>
+          <p class="service-desc">Llave en mano o por etapas. Te acompañamos en todo el ciclo o entramos en el punto exacto donde nos necesitás.</p>
+          <ul class="service-tags">
+            <li>Guion</li>
+            <li>Diseño instruccional</li>
+            <li>Storyline 360</li>
+            <li>Video</li>
+          </ul>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-head">
+            <span class="service-num">02</span>
+            <span class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="23 7 16 12 23 17 23 7"/>
+                <rect x="1" y="5" width="15" height="14" rx="2"/>
+              </svg>
+            </span>
+          </div>
+          <h3 class="service-title">Producción audiovisual formativa</h3>
+          <p class="service-desc">Video pensado desde el primer momento para enseñar. No es un video lindo: es un video que enseña.</p>
+          <ul class="service-tags">
+            <li>Guion</li>
+            <li>Rodaje</li>
+            <li>Edición</li>
+            <li>Motion graphics</li>
+          </ul>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-head">
+            <span class="service-num">03</span>
+            <span class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+                <path d="M7 11l3 2 3-3 4 4"/>
+              </svg>
+            </span>
+          </div>
+          <h3 class="service-title">Implementación y gestión de LMS</h3>
+          <p class="service-desc">Montamos y operamos tu plataforma de aprendizaje. Vos te ocupás del negocio, nosotros del backend formativo.</p>
+          <ul class="service-tags">
+            <li>Moodle</li>
+            <li>Carga de cursos</li>
+            <li>Reportes</li>
+            <li>Acompañamiento</li>
+          </ul>
+        </article>
+
+        <article class="service-card service-card-feature reveal">
+          <div class="service-head">
+            <span class="service-num">04</span>
+            <span class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 12 20 22 4 22 4 12"/>
+                <rect x="2" y="7" width="20" height="5"/>
+                <line x1="12" y1="22" x2="12" y2="7"/>
+                <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/>
+                <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+              </svg>
+            </span>
+          </div>
+          <h3 class="service-title">Recursos Foco</h3>
+          <p class="service-desc">Materiales propios — gratuitos o de costo simbólico — para que pruebes cómo trabajamos antes de contratar.</p>
+          <ul class="service-tags">
+            <li>Plantillas</li>
+            <li>Microcursos</li>
+            <li>Guías</li>
+            <li>Demos</li>
+          </ul>
+          <a href="#recursos" class="service-link">Explorar recursos →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROCESO ========== -->
+  <section class="section section-alt" id="proceso">
+    <div class="section-inner">
+      <header class="section-header reveal">
+        <span class="section-eyebrow">Proceso</span>
+        <h2 class="section-title">
+          Cómo trabajamos, <span class="text-muted">paso por paso</span>.
+        </h2>
+        <p class="section-lead">
+          Un mismo equipo desde el primer brief hasta la última métrica. Sin pases entre proveedores, sin teléfono descompuesto.
+        </p>
+      </header>
+
+      <ol class="process">
+        <li class="process-step reveal">
+          <div class="process-num">01</div>
+          <h3 class="process-title">Descubrimiento</h3>
+          <p class="process-desc">Te entendemos: qué problema querés resolver, qué sabe tu gente hoy, qué tiene que cambiar después del curso. Una conversación, no un formulario de 80 campos.</p>
+          <span class="process-out">Resultado: brief y objetivos claros.</span>
+        </li>
+        <li class="process-step reveal">
+          <div class="process-num">02</div>
+          <h3 class="process-title">Guion y diseño instruccional</h3>
+          <p class="process-desc">Definimos qué se aprende, cómo se estructura y qué medios sirven mejor. El guion ya se piensa con la cámara y con la pantalla en la cabeza.</p>
+          <span class="process-out">Resultado: storyboard y guion aprobados.</span>
+        </li>
+        <li class="process-step reveal">
+          <div class="process-num">03</div>
+          <h3 class="process-title">Producción</h3>
+          <p class="process-desc">Filmación, edición, animación, motion graphics, desarrollo en Storyline 360. Acá nuestro doble perfil pedagógico + audiovisual hace toda la diferencia.</p>
+          <span class="process-out">Resultado: curso terminado, listo para publicar.</span>
+        </li>
+        <li class="process-step reveal">
+          <div class="process-num">04</div>
+          <h3 class="process-title">Implementación</h3>
+          <p class="process-desc">Subida al LMS, capacitación de administradores y reportes de uso. Si querés, nos quedamos operando la plataforma con vos.</p>
+          <span class="process-out">Resultado: curso publicado y métricas en marcha.</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== POR QUÉ FOCO ========== -->
+  <section class="section section-dark" id="por-que">
+    <div class="section-inner">
+      <div class="why-grid">
+        <header class="why-text reveal">
+          <span class="section-eyebrow">Por qué Foco</span>
+          <h2 class="section-title">
+            No somos otro diseñador instruccional genérico.
+          </h2>
+          <p class="section-lead">
+            Somos el <strong>realizador audiovisual que también entiende pedagogía</strong>, en un mismo proceso. Eso cambia todo: desde cómo se piensa el guion hasta cómo se filma una escena. La forma sirve al aprendizaje, no al revés.
+          </p>
+          <p class="why-note">
+            Foco nace de años produciendo formación interna para una compañía grande de Argentina. Esa trayectoria nos enseñó algo: el aprendizaje no se delega entre un pedagogo y un editor que no se hablan. Se diseña como una sola pieza.
+          </p>
+        </header>
+
+        <div class="stats-wrap">
+          <span class="stats-eyebrow">Trayectoria del equipo fundador</span>
+          <ul class="stats">
+            <li class="stat reveal">
+              <span class="stat-num"><span class="stat-plus">+</span>80</span>
+              <span class="stat-label">Cursos producidos en formación corporativa</span>
+            </li>
+            <li class="stat reveal">
+              <span class="stat-num">19.852</span>
+              <span class="stat-label">Personas alcanzadas</span>
+            </li>
+            <li class="stat reveal">
+              <span class="stat-num"><span class="stat-plus">+</span>6</span>
+              <span class="stat-label">Años de trayectoria en e-learning</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CASOS (primaria, carrusel horizontal) ========== -->
+  <section class="section section-cases" id="casos">
+    <div class="section-inner">
+      <header class="section-header section-header-row reveal">
+        <div class="section-header-text">
+          <span class="section-eyebrow">Casos</span>
+          <h2 class="section-title section-title-lg">
+            Algunos trabajos <span class="text-muted">que pasaron por nuestras manos</span>.
+          </h2>
+          <p class="section-lead">
+            Muestras anonimizadas de cursos producidos por el equipo. <strong>Próximamente</strong>: demos originales desarrolladas por Foco Estudio.
+          </p>
+        </div>
+        <div class="cases-controls" role="group" aria-label="Navegar casos">
+          <button class="cases-arrow" type="button" data-cases-prev aria-label="Caso anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="cases-arrow" type="button" data-cases-next aria-label="Caso siguiente">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </header>
+    </div>
+
+    <div class="cases-scroller" data-cases-scroller tabindex="0" aria-label="Casos (deslizá o usá las flechas)">
+        <article class="case-card reveal">
+          <div class="case-visual case-v-1" aria-hidden="true">
+            <svg viewBox="0 0 200 130" preserveAspectRatio="none">
+              <rect width="200" height="130" fill="var(--indigo)"/>
+              <circle cx="100" cy="58" r="22" fill="var(--bg-alt)" opacity="0.95"/>
+              <rect x="60" y="92" width="80" height="6" rx="3" fill="var(--amber)"/>
+              <rect x="40" y="106" width="120" height="3" rx="1.5" fill="var(--bg-alt)" opacity="0.4"/>
+              <rect x="56" y="115" width="88" height="3" rx="1.5" fill="var(--bg-alt)" opacity="0.4"/>
+            </svg>
+          </div>
+          <div class="case-body">
+            <div class="case-meta">
+              <span class="case-sector">Retail · +20.000 colaboradores</span>
+              <span class="case-anon">Muestra anonimizada</span>
+            </div>
+            <h3 class="case-title">Onboarding masivo nacional</h3>
+            <p class="case-desc">Programa de inducción para nuevos ingresos, con video y módulos interactivos. Alcance recurrente de miles de personas por año.</p>
+            <ul class="case-tags">
+              <li>Storyline 360</li>
+              <li>Video</li>
+              <li>Motion</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="case-card reveal">
+          <div class="case-visual case-v-2" aria-hidden="true">
+            <svg viewBox="0 0 200 130" preserveAspectRatio="none">
+              <rect width="200" height="130" fill="var(--amber)"/>
+              <rect x="36" y="36" width="36" height="58" rx="3" fill="var(--bg-alt)"/>
+              <rect x="82" y="36" width="36" height="58" rx="3" fill="var(--bg-alt)" opacity="0.85"/>
+              <rect x="128" y="36" width="36" height="58" rx="3" fill="var(--bg-alt)" opacity="0.7"/>
+              <rect x="42" y="78" width="24" height="3" rx="1.5" fill="var(--indigo)"/>
+              <rect x="88" y="78" width="24" height="3" rx="1.5" fill="var(--indigo)"/>
+              <rect x="134" y="78" width="24" height="3" rx="1.5" fill="var(--indigo)"/>
+            </svg>
+          </div>
+          <div class="case-body">
+            <div class="case-meta">
+              <span class="case-sector">Servicios financieros internos</span>
+              <span class="case-anon">Muestra anonimizada</span>
+            </div>
+            <h3 class="case-title">Operatoria de cajas multi-moneda</h3>
+            <p class="case-desc">Serie de microcursos sobre procedimientos en distintas monedas, medios de pago y resolución de conflictos en línea de caja.</p>
+            <ul class="case-tags">
+              <li>SCORM</li>
+              <li>Animación 2D</li>
+              <li>Microlearning</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="case-card reveal">
+          <div class="case-visual case-v-3" aria-hidden="true">
+            <svg viewBox="0 0 200 130" preserveAspectRatio="none">
+              <rect width="200" height="130" fill="var(--text)"/>
+              <path d="M30 90 Q60 50 100 70 T170 60" stroke="var(--amber)" stroke-width="3" fill="none"/>
+              <circle cx="60" cy="68" r="4" fill="var(--amber)"/>
+              <circle cx="100" cy="70" r="4" fill="var(--amber)"/>
+              <circle cx="140" cy="62" r="4" fill="var(--amber)"/>
+              <rect x="30" y="104" width="50" height="3" rx="1.5" fill="var(--bg-alt)" opacity="0.5"/>
+              <rect x="30" y="113" width="80" height="3" rx="1.5" fill="var(--bg-alt)" opacity="0.3"/>
+            </svg>
+          </div>
+          <div class="case-body">
+            <div class="case-meta">
+              <span class="case-sector">Industria alimentaria</span>
+              <span class="case-anon">Muestra anonimizada</span>
+            </div>
+            <h3 class="case-title">Seguridad alimentaria y POES</h3>
+            <p class="case-desc">Conversión de un manual operativo extenso en un curso navegable, con video, ilustración y evaluaciones por etapa.</p>
+            <ul class="case-tags">
+              <li>Video</li>
+              <li>Ilustración</li>
+              <li>Evaluación</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="case-card reveal">
+          <div class="case-visual case-v-4" aria-hidden="true">
+            <svg viewBox="0 0 200 130" preserveAspectRatio="none">
+              <rect width="200" height="130" fill="var(--indigo-dark)"/>
+              <circle cx="80" cy="58" r="18" fill="var(--bg-alt)" opacity="0.95"/>
+              <circle cx="120" cy="58" r="18" fill="var(--amber)"/>
+              <path d="M62 92 Q100 78 138 92" stroke="var(--bg-alt)" stroke-width="2.5" fill="none" opacity="0.85"/>
+              <rect x="40" y="108" width="120" height="3" rx="1.5" fill="var(--bg-alt)" opacity="0.4"/>
+              <rect x="60" y="116" width="80" height="3" rx="1.5" fill="var(--bg-alt)" opacity="0.4"/>
+            </svg>
+          </div>
+          <div class="case-body">
+            <div class="case-meta">
+              <span class="case-sector">RRHH · Mandos medios</span>
+              <span class="case-anon">Muestra anonimizada</span>
+            </div>
+            <h3 class="case-title">Liderazgo y feedback</h3>
+            <p class="case-desc">Serie de ocho capítulos sobre habilidades blandas, con video documental, dramatizaciones y animación de apoyo.</p>
+            <ul class="case-tags">
+              <li>Video documental</li>
+              <li>Storyline 360</li>
+              <li>Motion</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="case-card reveal">
+          <div class="case-visual case-v-5" aria-hidden="true">
+            <svg viewBox="0 0 200 130" preserveAspectRatio="none">
+              <rect width="200" height="130" fill="var(--bg-soft)"/>
+              <rect x="30" y="40" width="50" height="50" rx="4" fill="var(--indigo)"/>
+              <rect x="86" y="40" width="50" height="50" rx="4" fill="var(--amber)"/>
+              <rect x="142" y="40" width="28" height="50" rx="4" fill="var(--text)"/>
+              <rect x="30" y="100" width="140" height="3" rx="1.5" fill="var(--text-muted)" opacity="0.4"/>
+              <rect x="30" y="108" width="100" height="3" rx="1.5" fill="var(--text-muted)" opacity="0.3"/>
+            </svg>
+          </div>
+          <div class="case-body">
+            <div class="case-meta">
+              <span class="case-sector">Logística y depósito</span>
+              <span class="case-anon">Muestra anonimizada</span>
+            </div>
+            <h3 class="case-title">Picking y armado de pedidos</h3>
+            <p class="case-desc">Capacitación operativa para armadores y choferes. Animación 3D del flujo del depósito + video en planta.</p>
+            <ul class="case-tags">
+              <li>Animación 3D</li>
+              <li>Video en sitio</li>
+              <li>SCORM</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="case-card reveal">
+          <div class="case-visual case-v-6" aria-hidden="true">
+            <svg viewBox="0 0 200 130" preserveAspectRatio="none">
+              <rect width="200" height="130" fill="var(--amber-dark)"/>
+              <path d="M100 36 L114 64 L144 68 L122 88 L128 118 L100 102 L72 118 L78 88 L56 68 L86 64 Z" fill="var(--bg-alt)" opacity="0.95"/>
+            </svg>
+          </div>
+          <div class="case-body">
+            <div class="case-meta">
+              <span class="case-sector">Salud ocupacional</span>
+              <span class="case-anon">Muestra anonimizada</span>
+            </div>
+            <h3 class="case-title">Prevención cardiovascular</h3>
+            <p class="case-desc">Curso corto de hábitos saludables para servicio médico de empresa. Video formativo + materiales descargables.</p>
+            <ul class="case-tags">
+              <li>Video</li>
+              <li>PDF</li>
+              <li>Microlearning</li>
+            </ul>
+          </div>
+        </article>
+    </div>
+
+    <div class="section-inner">
+      <p class="cases-note reveal">
+        Las imágenes son representativas, no capturas reales. Los clientes y los productos finales pertenecen a las organizaciones que los encargaron.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== RECURSOS ========== -->
+  <section class="section section-alt" id="recursos">
+    <div class="section-inner">
+      <header class="section-header reveal">
+        <span class="section-eyebrow">Recursos Foco</span>
+        <h2 class="section-title">
+          Probá nuestro trabajo <span class="text-amber">antes de contratarnos</span>.
+        </h2>
+        <p class="section-lead">
+          Plantillas, microcursos y guías que armamos en el estudio. Gratis o por un costo simbólico — la forma más fácil de ver cómo trabajamos.
+        </p>
+      </header>
+
+      <div class="resources">
+        <article class="resource-card reveal">
+          <div class="resource-visual" aria-hidden="true">
+            <svg viewBox="0 0 200 120" preserveAspectRatio="none">
+              <rect width="200" height="120" fill="var(--indigo)"/>
+              <rect x="20" y="20" width="160" height="80" rx="4" fill="var(--bg-alt)"/>
+              <rect x="32" y="34" width="60" height="6" rx="2" fill="var(--indigo)" opacity="0.6"/>
+              <rect x="32" y="48" width="120" height="3" rx="1.5" fill="var(--text-muted)" opacity="0.4"/>
+              <rect x="32" y="56" width="100" height="3" rx="1.5" fill="var(--text-muted)" opacity="0.4"/>
+              <rect x="32" y="64" width="80" height="3" rx="1.5" fill="var(--text-muted)" opacity="0.4"/>
+              <rect x="32" y="78" width="40" height="14" rx="7" fill="var(--amber)"/>
+            </svg>
+          </div>
+          <div class="resource-body">
+            <div class="resource-meta">
+              <span class="resource-type">Plantilla</span>
+              <span class="resource-badge">Próximamente</span>
+            </div>
+            <h3 class="resource-title">Plantilla Storyline 360</h3>
+            <p class="resource-desc">Estructura base lista para empezar. Layout, navegación y componentes pensados para cursos corporativos.</p>
+            <span class="resource-format">.story · gratis</span>
+          </div>
+        </article>
+
+        <article class="resource-card reveal">
+          <div class="resource-visual" aria-hidden="true">
+            <svg viewBox="0 0 200 120" preserveAspectRatio="none">
+              <rect width="200" height="120" fill="var(--amber)"/>
+              <circle cx="100" cy="60" r="32" fill="var(--bg-alt)"/>
+              <polygon points="92,48 92,72 114,60" fill="var(--amber)"/>
+              <rect x="20" y="100" width="160" height="3" rx="1.5" fill="var(--bg-alt)" opacity="0.6"/>
+              <rect x="20" y="100" width="60" height="3" rx="1.5" fill="var(--bg-alt)"/>
+            </svg>
+          </div>
+          <div class="resource-body">
+            <div class="resource-meta">
+              <span class="resource-type">Microcurso</span>
+              <span class="resource-badge">Próximamente</span>
+            </div>
+            <h3 class="resource-title">Cómo dar un buen feedback</h3>
+            <p class="resource-desc">Demo gratuita de 15 minutos. Un ejemplo concreto de cómo armamos un módulo de habilidades blandas.</p>
+            <span class="resource-format">SCORM · 15 min · gratis</span>
+          </div>
+        </article>
+
+        <article class="resource-card reveal">
+          <div class="resource-visual" aria-hidden="true">
+            <svg viewBox="0 0 200 120" preserveAspectRatio="none">
+              <rect width="200" height="120" fill="var(--text)"/>
+              <rect x="60" y="20" width="80" height="100" rx="3" fill="var(--bg-alt)"/>
+              <rect x="72" y="34" width="56" height="4" rx="2" fill="var(--text)"/>
+              <rect x="72" y="46" width="56" height="2" rx="1" fill="var(--text-muted)" opacity="0.5"/>
+              <rect x="72" y="52" width="40" height="2" rx="1" fill="var(--text-muted)" opacity="0.5"/>
+              <rect x="72" y="64" width="56" height="2" rx="1" fill="var(--text-muted)" opacity="0.5"/>
+              <rect x="72" y="70" width="48" height="2" rx="1" fill="var(--text-muted)" opacity="0.5"/>
+              <rect x="72" y="82" width="56" height="2" rx="1" fill="var(--text-muted)" opacity="0.5"/>
+              <rect x="72" y="88" width="44" height="2" rx="1" fill="var(--text-muted)" opacity="0.5"/>
+              <circle cx="100" cy="106" r="4" fill="var(--amber)"/>
+            </svg>
+          </div>
+          <div class="resource-body">
+            <div class="resource-meta">
+              <span class="resource-type">Guía</span>
+              <span class="resource-badge">Próximamente</span>
+            </div>
+            <h3 class="resource-title">Guion para cursos en 7 pasos</h3>
+            <p class="resource-desc">PDF descargable con el método que usamos para escribir guiones que enseñan, no aburren.</p>
+            <span class="resource-format">PDF · costo simbólico</span>
+          </div>
+        </article>
+      </div>
+
+      <p class="resources-note reveal">
+        ¿Querés que te avisemos cuando estén disponibles? <a href="#contacto">Escribinos</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== CONTACTO ========== -->
+  <section class="section section-contact" id="contacto">
+    <div class="section-inner">
+      <div class="contact reveal">
+        <span class="section-eyebrow">Contacto</span>
+        <h2 class="contact-title">Hablemos.</h2>
+        <p class="contact-lead">
+          Contanos qué necesitás y armamos una propuesta juntos. Sin formularios largos: empezamos con una conversación.
+        </p>
+
+        <div class="contact-actions">
+          <a href="https://wa.me/5491100000000?text=Hola%20Foco%2C%20me%20interesa..." class="btn btn-primary btn-wa" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+              <path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.2-.3-.2-.6-.4z"/>
+              <path d="M20.5 3.5C18.3 1.2 15.3 0 12.1 0 5.5 0 .1 5.4.1 12c0 2.1.5 4.1 1.6 5.9L0 24l6.3-1.6c1.7.9 3.7 1.4 5.7 1.4 6.6 0 12-5.4 12-12 0-3.2-1.2-6.2-3.5-8.3zM12.1 21.8c-1.8 0-3.5-.5-5.1-1.4l-.4-.2-3.7 1 1-3.6-.2-.4c-1-1.6-1.5-3.5-1.5-5.3 0-5.5 4.5-9.9 9.9-9.9 2.7 0 5.2 1 7 2.9 1.9 1.9 2.9 4.4 2.9 7 0 5.6-4.5 9.9-9.9 9.9z"/>
+            </svg>
+            <span>WhatsApp</span>
+          </a>
+          <a href="mailto:hola@foco.estudio" class="btn btn-ghost">hola@foco.estudio</a>
+        </div>
+
+        <p class="contact-tagline">
+          <span class="contact-tagline-dot" aria-hidden="true"></span>
+          Aprendizaje que se transforma en resultados.
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#hero" class="brand" aria-label="Foco Estudio — Ir al inicio">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+          <rect width="30" height="30" rx="3" fill="var(--indigo)"/>
+          <rect x="6" y="6" width="18" height="18" fill="#ffffff"/>
+          <rect x="22" y="22" width="14" height="14" fill="var(--amber)"/>
+        </svg>
+        <span class="brand-word" aria-hidden="true">
+          <span>Fo</span><span class="brand-c">c</span><span>o</span><span class="brand-dot">·</span>
+        </span>
+      </a>
+      <p class="footer-tagline">Aprendizaje que se transforma en resultados.</p>
+    </div>
+
+    <nav class="footer-nav" aria-label="Navegación de pie">
+      <div class="footer-col">
+        <h4>Estudio</h4>
+        <ul>
+          <li><a href="#foco">Qué es Foco</a></li>
+          <li><a href="#por-que">Por qué Foco</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Hacemos</h4>
+        <ul>
+          <li><a href="#servicios">Cursos</a></li>
+          <li><a href="#servicios">Audiovisual</a></li>
+          <li><a href="#servicios">LMS</a></li>
+          <li><a href="#casos">Casos</a></li>
+          <li><a href="#recursos">Recursos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Hablemos</h4>
+        <ul>
+          <li><a href="mailto:hola@foco.estudio">hola@foco.estudio</a></li>
+          <li><a href="https://wa.me/5491100000000" target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© <span id="year">2026</span> Foco Estudio · E-learning y producción audiovisual</span>
+    <span class="footer-meta">Hecho con foco en Buenos Aires.</span>
+  </div>
+</footer>
+
+<script>
+  // Theme toggle
+  (function () {
+    var root = document.documentElement;
+    var toggle = document.getElementById('theme-toggle');
+    var meta = document.getElementById('theme-color-meta');
+    if (!toggle) return;
+    toggle.addEventListener('click', function () {
+      var current = root.getAttribute('data-theme') || 'light';
+      var next = current === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      if (meta) meta.setAttribute('content', next === 'dark' ? '#0a0a0a' : '#f5f5f7');
+      try { localStorage.setItem('foco-theme', next); } catch (e) {}
+    });
+  })();
+
+  // Mobile menu
+  (function () {
+    var btn = document.getElementById('menu-toggle');
+    var menu = document.getElementById('mobile-menu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      btn.classList.toggle('is-open', !open);
+      menu.hidden = open;
+    });
+    menu.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        btn.setAttribute('aria-expanded', 'false');
+        btn.classList.remove('is-open');
+        menu.hidden = true;
+      }
+    });
+  })();
+
+  // Nav scroll state
+  (function () {
+    var nav = document.querySelector('.nav');
+    if (!nav) return;
+    var onScroll = function () {
+      nav.classList.toggle('is-scrolled', window.scrollY > 8);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+
+  // Reveal on scroll
+  (function () {
+    var items = document.querySelectorAll('.reveal');
+    if (!items.length || !('IntersectionObserver' in window)) {
+      items.forEach(function (el) { el.classList.add('is-visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    items.forEach(function (el) { io.observe(el); });
+  })();
+
+  // Casos carousel
+  (function () {
+    var scroller = document.querySelector('[data-cases-scroller]');
+    var prev = document.querySelector('[data-cases-prev]');
+    var next = document.querySelector('[data-cases-next]');
+    if (!scroller || !prev || !next) return;
+
+    var step = function () {
+      var card = scroller.querySelector('.case-card');
+      if (!card) return 320;
+      var styles = window.getComputedStyle(scroller);
+      var gap = parseFloat(styles.columnGap || styles.gap || 20) || 20;
+      return card.getBoundingClientRect().width + gap;
+    };
+
+    var updateArrows = function () {
+      var max = scroller.scrollWidth - scroller.clientWidth - 1;
+      prev.disabled = scroller.scrollLeft <= 0;
+      next.disabled = scroller.scrollLeft >= max;
+    };
+
+    prev.addEventListener('click', function () {
+      scroller.scrollBy({ left: -step(), behavior: 'smooth' });
+    });
+    next.addEventListener('click', function () {
+      scroller.scrollBy({ left: step(), behavior: 'smooth' });
+    });
+    scroller.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        scroller.scrollBy({ left: -step(), behavior: 'smooth' });
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        scroller.scrollBy({ left: step(), behavior: 'smooth' });
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        scroller.scrollTo({ left: 0, behavior: 'smooth' });
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        scroller.scrollTo({ left: scroller.scrollWidth, behavior: 'smooth' });
+      }
+    });
+    scroller.addEventListener('scroll', updateArrows, { passive: true });
+    window.addEventListener('resize', updateArrows);
+    updateArrows();
+  })();
+
+  // Year
+  (function () {
+    var y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  })();
+</script>
+
+</body>
+</html>
