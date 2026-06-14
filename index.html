@@ -43,6 +43,7 @@
 <body>
 
 <a class="skip-link" href="#hero">Saltar al contenido</a>
+<div id="scroll-progress" aria-hidden="true"></div>
 
 <header class="nav" role="banner">
   <nav class="nav-inner" aria-label="Navegación principal">
@@ -63,7 +64,6 @@
       <li><a href="#proceso">Proceso</a></li>
       <li><a href="#casos">Casos</a></li>
       <li><a href="#aprende">Aprendé</a></li>
-      <li><a href="#recursos">Recursos</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
 
@@ -100,7 +100,6 @@
       <li><a href="#casos">Casos</a></li>
       <li><a href="#por-que">Por qué</a></li>
       <li><a href="#aprende">Aprendé</a></li>
-      <li><a href="#recursos">Recursos</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
   </div>
@@ -229,7 +228,7 @@
             </span>
           </div>
           <h3 class="service-title">Implementación y gestión de LMS</h3>
-          <p class="service-desc">Montamos y operamos tu plataforma de aprendizaje. Vos te ocupás del negocio, nosotros del backend formativo.</p>
+          <p class="service-desc"><strong>¿No tenés plataforma todavía?</strong> Te la armamos. Desplegamos Moodle (u otro LMS) a tu medida, cargamos cursos, configuramos reportes y, si querés, la operamos con vos. Vos te ocupás del negocio, nosotros del backend formativo.</p>
           <ul class="service-tags">
             <li>Moodle</li>
             <li>Carga de cursos</li>
@@ -243,23 +242,23 @@
             <span class="service-num">04</span>
             <span class="service-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 12 20 22 4 22 4 12"/>
-                <rect x="2" y="7" width="20" height="5"/>
-                <line x1="12" y1="22" x2="12" y2="7"/>
-                <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/>
-                <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+                <path d="M4 4h12l4 4v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/>
+                <polyline points="16 4 16 8 20 8"/>
+                <line x1="7" y1="12" x2="17" y2="12"/>
+                <line x1="7" y1="15.5" x2="14" y2="15.5"/>
+                <line x1="7" y1="19" x2="12" y2="19"/>
               </svg>
             </span>
           </div>
-          <h3 class="service-title">Recursos Foco</h3>
-          <p class="service-desc">Materiales propios para que pruebes cómo trabajamos antes de contratar.</p>
+          <h3 class="service-title">Diseño instruccional documentado</h3>
+          <p class="service-desc">Antes de elegir herramienta, definimos <strong>qué tiene que aprender tu gente</strong>: objetivos con verbos observables, estructura por lección y mapa de evaluación. Nuestro principio: <em>"vos dirigís, la IA ejecuta"</em> — el diseño sobrevive a la herramienta de moda.</p>
           <ul class="service-tags">
-            <li>Plantillas</li>
-            <li>Microcursos</li>
-            <li>Guías</li>
-            <li>Demos</li>
+            <li>Backward design</li>
+            <li>Resultados observables</li>
+            <li>Mapa de evaluación</li>
+            <li>Plantilla de lección</li>
           </ul>
-          <a href="#recursos" class="service-link">Explorar recursos →</a>
+          <a href="#por-que" class="service-link">Por qué nos importa →</a>
         </article>
       </div>
     </div>
@@ -323,28 +322,25 @@
             Foco nace de años produciendo formación interna para una compañía grande de Argentina. Esa trayectoria nos enseñó algo: el aprendizaje no se delega entre un pedagogo y un editor que no se hablan. Se diseña como una sola pieza.
           </p>
 
-          <div class="why-method reveal">
-            <span class="why-method-tag">Nuestro método base</span>
-            <p class="why-method-principle">“Vos dirigís, la IA ejecuta.”</p>
-            <p class="why-method-desc">
-              Cada curso arranca con <strong>diseño instruccional documentado</strong> —backward design, resultados con verbos observables y mapa de evaluación— que define <em>qué</em> tiene que aprender tu gente antes de elegir <em>con qué</em> producirlo. Sumamos producción asistida por IA para ir más rápido y más a medida, sin que la pedagogía quede atrás. El diseño sobrevive a la herramienta de moda.
-            </p>
-          </div>
+          <blockquote class="why-principle reveal">
+            <p>“Vos dirigís, la IA ejecuta.”</p>
+            <span>Nuestro método base. <a href="#servicios">Cómo lo aplicamos →</a></span>
+          </blockquote>
         </header>
 
         <div class="stats-wrap">
           <span class="stats-eyebrow">Trayectoria del equipo fundador</span>
           <ul class="stats">
             <li class="stat reveal">
-              <span class="stat-num"><span class="stat-plus">+</span>80</span>
+              <span class="stat-num"><span class="stat-plus">+</span><span class="stat-value" data-count-to="80">80</span></span>
               <span class="stat-label">Cursos producidos en formación corporativa</span>
             </li>
             <li class="stat reveal">
-              <span class="stat-num">19.852</span>
+              <span class="stat-num"><span class="stat-value" data-count-to="19852">19.852</span></span>
               <span class="stat-label">Personas alcanzadas</span>
             </li>
             <li class="stat reveal">
-              <span class="stat-num"><span class="stat-plus">+</span>6</span>
+              <span class="stat-num"><span class="stat-plus">+</span><span class="stat-value" data-count-to="6">6</span></span>
               <span class="stat-label">Años de trayectoria en e-learning</span>
             </li>
           </ul>
@@ -548,7 +544,7 @@
           Probá un curso real, <span class="text-indigo">hecho por nosotros</span>.
         </h2>
         <p class="section-lead">
-          Cursos originales de Foco Estudio, completos y navegables. Abrilos en el navegador ahora mismo o descargá el paquete SCORM para tu LMS. La prueba viva de cómo trabajamos.
+          Cursos originales de Foco Estudio, completos y navegables. Abrilos en el navegador ahora mismo o descargá el paquete SCORM para tu LMS — todos <strong>gratis y sin formulario</strong>. La prueba viva de cómo trabajamos.
         </p>
       </header>
 
@@ -582,7 +578,7 @@
             </ul>
             <div class="learn-actions">
               <a class="btn btn-primary" href="demos/ia-visual/index.html" target="_blank" rel="noopener">Probar el demo →</a>
-              <a class="btn btn-ghost" href="downloads/imagen-video-ia-elearning-foco.zip" download>Descargar SCORM</a>
+              <a class="btn btn-ghost" href="downloads/imagen-video-ia-elearning-foco.zip" download>Descargar SCORM <span class="btn-tag">gratis</span></a>
             </div>
           </div>
         </article>
@@ -614,7 +610,45 @@
             </ul>
             <div class="learn-actions">
               <a class="btn btn-primary" href="demos/gamificacion/index.html" target="_blank" rel="noopener">Probar el demo →</a>
-              <a class="btn btn-ghost" href="downloads/gamificacion-en-elearning-foco.zip" download>Descargar SCORM</a>
+              <a class="btn btn-ghost" href="downloads/gamificacion-en-elearning-foco.zip" download>Descargar SCORM <span class="btn-tag">gratis</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="learn-card reveal">
+          <div class="learn-visual" aria-hidden="true">
+            <svg viewBox="0 0 200 120" preserveAspectRatio="none">
+              <rect width="200" height="120" fill="var(--indigo-dark)"/>
+              <rect x="18" y="20" width="164" height="80" rx="8" fill="var(--indigo)" opacity="0.18"/>
+              <rect x="30" y="56" width="6" height="32" rx="2" fill="var(--amber)"/>
+              <rect x="42" y="44" width="6" height="44" rx="2" fill="var(--amber)" opacity="0.85"/>
+              <rect x="54" y="36" width="6" height="52" rx="2" fill="var(--amber)"/>
+              <rect x="66" y="48" width="6" height="40" rx="2" fill="var(--amber)" opacity="0.85"/>
+              <rect x="78" y="60" width="6" height="28" rx="2" fill="var(--amber)"/>
+              <rect x="90" y="40" width="6" height="48" rx="2" fill="var(--amber)" opacity="0.85"/>
+              <rect x="102" y="52" width="6" height="36" rx="2" fill="var(--amber)"/>
+              <rect x="114" y="44" width="6" height="44" rx="2" fill="var(--amber)" opacity="0.85"/>
+              <circle cx="148" cy="62" r="18" fill="none" stroke="var(--bg-alt)" stroke-width="2.5" opacity="0.85"/>
+              <circle cx="148" cy="62" r="4" fill="var(--bg-alt)"/>
+              <line x1="148" y1="62" x2="160" y2="50" stroke="var(--amber)" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="learn-body">
+            <div class="learn-meta">
+              <span class="resource-badge resource-badge-live">Demo original Foco</span>
+              <span class="learn-format">SCORM 1.2 · 2 semanas</span>
+            </div>
+            <h3 class="learn-title">Producción de techno desde cero</h3>
+            <p class="learn-desc">De cero a un track terminado y masterizado en dos semanas, sin teoría musical previa. Muestra que el método Foco sirve más allá del aprendizaje corporativo.</p>
+            <ul class="learn-tags">
+              <li>Producción musical</li>
+              <li>DAW</li>
+              <li>SCORM</li>
+              <li>Microlearning</li>
+            </ul>
+            <div class="learn-actions">
+              <a class="btn btn-primary" href="demos/techno/index.html" target="_blank" rel="noopener">Probar el demo →</a>
+              <a class="btn btn-ghost" href="downloads/produccion-techno-foco.zip" download>Descargar SCORM <span class="btn-tag">gratis</span></a>
             </div>
           </div>
         </article>
@@ -767,7 +801,6 @@
           <li><a href="#servicios">LMS</a></li>
           <li><a href="#casos">Casos</a></li>
           <li><a href="#aprende">Aprendé con Foco</a></li>
-          <li><a href="#recursos">Recursos</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -823,15 +856,89 @@
     });
   })();
 
-  // Nav scroll state
+  // Nav scroll state + progress bar
   (function () {
     var nav = document.querySelector('.nav');
-    if (!nav) return;
+    var bar = document.getElementById('scroll-progress');
     var onScroll = function () {
-      nav.classList.toggle('is-scrolled', window.scrollY > 8);
+      if (nav) nav.classList.toggle('is-scrolled', window.scrollY > 8);
+      if (bar) {
+        var docH = document.documentElement.scrollHeight - window.innerHeight;
+        var pct = docH > 0 ? (window.scrollY / docH) * 100 : 0;
+        bar.style.width = Math.min(100, Math.max(0, pct)) + '%';
+      }
     };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+  })();
+
+  // Count-up en stats
+  (function () {
+    var items = document.querySelectorAll('[data-count-to]');
+    if (!items.length || !('IntersectionObserver' in window)) return;
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var format = function (n) { return Math.round(n).toLocaleString('es-AR'); };
+    var animate = function (el) {
+      var target = parseInt(el.getAttribute('data-count-to'), 10) || 0;
+      if (reduced) { el.textContent = format(target); return; }
+      var duration = 1400;
+      var start = null;
+      var ease = function (t) { return 1 - Math.pow(1 - t, 3); };
+      var step = function (ts) {
+        if (start === null) start = ts;
+        var p = Math.min(1, (ts - start) / duration);
+        el.textContent = format(target * ease(p));
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { animate(entry.target); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.4 });
+    items.forEach(function (el) { io.observe(el); });
+  })();
+
+  // Cursor spotlight en sección oscura (solo hover-capable + no reduced-motion)
+  (function () {
+    if (!window.matchMedia('(hover: hover)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var section = document.querySelector('.section-dark');
+    if (!section) return;
+    section.classList.add('has-spotlight');
+    section.addEventListener('pointermove', function (e) {
+      var rect = section.getBoundingClientRect();
+      section.style.setProperty('--spot-x', (e.clientX - rect.left) + 'px');
+      section.style.setProperty('--spot-y', (e.clientY - rect.top) + 'px');
+    });
+  })();
+
+  // Tilt 3D sutil en learn-cards
+  (function () {
+    if (!window.matchMedia('(hover: hover)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var cards = document.querySelectorAll('.learn-card');
+    cards.forEach(function (card) {
+      card.classList.add('has-tilt');
+      var raf = null;
+      card.addEventListener('pointermove', function (e) {
+        if (raf) return;
+        raf = requestAnimationFrame(function () {
+          var rect = card.getBoundingClientRect();
+          var x = (e.clientX - rect.left) / rect.width - 0.5;
+          var y = (e.clientY - rect.top) / rect.height - 0.5;
+          card.style.setProperty('--tilt-x', (-y * 4).toFixed(2) + 'deg');
+          card.style.setProperty('--tilt-y', (x * 4).toFixed(2) + 'deg');
+          raf = null;
+        });
+      });
+      card.addEventListener('pointerleave', function () {
+        card.style.setProperty('--tilt-x', '0deg');
+        card.style.setProperty('--tilt-y', '0deg');
+      });
+    });
   })();
 
   // Reveal on scroll
