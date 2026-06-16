@@ -1356,6 +1356,7 @@ strong { font-weight: 600; color: var(--text); }
 }
 .learn-guides-avatars { display: flex; flex: none; }
 .learn-guides-avatars img {
+  display: block;
   width: 76px;
   height: 76px;
   border-radius: 50%;
@@ -1363,7 +1364,7 @@ strong { font-weight: 600; color: var(--text); }
   box-shadow: var(--shadow-sm);
   object-fit: cover;
 }
-.learn-guides-avatars img:last-child { margin-left: -18px; }
+.learn-guides-avatars picture:last-child img { margin-left: -18px; }
 .learn-guides-title {
   font-size: 1.05rem;
   font-weight: 700;
