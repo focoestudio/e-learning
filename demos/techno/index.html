@@ -6011,6 +6011,9 @@ function moodForDay(dayN){ return (!dayN || dayN<=4) ? 'curious' : 'confident'; 
    AUDIO MANAGER — MP3 si existe, fallback a Web Speech API
    ============================================================ */
 const audioState = { current:null, currentBtn:null, type:null };
+/* Poné true cuando existan los .mp3 en assets/audio/. En false, la narración
+   va directo a Text-To-Speech sin intentar (ni fallar) la descarga del archivo. */
+const HAS_NARRATION_MP3 = false;
 function stopAudio(){
   if(audioState.type==='file' && audioState.current){ audioState.current.pause(); audioState.current.currentTime=0; }
   else if(audioState.type==='tts'){ try{speechSynthesis.cancel();}catch(e){} }
@@ -6060,7 +6063,7 @@ document.addEventListener('click', e=>{
   stopAudio();
   const text=getCleanText(btn);
   const src=btn.dataset.audioSrc;
-  if(src) playFromFile(src,text,btn);
+  if(src && HAS_NARRATION_MP3) playFromFile(src,text,btn);
   else playTTS(text,btn);
 });
 window.addEventListener('hashchange', stopAudio);
@@ -6597,7 +6600,7 @@ route(); onScroll();
   /* --- 2) Tamaño de texto (Aa) --- */
   var aa=document.getElementById("aaFab");
   if(aa){
-    var STEPS=[1,1.12,1.24], LABELS=["normal","grande","máximo"], KEY="ia-visual:readscale", i=0;
+    var STEPS=[1,1.12,1.24], LABELS=["normal","grande","máximo"], KEY=PREFIX+":readscale", i=0;
     try{ var ix=STEPS.indexOf(parseFloat(localStorage.getItem(KEY))); if(ix>=0) i=ix; }catch(e){}
     function apply(){ document.documentElement.style.setProperty("--read-scale",STEPS[i]); aa.title="Tamaño de texto: "+LABELS[i]; }
     apply();
@@ -6606,27 +6609,114 @@ route(); onScroll();
 })();
 </script>
 <script>
-/* ===== Wrapper SCORM 1.2 (white-label · completa al terminar los 10 dias) ===== */
+/* ===== Wrapper SCORM 1.2 (white-label) =====
+   Reporta al LMS: estado (incomplete/completed), score.raw 0-100 segun quizzes
+   aprobados, bookmark (ultimo dia visitado) y suspend_data para retomar en otro
+   dispositivo o sesion aunque se pierda el localStorage. En modo standalone no
+   hace nada (no rompe). */
 (function(){
   function findAPI(w){var n=0;while(w&&(w.API==null)&&(w.parent!=null)&&(w.parent!=w)){n++;if(n>500)return null;w=w.parent;}return w?w.API:null;}
   function getAPI(){var a=findAPI(window);if(a==null&&window.opener!=null&&typeof window.opener!="undefined")a=findAPI(window.opener);return a;}
   var API=getAPI();
   if(!API){console.info("[SCORM] API no encontrada - modo standalone.");return;}
   var TOTAL=10; try{ if(typeof COURSE!=="undefined" && COURSE.days) TOTAL=COURSE.days.length; }catch(e){}
+  var PFX=(typeof PREFIX!=="undefined") ? PREFIX : "foco-techno-2026";
+  function gv(k){ try{ return API.LMSGetValue(k); }catch(e){ return ""; } }
+  function sv(k,v){ try{ API.LMSSetValue(k,String(v)); return true; }catch(e){ return false; } }
+  function commit(){ try{ API.LMSCommit(""); }catch(e){} }
+
   try{ API.LMSInitialize(""); }catch(e){}
   try{ var sn=API.LMSGetValue("cmi.core.student_name"); if(sn && typeof window.setUserName==="function") window.setUserName(sn); }catch(e){}
-  var status=""; try{ status=API.LMSGetValue("cmi.core.lesson_status"); }catch(e){}
+
+  var status=gv("cmi.core.lesson_status");
   var finished=(status==="completed"||status==="passed");
-  if(!finished && (status===""||status==="not attempted"||status==="unknown"||status==="browsed")){ try{ API.LMSSetValue("cmi.core.lesson_status","incomplete"); API.LMSCommit(""); }catch(e){} }
+  if(!finished && (status===""||status==="not attempted"||status==="unknown"||status==="browsed")){ sv("cmi.core.lesson_status","incomplete"); commit(); }
+
+  /* --- Bookmark + resume desde suspend_data --- */
+  function curSlug(){ try{ return (typeof slug==="function") ? slug(state.name) : ""; }catch(e){ return ""; } }
+  function restoreFromSuspend(){
+    var raw=gv("cmi.suspend_data"); if(!raw) return;
+    var data; try{ data=JSON.parse(raw); }catch(e){ return; }
+    if(!data || typeof data!=="object") return;
+    try{ if((!state.name) && data.n && typeof setName==="function") setName(data.n); }catch(e){}
+    var sl=curSlug() || (data.n && typeof slug==="function" ? slug(data.n) : "");
+    if(!sl) return;
+    /* Solo restauramos si el progreso local esta vacio: el localStorage del
+       dispositivo actual manda; suspend_data cubre el arranque en frio. */
+    var pk=PFX+":progress:"+sl, hasLocal=false;
+    try{ var lp=localStorage.getItem(pk); if(lp){ hasLocal=(JSON.parse(lp)||[]).length>0; } }catch(e){}
+    if(hasLocal) return;
+    try{
+      if(data.p) localStorage.setItem(PFX+":progress:"+sl, JSON.stringify(data.p));
+      if(data.q) localStorage.setItem(PFX+":quiz:"+sl,     JSON.stringify(data.q));
+      if(data.s) localStorage.setItem(PFX+":sections:"+sl, JSON.stringify(data.s));
+      if(data.n && typeof PROFILE_KEY!=="undefined") localStorage.setItem(PROFILE_KEY, data.n);
+      if(typeof loadProfile==="function")  loadProfile();
+      if(typeof loadProgress==="function") loadProgress();
+      if(typeof loadQuiz==="function")     loadQuiz();
+      if(typeof loadSections==="function") loadSections();
+    }catch(e){}
+    try{
+      var loc=gv("cmi.core.lesson_location");
+      if(loc && !location.hash){ location.hash="#"+loc; }
+      else if(typeof route==="function"){ route(); }
+      if(typeof updateTopbar==="function") updateTopbar();
+    }catch(e){}
+  }
+  restoreFromSuspend();
+
+  /* --- Sincronizacion: suspend_data + score + bookmark --- */
+  function snapshot(){
+    try{
+      var pl={ n:(state.name||""), p:[], q:[], s:{} };
+      pl.p = state.completed ? [...state.completed] : [];
+      pl.q = (typeof quizState!=="undefined" && quizState.passed) ? [...quizState.passed] : [];
+      if(typeof sectionsState!=="undefined"){ for(var k in sectionsState){ try{ pl.s[k]=[...sectionsState[k]]; }catch(e){} } }
+      return JSON.stringify(pl);
+    }catch(e){ return ""; }
+  }
+  function scoreNow(){
+    try{ var p=(typeof quizState!=="undefined" && quizState.passed) ? quizState.passed.size : 0; return Math.max(0,Math.min(100,Math.round(p/TOTAL*100))); }catch(e){ return 0; }
+  }
   function courseDone(){
     try{ if(typeof doneCount==="function" && doneCount()>=TOTAL) return true; }catch(e){}
-    try{ for(var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); if(k && k.indexOf("ia-visual:progress:")===0){ var arr=JSON.parse(localStorage.getItem(k)||"[]"); if(Array.isArray(arr)&&arr.length>=TOTAL) return true; } } }catch(e){}
+    try{ for(var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); if(k && k.indexOf(PFX+":progress:")===0){ var arr=JSON.parse(localStorage.getItem(k)||"[]"); if(Array.isArray(arr)&&arr.length>=TOTAL) return true; } } }catch(e){}
     return false;
   }
-  var timer=null;
-  function markComplete(){ if(finished) return; finished=true; try{ API.LMSSetValue("cmi.core.lesson_status","completed"); API.LMSCommit(""); }catch(e){} if(timer){clearInterval(timer);timer=null;} }
-  if(!finished){ if(courseDone()) markComplete(); else timer=setInterval(function(){ if(courseDone()) markComplete(); },2000); }
-  var done=false; function finish(){ if(done)return; done=true; try{ API.LMSCommit(""); API.LMSFinish(""); }catch(e){} }
+  function markComplete(){ if(finished) return; finished=true; sv("cmi.core.lesson_status","completed"); commit(); }
+
+  var lastSnap="", lastLoc="", lastScore=-1;
+  function sync(){
+    var dirty=false;
+    var snap=snapshot();
+    if(snap && snap!==lastSnap){ sv("cmi.suspend_data",snap); lastSnap=snap; dirty=true; }
+    var sc=scoreNow();
+    if(sc!==lastScore){ sv("cmi.core.score.raw",sc); sv("cmi.core.score.min",0); sv("cmi.core.score.max",100); lastScore=sc; dirty=true; }
+    var loc=(location.hash||"").replace(/^#/,"");
+    if(loc && loc!==lastLoc){ sv("cmi.core.lesson_location",loc); lastLoc=loc; dirty=true; }
+    if(!finished && courseDone()) markComplete();
+    if(dirty) commit();
+  }
+  lastSnap=snapshot();
+  sync();
+  var timer=setInterval(sync,3000);
+  window.addEventListener("hashchange",function(){ setTimeout(sync,50); });
+
+  /* --- session_time + cierre --- */
+  function cmiTime(ms){
+    var s=Math.floor(ms/1000), hh=Math.floor(s/3600), mm=Math.floor((s%3600)/60), ss=s%60;
+    function p2(x){return (x<10?"0":"")+x;}
+    return p2(hh)+":"+p2(mm)+":"+p2(ss)+".00";
+  }
+  var startedAt=Date.now(), done=false;
+  function finish(){
+    if(done)return; done=true;
+    if(timer){clearInterval(timer);timer=null;}
+    try{ sync(); }catch(e){}
+    sv("cmi.core.session_time", cmiTime(Date.now()-startedAt));
+    commit();
+    try{ API.LMSFinish(""); }catch(e){}
+  }
   window.addEventListener("pagehide",finish); window.addEventListener("beforeunload",finish); window.addEventListener("unload",finish);
 })();
 </script>

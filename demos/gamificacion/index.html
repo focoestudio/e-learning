@@ -26,32 +26,35 @@
 </script>
 <style>
   :root{
-    /* Marca · Sistema de Diseño Web (v2 2026) */
-    --navy:#1E2D46;  --navy-dark:#162036;
-    --blue:#006EA0;  --blue-dark:#00466E;  --blue-light:#2E96C8;
-    --cream:#EBF0FF; --gray-light:#D7DEEC; --gray:#6B7690;
-    --bg:#EBF0FF;    --surface:#ffffff;    --surface-2:#F4F7FE;
-    --green:#00C88C; --green-ink:#00795a;  --green-soft:#dff5ee;
+    /* Marca · Foco Estudio — indigo + amber + Inter */
+    /* "navy" se conserva como nombre de token = tinta/superficies oscuras */
+    --navy:#0a0a0a;  --navy-dark:#161616;
+    --blue:#6366f1;  --blue-dark:#4f46e5;  --blue-light:#818cf8;
+    --amber:#f59e0b; --amber-dark:#d97706; --amber-soft:#fef3e0;
+    --cream:#eef0fb; --gray-light:#e3e3ea; --gray:#636368;
+    --bg:#f5f5f7;    --surface:#ffffff;    --surface-2:#efeff3;
+    --green:#10b981; --green-ink:#047857;  --green-soft:#d9f5ec;
     --pink:#F02850;  --purple:#8232C8;
     --page-max:1180px; --read-max:820px; --page-pad:2rem; --nav-h:66px;
     --radius:16px; --radius-sm:14px;
-    --shadow:0 4px 18px rgba(30,45,70,.10);
-    --shadow-card:0 6px 22px rgba(30,45,70,.10);
-    /* Degradado de marca MONOCROMÁTICO (Manual p.29 · no cruza de tono) */
+    --shadow:0 4px 18px rgba(10,10,10,.08);
+    --shadow-card:0 6px 22px rgba(10,10,10,.08);
+    /* Degradado de marca (indigo) */
     --grad-brand:linear-gradient(135deg,var(--blue-dark),var(--blue));
     --grad-prog:linear-gradient(to right,var(--blue-dark),var(--blue-light));
-    /* Tipografía del sistema: Faible (títulos) + Roboto (cuerpo) */
-    --font-title:'Faible','Roboto',system-ui,sans-serif;
-    --font-body:'Roboto',system-ui,-apple-system,Segoe UI,sans-serif;
+    /* Tipografía de marca: Inter (títulos + cuerpo) */
+    --font-title:'Inter',system-ui,-apple-system,Segoe UI,sans-serif;
+    --font-body:'Inter',system-ui,-apple-system,Segoe UI,sans-serif;
   }
   [data-theme="dark"]{
-    --navy:#EAF0FB;  --navy-dark:#0F1726;
-    --blue:#4db8e8;  --blue-dark:#7dd3f7;  --blue-light:#5bc4f0;
-    --cream:#18233A; --gray-light:#2A3850; --gray:#A9B6CE;
-    --bg:#0F1726;    --surface:#18233A;    --surface-2:#1F2C46;
-    --green:#2bd6a0; --green-ink:#7ce6c5;  --green-soft:#13314a;
-    --shadow:0 4px 18px rgba(0,0,0,.32);
-    --shadow-card:0 4px 18px rgba(0,0,0,.28);
+    --navy:#f5f5f7;  --navy-dark:#0a0a0a;
+    --blue:#818cf8;  --blue-dark:#a5b4fc;  --blue-light:#a5b4fc;
+    --amber:#fbbf24; --amber-dark:#f59e0b; --amber-soft:#2a2113;
+    --cream:#1c1c22; --gray-light:#2c2c34; --gray:#a1a1aa;
+    --bg:#0a0a0a;    --surface:#161616;    --surface-2:#1f1f24;
+    --green:#34d399; --green-ink:#6ee7b7;  --green-soft:#0f3a2e;
+    --shadow:0 4px 18px rgba(0,0,0,.40);
+    --shadow-card:0 4px 18px rgba(0,0,0,.34);
   }
 
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -73,15 +76,15 @@
   }
   [data-theme="dark"] body{
     background-image:
-      radial-gradient(1100px 760px at 90% -10%, rgba(0,150,210,.20), transparent 60%),
+      radial-gradient(1100px 760px at 90% -10%, rgba(99,102,241,.20), transparent 60%),
       radial-gradient(880px 720px at -8% 14%, rgba(40,38,120,.22), transparent 56%),
-      radial-gradient(1200px 950px at 50% 125%, rgba(0,120,170,.16), transparent 60%);
+      radial-gradient(1200px 950px at 50% 125%, rgba(79,70,229,.16), transparent 60%);
   }
   /* Trama de puntos del sistema ("ritmo y avance") · textura cinematográfica detrás del contenido */
-  body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(rgba(30,45,70,.055) 1px,transparent 1.6px);background-size:24px 24px;-webkit-mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,#000,transparent 78%);mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,#000,transparent 78%)}
+  body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(rgba(10,10,10,.055) 1px,transparent 1.6px);background-size:24px 24px;-webkit-mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,#000,transparent 78%);mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,#000,transparent 78%)}
   [data-theme="dark"] body::before{background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1.6px)}
   ::selection{background:var(--blue-light);color:#fff}
-  /* Títulos en Faible (Sistema de Diseño · Manual p.8) */
+  /* Títulos en Inter (identidad Foco Estudio) */
   h1,h2,h3,h4,
   .hero-h1-bold,.day-title,.concept-title,.section-title,.week-head h2,
   .ph-headline,.recorrido-day-title,.debrief-title,.dtree-verdict-title,
@@ -90,7 +93,9 @@
   a{color:inherit;text-decoration:none}
   img{max-width:100%}
   .page-wrap{max-width:var(--page-max);margin:0 auto;padding:0 var(--page-pad)}
-  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+  /* Foco programático del encabezado al navegar: no mostramos outline (no fue foco de teclado) */
+  #app h1[tabindex]:focus{outline:none}
   /* Pantallas anchas (ej. embebido en Moodle / monitores grandes): aprovechar el ancho */
   @media(min-width:1440px){ :root{ --page-max:1320px; } }
   @media(min-width:1760px){ :root{ --page-max:1440px; } }
@@ -133,16 +138,16 @@
   @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
   @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.7)}}
 
-  .eyebrow{font-size:11px;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:var(--blue-light)}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:var(--blue-dark)}
 
   /* ---------- Hero ---------- */
   .hero{position:relative;overflow:hidden;background:var(--navy-dark);padding:1rem 0 1.2rem}
   .hero-bg{position:absolute;inset:0;pointer-events:none}
-  .hero-bg::before{content:'';position:absolute;inset:-28%;background:radial-gradient(ellipse 52% 64% at 78% 42%,rgba(0,150,210,.32) 0%,transparent 60%),radial-gradient(ellipse 48% 70% at 14% 82%,rgba(8,111,161,.22) 0%,transparent 58%);will-change:transform;animation:heroDrift 22s ease-in-out infinite alternate}
+  .hero-bg::before{content:'';position:absolute;inset:-28%;background:radial-gradient(ellipse 52% 64% at 78% 42%,rgba(99,102,241,.32) 0%,transparent 60%),radial-gradient(ellipse 48% 70% at 14% 82%,rgba(99,102,241,.22) 0%,transparent 58%);will-change:transform;animation:heroDrift 22s ease-in-out infinite alternate}
   @keyframes heroDrift{from{transform:translate3d(-2%,-1%,0) scale(1)}to{transform:translate3d(3%,2%,0) scale(1.07)}}
   .hero-bg::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:linear-gradient(to right,transparent,rgba(0,0,0,.5) 30%,rgba(0,0,0,.5) 70%,transparent);mask-image:linear-gradient(to right,transparent,rgba(0,0,0,.5) 30%,rgba(0,0,0,.5) 70%,transparent)}
   .hero-inner{position:relative;z-index:2;max-width:var(--page-max);margin:0 auto;padding:0 var(--page-pad);display:grid;grid-template-columns:1fr;align-items:center;gap:0}
-  .hero-tag{display:inline-flex;align-items:center;gap:7px;font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue-light);background:rgba(8,111,161,.15);border:1px solid rgba(8,111,161,.35);padding:3px 11px;border-radius:20px;margin-bottom:.55rem}
+  .hero-tag{display:inline-flex;align-items:center;gap:7px;font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue-light);background:rgba(99,102,241,.15);border:1px solid rgba(99,102,241,.35);padding:3px 11px;border-radius:20px;margin-bottom:.55rem}
   .hero-tag::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--blue-light);animation:pulse 2s ease-in-out infinite}
   .hero-h1{display:flex;flex-direction:column;margin-bottom:.6rem}
   .hero-h1-light{display:none}
@@ -163,8 +168,8 @@
   .stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent,rgba(255,255,255,.15));border-radius:2px 2px 0 0}
   .stat-card:hover{background:rgba(255,255,255,.085);border-color:rgba(255,255,255,.14)}
   .stat-card strong{display:block;font-size:clamp(1.15rem,2vw,1.65rem);font-weight:700;color:#fff;line-height:1;letter-spacing:-.7px;margin-bottom:1px;font-variant-numeric:tabular-nums}
-  .stat-card span{font-size:9px;color:rgba(255,255,255,.42);text-transform:uppercase;letter-spacing:1px;font-weight:500}
-  .stat-card p{font-size:10px;color:rgba(255,255,255,.28);margin-top:2px;line-height:1.35}
+  .stat-card span{font-size:9px;color:rgba(255,255,255,.62);text-transform:uppercase;letter-spacing:1px;font-weight:500}
+  .stat-card p{font-size:10px;color:rgba(255,255,255,.52);margin-top:2px;line-height:1.35}
 
   /* ---------- Progress hero ---------- */
   .home-body{padding:1.8rem 0 3.5rem}
@@ -172,7 +177,7 @@
   .name-field span{font-size:10.5px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--gray)}
   .name-field input{font:inherit;font-size:.92rem;padding:.5rem .85rem;width:100%;background:var(--surface-2);border:1.5px solid var(--gray-light);border-radius:10px;color:var(--navy);transition:border-color .2s,box-shadow .2s}
   .name-field input::placeholder{color:var(--gray)}
-  .name-field input:focus{outline:none;border-color:var(--blue-light);box-shadow:0 0 0 3px rgba(8,111,161,.15)}
+  .name-field input:focus{outline:none;border-color:var(--blue-light);box-shadow:0 0 0 3px rgba(99,102,241,.15)}
 
   .progress-hero{display:grid;grid-template-columns:auto 1fr auto;gap:1.6rem;align-items:center;background:var(--surface);border:1px solid var(--gray-light);border-radius:var(--radius);padding:1.5rem 1.8rem;box-shadow:var(--shadow);margin-bottom:2.6rem;position:relative;overflow:hidden}
   .progress-hero::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad-prog)}
@@ -193,7 +198,7 @@
   .ph-stat span{font-size:.74rem;font-weight:600;color:var(--gray);text-transform:uppercase;letter-spacing:.5px}
   .ph-side{display:flex;flex-direction:column;gap:.7rem;min-width:200px}
   .ph-cta{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:var(--blue);color:#fff;font-weight:600;font-size:.92rem;padding:.7rem 1.2rem;border-radius:10px;transition:all .2s;box-shadow:var(--shadow-sm)}
-  .ph-cta:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 6px 16px rgba(8,111,161,.3)}
+  .ph-cta:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 6px 16px rgba(99,102,241,.3)}
   .ph-cta .arr{transition:transform .2s}
   .ph-cta:hover .arr{transform:translateX(3px)}
 
@@ -221,7 +226,7 @@
   .week{margin-bottom:2.4rem}
   .week-head{display:flex;align-items:center;gap:1rem;margin-bottom:1.4rem}
   /* Chip de sección · rectángulo de bordes redondeados (lineamientos web: esquinas siempre redondeadas) */
-  .week-head h2{font-size:1.32rem;font-weight:900;color:#fff;letter-spacing:-.3px;white-space:nowrap;display:inline-flex;align-items:baseline;gap:.6rem;background:linear-gradient(135deg,var(--navy),var(--navy-dark));padding:.55em 1.15em;border-radius:18px;box-shadow:0 10px 26px -8px rgba(30,45,70,.45),inset 0 1px 0 rgba(255,255,255,.07)}
+  .week-head h2{font-size:1.32rem;font-weight:900;color:#fff;letter-spacing:-.3px;white-space:nowrap;display:inline-flex;align-items:baseline;gap:.6rem;background:linear-gradient(135deg,var(--navy),var(--navy-dark));padding:.55em 1.15em;border-radius:18px;box-shadow:0 10px 26px -8px rgba(10,10,10,.45),inset 0 1px 0 rgba(255,255,255,.07)}
   .week-head h2::before{content:"";align-self:center;flex:none;width:9px;height:9px;border-radius:3px;background:var(--accent,var(--blue-light));box-shadow:0 0 0 3px color-mix(in srgb,var(--accent,var(--blue-light)) 22%,transparent),0 0 12px var(--accent,var(--blue-light))}
   .week-num{font-size:.82rem;font-weight:600;color:rgba(255,255,255,.6)}
   .week-line{flex:1;height:2px;background:linear-gradient(to right,var(--gray-light),transparent);border-radius:2px}
@@ -233,7 +238,7 @@
   .day-card{display:flex;align-items:stretch;gap:0;margin-bottom:.8rem;background:var(--surface);border:1px solid var(--gray-light);border-radius:var(--radius-sm);overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s;position:relative}
   .day-accent{width:5px;flex:none;background:var(--accent,var(--blue-light))}
   .day-inner{display:flex;align-items:flex-start;gap:1.1rem;padding:1.1rem 1.3rem;flex:1;min-width:0}
-  a.day-card:hover{transform:translateY(-3px);box-shadow:0 14px 34px -10px rgba(30,45,70,.30),0 4px 10px rgba(30,45,70,.10);border-color:color-mix(in srgb,var(--accent,var(--blue)) 35%,transparent)}
+  a.day-card:hover{transform:translateY(-3px);box-shadow:0 14px 34px -10px rgba(10,10,10,.30),0 4px 10px rgba(10,10,10,.10);border-color:color-mix(in srgb,var(--accent,var(--blue)) 35%,transparent)}
   a.day-card:hover .day-arrow{transform:translateX(3px);color:var(--accent)}
   .day-index{font-size:1.5rem;font-weight:700;line-height:1;color:var(--accent,var(--blue-light));min-width:2.1rem;padding-top:.05rem;font-variant-numeric:tabular-nums;letter-spacing:-1px}
   .day-main{flex:1;min-width:0}
@@ -249,16 +254,16 @@
   .day-card.is-locked .day-accent{background:var(--gray-light)}
   .day-card.is-locked .day-index{color:var(--gray)}
   /* Next-up day highlight */
-  .day-card.is-next{border-color:var(--blue-light);box-shadow:0 0 0 3px rgba(8,111,161,.12),var(--shadow-card)}
+  .day-card.is-next{border-color:var(--blue-light);box-shadow:0 0 0 3px rgba(99,102,241,.12),var(--shadow-card)}
   .day-card.is-next .day-accent{background:var(--grad-prog)}
   .day-card.is-next .day-index{color:var(--blue)}
-  .day-next-tag{display:inline-flex;align-items:center;gap:.3rem;font-size:9.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#fff;background:var(--blue);padding:.2em .6em;border-radius:99px;animation:nextPulse 2.4s ease-in-out infinite;order:-1}
+  .day-next-tag{display:inline-flex;align-items:center;gap:.3rem;font-size:9.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#0a0a0a;background:var(--amber);padding:.2em .6em;border-radius:99px;animation:nextPulse 2.4s ease-in-out infinite;order:-1}
   .day-next-tag::before{content:'▸'}
 
   .chip{font-size:9.5px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--gray);background:var(--surface-2);border:1px solid var(--gray-light);padding:.15em .5em;border-radius:5px;flex:none}
   .badge{font-size:10.5px;font-weight:600;letter-spacing:.2px;padding:.28em .72em;border-radius:99px;white-space:nowrap}
   .badge-done{background:var(--green-soft);color:var(--green-ink)}
-  .badge-open{background:rgba(8,111,161,.12);color:var(--blue)}
+  .badge-open{background:rgba(99,102,241,.12);color:var(--blue)}
   .badge-lock{background:var(--gray-light);color:var(--gray)}
 
   /* ---------- Day view ---------- */
@@ -295,10 +300,10 @@
   .compare-good{border-color:var(--green);background:var(--green-soft)}
   .compare-good h4::before{background:var(--green)}
 
-  .note{background:rgba(8,111,161,.08);border:1px solid rgba(8,111,161,.18);border-radius:var(--radius-sm);padding:1rem 1.2rem;margin-bottom:1.8rem;font-size:.9rem;color:var(--navy)}
+  .note{background:rgba(99,102,241,.08);border:1px solid rgba(99,102,241,.18);border-radius:var(--radius-sm);padding:1rem 1.2rem;margin-bottom:1.8rem;font-size:.9rem;color:var(--navy)}
   .note strong{color:var(--blue)}
 
-  .deliverable{background:linear-gradient(135deg,#162036,#1f2d46);border-radius:var(--radius);padding:1.5rem 1.7rem;margin:2.4rem 0;position:relative;overflow:hidden}
+  .deliverable{background:linear-gradient(135deg,#161616,#1e1b4b);border-radius:var(--radius);padding:1.5rem 1.7rem;margin:2.4rem 0;position:relative;overflow:hidden}
   .deliverable::before{content:'';position:absolute;top:0;left:0;width:5px;height:100%;background:var(--grad-prog)}
   .deliverable-tag{font-size:10.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue-light);margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
   .deliverable-tag::before{content:'\25C6';font-size:.7rem}
@@ -309,7 +314,7 @@
   .daynav .spacer{flex:1}
   .btn{font:inherit;font-weight:600;font-size:.9rem;cursor:pointer;padding:.7rem 1.3rem;border-radius:10px;border:1.5px solid transparent;display:inline-flex;align-items:center;gap:.5rem;transition:all .2s ease}
   .btn-primary{background:var(--blue);color:#fff}
-  .btn-primary:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 6px 16px rgba(8,111,161,.3)}
+  .btn-primary:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 6px 16px rgba(99,102,241,.3)}
   .btn-ghost{background:transparent;border-color:var(--gray-light);color:var(--navy)}
   .btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
   .btn-done{background:var(--green-soft);color:var(--green-ink);cursor:default}
@@ -318,13 +323,13 @@
   .btn-link:hover{color:var(--navy)}
 
   /* ---------- Footer ---------- */
-  footer{background:var(--navy-dark);border-top:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.45);padding:2.4rem var(--page-pad);font-size:13px}
+  footer{background:var(--navy-dark);border-top:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.6);padding:2.4rem var(--page-pad);font-size:13px}
   .footer-inner{max-width:var(--page-max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
   .footer-logos{display:flex;align-items:center;gap:1.2rem}
   .footer-logos img{height:24px;opacity:.7}
   .footer-text{text-align:right}
   .footer-text strong{color:rgba(255,255,255,.75);font-weight:600}
-  .footer-sub{margin-top:4px;font-size:12px;color:rgba(255,255,255,.35)}
+  .footer-sub{margin-top:4px;font-size:12px;color:rgba(255,255,255,.55)}
 
   /* ---------- Componentes interactivos ---------- */
   .interactive{background:var(--surface-2);border:1px solid var(--gray-light);border-radius:var(--radius-sm);padding:1.4rem 1.5rem;margin:1.4rem 0}
@@ -338,7 +343,7 @@
   .curve-controls{display:flex;align-items:center;gap:1rem;justify-content:center;margin-top:.8rem;flex-wrap:wrap}
   .toggle-group{display:inline-flex;background:var(--surface);border:1px solid var(--gray-light);border-radius:99px;padding:3px;gap:0}
   .toggle-btn{background:none;border:none;padding:.45rem 1rem;font:inherit;font-size:.82rem;font-weight:600;color:var(--gray);border-radius:99px;cursor:pointer;transition:all .2s}
-  .toggle-btn.active{background:var(--blue);color:#fff;box-shadow:0 2px 6px rgba(8,111,161,.25)}
+  .toggle-btn.active{background:var(--blue);color:#fff;box-shadow:0 2px 6px rgba(99,102,241,.25)}
   .curve-legend{display:flex;gap:1.2rem;justify-content:center;font-size:.78rem;color:var(--gray);margin-top:.4rem;flex-wrap:wrap}
   .curve-legend span{display:inline-flex;align-items:center;gap:.4rem}
   .curve-legend .swatch{width:14px;height:3px;border-radius:2px;display:inline-block}
@@ -356,7 +361,7 @@
   .dnd-zone.cog .dnd-zone-title::before{content:'';width:9px;height:9px;border-radius:50%;background:var(--green);flex:none}
   .dnd-zone.cos .dnd-zone-title::before{content:'';width:9px;height:9px;border-radius:50%;background:var(--gray);flex:none}
   .dnd-item{background:var(--surface-2);border:1px solid var(--gray-light);border-radius:9px;padding:.5rem .8rem;font-size:.84rem;color:var(--navy);cursor:grab;user-select:none;transition:all .15s;line-height:1.35}
-  .dnd-item:hover{border-color:var(--blue-light);box-shadow:0 2px 8px rgba(8,111,161,.12)}
+  .dnd-item:hover{border-color:var(--blue-light);box-shadow:0 2px 8px rgba(99,102,241,.12)}
   .dnd-item:active{cursor:grabbing}
   .dnd-item.dragging{opacity:.4}
   .dnd-item.correct{background:var(--green-soft);border-color:var(--green);color:var(--green-ink)}
@@ -377,7 +382,7 @@
   .quiz-opt{display:flex;align-items:flex-start;gap:.6rem;background:var(--surface);border:1.5px solid var(--gray-light);border-radius:10px;padding:.65rem .85rem;cursor:pointer;transition:all .15s;font-size:.88rem;color:var(--navy);line-height:1.45}
   .quiz-opt:hover{border-color:var(--blue-light);background:var(--surface-2)}
   .quiz-opt input{margin-top:.18em;accent-color:var(--blue);flex:none}
-  .quiz-opt.selected{border-color:var(--blue);background:rgba(8,111,161,.05)}
+  .quiz-opt.selected{border-color:var(--blue);background:rgba(99,102,241,.05)}
   .quiz-opt.correct{border-color:var(--green);background:var(--green-soft);color:var(--green-ink)}
   .quiz-opt.incorrect{border-color:var(--pink);background:#fde7eb;color:#9a1d36}
   .quiz-opt.disabled{cursor:default;pointer-events:none}
@@ -420,7 +425,7 @@
   .step.done .step-n{background:var(--green);color:#fff}
   .step.done .step-n .num{display:none}
   .step.done .step-n::before{content:'✓';font-size:.8rem}
-  .step.active{color:var(--navy);background:rgba(8,111,161,.08);border-color:var(--blue-light)}
+  .step.active{color:var(--navy);background:rgba(99,102,241,.08);border-color:var(--blue-light)}
   .step.active .step-n{background:var(--blue);color:#fff}
   .step.locked{color:var(--gray);opacity:.65;cursor:not-allowed;padding:.4rem .55rem}
   .step.locked .step-title{display:none}
@@ -438,7 +443,7 @@
   .concept-illo svg{width:100%;height:auto;max-width:280px;display:block}
   .concept-text{display:flex;flex-direction:column;justify-content:center}
   /* Título píldora (constante de marca · Manual) */
-  .section-eyebrow{display:inline-flex;align-items:center;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;background:#006EA0;padding:.4em .9em;border-radius:999px;margin-bottom:.75rem}
+  .section-eyebrow{display:inline-flex;align-items:center;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;background:#6366f1;padding:.4em .9em;border-radius:999px;margin-bottom:.75rem}
   .concept-title{font-size:1.55rem;font-weight:700;color:var(--navy);letter-spacing:-.7px;line-height:1.12;margin-bottom:.6rem}
   .concept-punch{font-size:.98rem;color:var(--navy);font-weight:500;line-height:1.5}
   .concept-punch strong{color:var(--blue);font-weight:700}
@@ -468,8 +473,8 @@
 
   /* ---------- Step-next (Avanzar button) ---------- */
   .step-next-wrap{margin:2.2rem auto 0;text-align:center}
-  .step-next{display:inline-flex;align-items:center;gap:.6rem;background:var(--blue);color:#fff;border:none;font:inherit;font-weight:600;font-size:.95rem;padding:.85rem 1.5rem;border-radius:12px;cursor:pointer;box-shadow:0 6px 16px rgba(8,111,161,.25);transition:all .2s}
-  .step-next:hover:not(:disabled){background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 8px 20px rgba(8,111,161,.35)}
+  .step-next{display:inline-flex;align-items:center;gap:.6rem;background:var(--blue);color:#fff;border:none;font:inherit;font-weight:600;font-size:.95rem;padding:.85rem 1.5rem;border-radius:12px;cursor:pointer;box-shadow:0 6px 16px rgba(99,102,241,.25);transition:all .2s}
+  .step-next:hover:not(:disabled){background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 8px 20px rgba(99,102,241,.35)}
   .step-next:disabled{background:var(--gray-light);color:var(--gray);cursor:not-allowed;box-shadow:none}
   .step-next .arr{transition:transform .2s;display:inline-block}
   .step-next:hover:not(:disabled) .arr{transform:translateX(4px)}
@@ -480,8 +485,12 @@
   .dnd-pool-v2,.dnd-zone-v2{background:var(--surface);border:1.5px dashed var(--gray-light);border-radius:12px;padding:.75rem;display:flex;flex-direction:column;gap:.45rem}
   .pool-label,.zone-label{font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray);margin-bottom:.25rem;display:flex;align-items:center;gap:.4rem}
   .dnd-item-v2{background:var(--surface-2);border:1px solid var(--gray-light);border-radius:9px;padding:.55rem .75rem;font-size:.82rem;color:var(--navy);cursor:grab;line-height:1.4;transition:all .15s;user-select:none}
-  .dnd-item-v2:hover{border-color:var(--blue-light);box-shadow:0 2px 6px rgba(8,111,161,.1)}
+  .dnd-item-v2:hover{border-color:var(--blue-light);box-shadow:0 2px 6px rgba(99,102,241,.1)}
   .dnd-item-v2:active,.dnd-item-v2.dragging{cursor:grabbing;opacity:.5}
+  /* Ítem "tomado" por click/teclado */
+  .dnd-item-v2.selected{border-color:var(--blue);background:color-mix(in srgb,var(--blue) 12%,var(--surface));box-shadow:0 0 0 2px var(--blue)}
+  /* Foco visible de teclado en ítems y zonas */
+  .dnd-item-v2:focus-visible,.dnd-zone-v2:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
   .dnd-item-v2.correct{background:var(--green-soft);border-color:var(--green);color:var(--green-ink);cursor:default}
   .dnd-item-v2.incorrect{background:#fde7eb;border-color:var(--pink);color:#9a1d36;animation:shake .3s}
   .dnd-zones-v2{display:flex;flex-direction:column;gap:.7rem}
@@ -499,8 +508,8 @@
   .mda-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-top:.8rem}
   .mda-card{background:var(--surface);border:2px solid var(--gray-light);border-radius:12px;padding:.9rem;cursor:pointer;transition:all .2s;text-align:center;font-family:inherit}
   .mda-card:hover{transform:translateY(-2px);border-color:var(--blue-light)}
-  .mda-card.active{border-color:var(--blue);background:rgba(8,111,161,.06);box-shadow:0 4px 12px rgba(8,111,161,.15)}
-  .mda-card-letter{font-size:1.6rem;font-weight:700;color:var(--blue-light);line-height:1;margin-bottom:.3rem;font-variant-numeric:tabular-nums}
+  .mda-card.active{border-color:var(--blue);background:rgba(99,102,241,.06);box-shadow:0 4px 12px rgba(99,102,241,.15)}
+  .mda-card-letter{font-size:1.6rem;font-weight:700;color:var(--blue-dark);line-height:1;margin-bottom:.3rem;font-variant-numeric:tabular-nums}
   .mda-card.active .mda-card-letter{color:var(--blue)}
   .mda-card-name{font-size:.85rem;font-weight:600;color:var(--navy);letter-spacing:-.2px}
   .mda-detail{margin-top:.9rem;padding:1rem 1.1rem;background:var(--surface-2);border:1px solid var(--gray-light);border-radius:12px;min-height:80px;font-size:.92rem;color:var(--navy);line-height:1.55}
@@ -510,7 +519,7 @@
   .cond-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-top:.8rem}
   .cond-card{background:var(--surface);border:2px solid var(--gray-light);border-radius:12px;padding:.9rem 1rem;cursor:pointer;transition:all .2s;text-align:left;font-family:inherit;width:100%}
   .cond-card:hover{transform:translateY(-1px);border-color:var(--blue-light)}
-  .cond-card.open{border-color:var(--blue);background:rgba(8,111,161,.04)}
+  .cond-card.open{border-color:var(--blue);background:rgba(99,102,241,.04)}
   .cond-card-head{display:flex;align-items:center;gap:.55rem;font-weight:700;color:var(--navy);font-size:.92rem}
   .cond-card-num{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--blue-light);color:#fff;font-size:.72rem;font-weight:700;flex:none}
   .cond-card.open .cond-card-num{background:var(--blue)}
@@ -557,7 +566,7 @@
   .sofia-reflect strong{color:var(--green-ink);font-style:normal;font-weight:700}
 
   /* Key idea inline (no card) */
-  .lead-key{font-size:1.04rem;color:var(--navy);font-weight:600;background:rgba(8,111,161,.05);border-left:3px solid var(--blue-light);border-radius:0 8px 8px 0;padding:.85rem 1.1rem;margin:1.2rem 0;line-height:1.55}
+  .lead-key{font-size:1.04rem;color:var(--navy);font-weight:600;background:rgba(99,102,241,.05);border-left:3px solid var(--blue-light);border-radius:0 8px 8px 0;padding:.85rem 1.1rem;margin:1.2rem 0;line-height:1.55}
   .lead-key strong{color:var(--blue);font-weight:700}
   .lead-key-tag{display:inline;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--blue);margin-right:.4rem}
   .lead-key-tag::after{content:' · '}
@@ -565,7 +574,7 @@
   /* Interactive lighter when inside a v2 narrative section */
   .section .interactive{border-left:none;background:var(--surface);border:1px solid var(--gray-light);padding:1.1rem 1.25rem;margin:1.3rem 0;position:relative;overflow:hidden}
   .section .interactive::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--grad-prog);opacity:.65}
-  .section .interactive .interactive-tag{font-size:10px;color:var(--blue-light);text-transform:uppercase;letter-spacing:1.4px}
+  .section .interactive .interactive-tag{font-size:10px;color:var(--blue-dark);text-transform:uppercase;letter-spacing:1.4px}
   .section .interactive .interactive-tag::before{background:var(--blue-light)}
   .section .interactive h3{font-size:1rem;color:var(--navy);margin-bottom:.3rem}
   .section .interactive .interactive-desc{font-size:.84rem;margin-bottom:.85rem}
@@ -586,7 +595,7 @@
   .onboarding-avatar{flex:none;width:60px;height:60px;border-radius:50%;overflow:hidden;border:2px solid var(--surface);box-shadow:var(--shadow-card)}
   .onboarding-avatar svg,.onboarding-avatar img{width:100%;height:100%;display:block;object-fit:cover}
   .onboarding-body{flex:1}
-  .onboarding-greet{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue-light);margin-bottom:.35rem}
+  .onboarding-greet{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue-dark);margin-bottom:.35rem}
   .onboarding-body h3{font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.5rem;letter-spacing:-.3px}
   .onboarding-body p{font-size:.92rem;color:var(--navy);line-height:1.6;margin:0 0 .9rem}
   .onboarding-body p strong{color:var(--navy);font-weight:700}
@@ -598,7 +607,7 @@
   .family-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-top:.8rem}
   .family-card{background:var(--surface);border:2px solid var(--gray-light);border-radius:12px;padding:.85rem 1rem;cursor:pointer;transition:all .2s;text-align:left;font-family:inherit;width:100%}
   .family-card:hover{transform:translateY(-1px);border-color:var(--blue-light)}
-  .family-card.open{background:rgba(8,111,161,.04)}
+  .family-card.open{background:rgba(99,102,241,.04)}
   .family-card-head{display:flex;align-items:center;justify-content:space-between;font-weight:700;color:var(--navy);font-size:.95rem;gap:.5rem}
   .family-card-head::before{content:'';width:9px;height:9px;border-radius:50%;background:var(--accent,var(--blue-light));flex:none}
   .family-card-arrow{transition:transform .2s;color:var(--gray);font-size:.75rem;margin-left:auto}
@@ -635,16 +644,16 @@
   /* ---------- Tool picker (Día 2 · sec 4) ---------- */
   .tool-picker{margin-top:.8rem}
   .tool-check{display:flex;align-items:flex-start;gap:.7rem;background:var(--surface);border:1.5px solid var(--gray-light);border-radius:10px;padding:.7rem .9rem;margin-bottom:.5rem;cursor:pointer;transition:all .15s}
-  .tool-check:hover{border-color:var(--blue-light);background:rgba(8,111,161,.03)}
+  .tool-check:hover{border-color:var(--blue-light);background:rgba(99,102,241,.03)}
   .tool-check input{margin-top:.18rem;accent-color:var(--blue);flex:none;width:16px;height:16px;cursor:pointer}
   .tool-check span{flex:1;font-size:.92rem;color:var(--navy);line-height:1.5}
-  .tool-check.checked{border-color:var(--blue);background:rgba(8,111,161,.06)}
+  .tool-check.checked{border-color:var(--blue);background:rgba(99,102,241,.06)}
   .tool-score{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--gray);margin-top:.8rem;font-weight:500}
   .tool-score strong{color:var(--navy);font-weight:700;font-size:.95rem;letter-spacing:-.2px}
   .tool-result{margin-top:1rem;padding:1rem 1.2rem;border-radius:12px;font-size:.95rem;line-height:1.55;display:none;animation:fadeUp .3s ease}
   .tool-result.shown{display:block}
   .tool-result.html{background:var(--green-soft);border:1px solid var(--green);color:var(--navy)}
-  .tool-result.storyline{background:rgba(8,111,161,.08);border:1px solid var(--blue-light);color:var(--navy)}
+  .tool-result.storyline{background:rgba(99,102,241,.08);border:1px solid var(--blue-light);color:var(--navy)}
   .tool-result strong{font-weight:700;color:var(--navy)}
   .tool-result-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;padding:.25em .65em;border-radius:5px;margin-right:.6rem;vertical-align:middle}
   .tool-result.html .tool-result-tag{background:var(--green-ink)}
@@ -655,8 +664,8 @@
   .analyzer-tabs{display:flex;gap:.4rem;margin-bottom:.9rem;flex-wrap:wrap}
   .analyzer-tab{background:var(--surface);border:1.5px solid var(--gray-light);border-radius:10px;padding:.55rem .9rem;cursor:pointer;font-family:inherit;font-size:.85rem;font-weight:600;color:var(--gray);transition:all .2s;display:flex;flex-direction:column;gap:.1rem;text-align:left}
   .analyzer-tab:hover{border-color:var(--blue-light)}
-  .analyzer-tab.active{border-color:var(--blue);background:rgba(8,111,161,.06);color:var(--navy)}
-  .analyzer-tab small{font-size:9.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--blue-light)}
+  .analyzer-tab.active{border-color:var(--blue);background:rgba(99,102,241,.06);color:var(--navy)}
+  .analyzer-tab small{font-size:9.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--blue-dark)}
   .analyzer-layers{display:flex;flex-direction:column;gap:.55rem}
   .analyzer-layer{background:var(--surface);border:1.5px solid var(--gray-light);border-left-width:4px;border-radius:0 10px 10px 0;padding:.8rem 1rem;cursor:pointer;transition:all .2s}
   .analyzer-layer[data-layer="m"]{border-left-color:#F02850}
@@ -704,7 +713,7 @@
   .dtree-q strong{font-weight:700}
   .dtree-options{display:flex;flex-direction:column;gap:.5rem}
   .dtree-opt{background:var(--surface);border:1.5px solid var(--gray-light);border-radius:10px;padding:.7rem 1rem;font:inherit;font-size:.92rem;color:var(--navy);text-align:left;cursor:pointer;transition:all .15s;width:100%}
-  .dtree-opt:hover{border-color:var(--blue);background:rgba(8,111,161,.04);transform:translateX(2px)}
+  .dtree-opt:hover{border-color:var(--blue);background:rgba(99,102,241,.04);transform:translateX(2px)}
   .dtree-progress{font-size:.78rem;color:var(--gray);margin-bottom:.7rem;font-weight:600;letter-spacing:.3px}
   .dtree-verdict{border-radius:12px;padding:1.1rem 1.2rem;animation:fadeUp .35s ease}
   .dtree-verdict.si{background:var(--green-soft);border:1px solid var(--green)}
@@ -749,7 +758,7 @@
   /* ---------- Prompt Builder (Día 5 · sec 4) ---------- */
   .pbuilder{margin-top:.8rem}
   .pbuilder-ta{width:100%;min-height:340px;background:var(--surface-2);border:1.5px solid var(--gray-light);border-radius:12px;padding:1rem 1.1rem;font-family:'SFMono-Regular',ui-monospace,Menlo,Consolas,monospace;font-size:.82rem;line-height:1.65;color:var(--navy);resize:vertical;transition:border-color .2s}
-  .pbuilder-ta:focus{outline:none;border-color:var(--blue-light);box-shadow:0 0 0 3px rgba(8,111,161,.12)}
+  .pbuilder-ta:focus{outline:none;border-color:var(--blue-light);box-shadow:0 0 0 3px rgba(99,102,241,.12)}
   .pbuilder-actions{display:flex;gap:.7rem;align-items:center;margin-top:.8rem;flex-wrap:wrap}
   .pbuilder-hint{font-size:.8rem;color:var(--gray);flex:1;min-width:160px}
   .pbuilder-copy.copy-ok{background:var(--green-soft);color:var(--green-ink);border-color:var(--green)}
@@ -817,7 +826,7 @@
   .confetti-canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999}
 
   /* ---------- Audio buttons (locución) ---------- */
-  .audio-btn{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:rgba(8,111,161,.10);color:var(--blue);border:1px solid rgba(8,111,161,.25);cursor:pointer;margin-left:.5rem;vertical-align:middle;transition:all .2s;font-family:inherit;padding:0;line-height:1;flex:none;font-size:.65rem}
+  .audio-btn{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:rgba(99,102,241,.10);color:var(--blue);border:1px solid rgba(99,102,241,.25);cursor:pointer;margin-left:.5rem;vertical-align:middle;transition:all .2s;font-family:inherit;padding:0;line-height:1;flex:none;font-size:.65rem}
   .audio-btn::before{content:'🔊';line-height:1}
   .audio-btn:hover{background:var(--blue);color:#fff;transform:scale(1.08);border-color:var(--blue)}
   .audio-btn.playing{background:var(--green);color:#fff;border-color:var(--green);animation:audioPulse 1.4s ease-in-out infinite}
@@ -825,7 +834,7 @@
   @keyframes audioPulse{0%,100%{box-shadow:0 0 0 0 rgba(0,200,140,.45)}50%{box-shadow:0 0 0 7px rgba(0,200,140,0)}}
   .audio-btn-inline{display:inline-flex;align-items:center;gap:.45rem;background:transparent;color:var(--blue);border:1px dashed var(--blue-light);padding:.32rem .75rem;border-radius:99px;font-size:.76rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s;margin-bottom:.9rem;letter-spacing:.2px}
   .audio-btn-inline::before{content:'🔊';font-size:.85rem}
-  .audio-btn-inline:hover{background:rgba(8,111,161,.06);border-color:var(--blue);border-style:solid}
+  .audio-btn-inline:hover{background:rgba(99,102,241,.06);border-color:var(--blue);border-style:solid}
   .audio-btn-inline.playing{background:var(--green-soft);color:var(--green-ink);border-color:var(--green);border-style:solid;animation:audioPulse 1.4s ease-in-out infinite}
   .audio-btn-inline.playing::before{content:'⏸'}
 
@@ -865,9 +874,9 @@
   .scenario-prompt{font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:.8rem;line-height:1.5}
   .scenario-options{display:flex;flex-direction:column;gap:.5rem;margin-bottom:.4rem}
   .scenario-opt{background:var(--surface);border:1.5px solid var(--gray-light);border-radius:10px;padding:.75rem 1rem;font:inherit;font-size:.92rem;color:var(--navy);text-align:left;cursor:pointer;transition:all .15s;line-height:1.45;width:100%}
-  .scenario-opt:hover:not(:disabled){border-color:var(--blue);background:rgba(8,111,161,.04);transform:translateX(2px)}
+  .scenario-opt:hover:not(:disabled){border-color:var(--blue);background:rgba(99,102,241,.04);transform:translateX(2px)}
   .scenario-opt-done{opacity:.45}
-  .scenario-opt-chosen{border-color:var(--blue)!important;background:rgba(8,111,161,.08)!important;opacity:1!important;color:var(--navy)}
+  .scenario-opt-chosen{border-color:var(--blue)!important;background:rgba(99,102,241,.08)!important;opacity:1!important;color:var(--navy)}
   .scenario-feedback{font-size:.92rem;color:var(--navy);background:linear-gradient(135deg,#fffbef,#fdf5d8);border:1px solid #f0d878;border-radius:10px;padding:.8rem 1rem;margin:.6rem 0 .8rem;line-height:1.55;font-style:italic;animation:fadeUp .3s ease}
   .scenario-feedback strong{color:var(--navy);font-weight:700;font-style:normal}
   .scenario-next{margin-top:.2rem}
@@ -896,12 +905,14 @@
   .celebration-insights{list-style:none;margin:0 0 1.3rem;padding:0;background:var(--surface-2);border-radius:12px;border:1px solid var(--gray-light);max-height:240px;overflow-y:auto}
   .celebration-insights li{padding:.7rem 1rem;font-size:.88rem;color:var(--navy);line-height:1.5;border-bottom:1px solid var(--gray-light)}
   .celebration-insights li:last-child{border-bottom:none}
-  .cel-sec{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--blue);background:rgba(8,111,161,.08);padding:.15em .55em;border-radius:5px;margin-right:.5rem;vertical-align:middle}
-  .celebration-deliverable{background:linear-gradient(135deg,#162036,#1f2d46);border-radius:12px;padding:1rem 1.2rem;margin:0 0 1.3rem;position:relative;overflow:hidden}
+  .cel-sec{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--blue);background:rgba(99,102,241,.08);padding:.15em .55em;border-radius:5px;margin-right:.5rem;vertical-align:middle}
+  .celebration-deliverable{background:linear-gradient(135deg,#161616,#1e1b4b);border-radius:12px;padding:1rem 1.2rem;margin:0 0 1.3rem;position:relative;overflow:hidden}
   .celebration-deliverable::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--grad-prog)}
   .celebration-deliverable-tag{font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--blue-light);margin-bottom:.4rem}
   .celebration-deliverable-title{font-size:1.05rem;font-weight:700;color:#fff;line-height:1.35;margin-bottom:.5rem;letter-spacing:-.2px}
   .celebration-deliverable-note{font-size:.85rem;color:rgba(255,255,255,.7);line-height:1.55;font-weight:300}
+  .celebration-spacing-note{font-size:.84rem;color:var(--navy);line-height:1.5;text-align:center;background:var(--amber-soft);border:1px solid color-mix(in srgb,var(--amber) 45%,transparent);border-radius:12px;padding:.7rem .9rem;margin:0 0 1.1rem}
+  .celebration-spacing-note strong{color:var(--amber-dark)}
   .celebration-actions{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap}
   .copy-ok{background:var(--green-soft)!important;color:var(--green-ink)!important;border-color:var(--green)!important}
 
@@ -950,7 +961,7 @@
   .quiz-opt.incorrect::after{content:"✗";margin-left:auto;align-self:center;font-weight:800;color:#9a1d36}
   @keyframes optPop{0%{transform:scale(.975)}60%{transform:scale(1.012)}100%{transform:scale(1)}}
   /* Glosario: popover con la sombra del sistema (--shadow-pop) + borde sutil */
-  .term::after{box-shadow:0 18px 50px rgba(30,45,70,.28);border:1px solid rgba(255,255,255,.08)}
+  .term::after{box-shadow:0 18px 50px rgba(10,10,10,.28);border:1px solid rgba(255,255,255,.08)}
 
   /* 3 · LECTURA — medida óptima, más aire y control de tamaño (Aa) */
   :root{--read-scale:1}
@@ -1000,9 +1011,9 @@
   @keyframes viewIn{from{opacity:0;transform:translateY(16px) scale(.992)}to{opacity:1;transform:none}}
 
   /* ===== Barra-menú del día · orientación + progreso de secciones (sticky, opaca) ===== */
-  .day-bar{position:sticky;top:calc(var(--nav-h) + 8px);z-index:60;display:flex;align-items:center;gap:.5rem;background:var(--surface);border:1px solid var(--gray-light);border-radius:14px;padding:.4rem .5rem;margin:0 0 2.2rem;box-shadow:0 10px 26px -12px rgba(30,45,70,.35)}
+  .day-bar{position:sticky;top:calc(var(--nav-h) + 8px);z-index:60;display:flex;align-items:center;gap:.5rem;background:var(--surface);border:1px solid var(--gray-light);border-radius:14px;padding:.4rem .5rem;margin:0 0 2.2rem;box-shadow:0 10px 26px -12px rgba(10,10,10,.35)}
   .day-bar-home{display:inline-flex;align-items:center;gap:.3rem;font-size:.8rem;font-weight:600;color:var(--blue);padding:.42rem .65rem;border-radius:9px;white-space:nowrap;flex:none;transition:background .15s}
-  .day-bar-home:hover{background:rgba(8,111,161,.08)}
+  .day-bar-home:hover{background:rgba(99,102,241,.08)}
   .day-bar-label{font-size:.8rem;font-weight:700;color:var(--navy);white-space:nowrap;flex:none;font-variant-numeric:tabular-nums}
   .day-bar-label .day-bar-total{color:var(--gray);font-weight:600}
   .day-bar-sep{width:1px;height:22px;background:var(--gray-light);flex:none;margin:0 .1rem}
@@ -1013,7 +1024,7 @@
   /* ===== Pantalla de bienvenida · "start screen" institucional ===== */
   .welcome{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;background:var(--navy-dark);color:#fff;text-align:center;padding:2rem;opacity:1;transition:opacity .55s ease}
   .welcome.hide{opacity:0;pointer-events:none}
-  .welcome-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none;background:radial-gradient(900px 600px at 78% 28%,rgba(0,150,210,.30),transparent 60%),radial-gradient(820px 600px at 12% 82%,rgba(8,111,161,.22),transparent 58%)}
+  .welcome-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none;background:radial-gradient(900px 600px at 78% 28%,rgba(99,102,241,.30),transparent 60%),radial-gradient(820px 600px at 12% 82%,rgba(99,102,241,.22),transparent 58%)}
   .welcome-bg::before{content:"";position:absolute;inset:-20%;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1.5px);background-size:26px 26px;-webkit-mask-image:radial-gradient(ellipse 62% 60% at 50% 42%,#000,transparent 75%);mask-image:radial-gradient(ellipse 62% 60% at 50% 42%,#000,transparent 75%);animation:wlDrift 24s ease-in-out infinite alternate}
   @keyframes wlDrift{from{transform:translate(-1%,-1%) scale(1)}to{transform:translate(2%,2%) scale(1.05)}}
   .welcome-inner{position:relative;z-index:1;max-width:560px;animation:wlIn .7s cubic-bezier(.2,.7,.3,1) both}
@@ -1031,11 +1042,11 @@
   .welcome-name input{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:.7rem 1rem;color:#fff;font-family:inherit;font-size:1rem;text-align:center;width:min(280px,80vw);outline:none;transition:border-color .2s,background .2s}
   .welcome-name input:focus{border-color:var(--blue-light);background:rgba(255,255,255,.12)}
   .welcome-name input::placeholder{color:rgba(255,255,255,.4)}
-  .welcome-cta{display:inline-flex;align-items:center;gap:.6rem;background:var(--blue);color:#fff;border:none;border-radius:14px;padding:.95rem 2.2rem;font-family:inherit;font-size:1.05rem;font-weight:700;cursor:pointer;box-shadow:0 10px 30px -6px rgba(0,150,210,.55);transition:transform .2s,box-shadow .2s,background .2s;animation:wlPulse 2.6s ease-in-out infinite}
+  .welcome-cta{display:inline-flex;align-items:center;gap:.6rem;background:var(--blue);color:#fff;border:none;border-radius:14px;padding:.95rem 2.2rem;font-family:inherit;font-size:1.05rem;font-weight:700;cursor:pointer;box-shadow:0 10px 30px -6px rgba(99,102,241,.55);transition:transform .2s,box-shadow .2s,background .2s;animation:wlPulse 2.6s ease-in-out infinite}
   .welcome-cta:hover{background:var(--blue-light);transform:translateY(-2px)}
   .welcome-cta .wl-cta-arrow{transition:transform .2s;display:inline-block}
   .welcome-cta:hover .wl-cta-arrow{transform:translateX(4px)}
-  @keyframes wlPulse{0%,100%{box-shadow:0 10px 30px -6px rgba(0,150,210,.5)}50%{box-shadow:0 12px 42px -2px rgba(0,150,210,.85)}}
+  @keyframes wlPulse{0%,100%{box-shadow:0 10px 30px -6px rgba(99,102,241,.5)}50%{box-shadow:0 12px 42px -2px rgba(99,102,241,.85)}}
   .welcome-meta{display:flex;align-items:center;justify-content:center;gap:9px;margin-top:2rem}
   .welcome-meta .wl-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.22)}
   .welcome-meta .wl-dot:first-child{background:var(--blue-light);box-shadow:0 0 10px var(--blue-light)}
@@ -1114,6 +1125,54 @@
 </style>
 </head>
 <body>
+
+<script>
+/* ===== Puente SCORM 1.2 (early) =====
+   Corre ANTES del script del curso para restaurar el progreso guardado en
+   el LMS (cmi.suspend_data) hacia localStorage, de modo que el curso —que
+   lee localStorage al iniciar— resuma desde cualquier dispositivo. */
+(function(){
+  function findAPI(w){var n=0;while(w&&(w.API==null)&&(w.parent!=null)&&(w.parent!=w)){n++;if(n>500)return null;w=w.parent;}return w?w.API:null;}
+  function getAPI(){var a=findAPI(window);if(a==null&&window.opener)a=findAPI(window.opener);return a;}
+  window.__SCORM={api:null,start:Date.now()};
+  var API=getAPI();
+  if(!API){ console.info("[SCORM] API no encontrada — modo standalone (localStorage)."); return; }
+  window.__SCORM.api=API;
+  try{ API.LMSInitialize(""); }catch(e){}
+  var PREFIX="gam-elearn";
+  function slug(s){ return (""+(s||"")).toLowerCase().trim().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"default"; }
+  function setLS(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+  function getLS(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+  function arr(s){ try{ var a=JSON.parse(s||"[]"); return Array.isArray(a)?a:[]; }catch(e){ return []; } }
+  function uniq(a){ return a.filter(function(x,i){ return a.indexOf(x)===i; }); }
+
+  /* 1) Nombre desde el LMS -> localStorage (el curso lo toma al iniciar) */
+  var name=""; try{ name=API.LMSGetValue("cmi.core.student_name")||""; }catch(e){}
+  if(name) setLS(PREFIX+":profile", name);
+  var sg=slug(getLS(PREFIX+":profile")||name);
+
+  /* 2) Restaurar suspend_data -> localStorage (merge: no pisa progreso local) */
+  var sd=""; try{ sd=API.LMSGetValue("cmi.suspend_data")||""; }catch(e){}
+  if(sd){ try{
+    var data=JSON.parse(sd);
+    if(data && data.v){
+      var pk=PREFIX+":progress:"+sg, qk=PREFIX+":quiz:"+sg, kk=PREFIX+":sections:"+sg;
+      setLS(pk, JSON.stringify(uniq(arr(getLS(pk)).concat(data.progress||[]))));
+      setLS(qk, JSON.stringify(uniq(arr(getLS(qk)).concat(data.quiz||[]))));
+      var loc={}; try{ loc=JSON.parse(getLS(kk)||"{}")||{}; }catch(e){ loc={}; }
+      var rem=data.sections||{};
+      Object.keys(rem).forEach(function(d){ loc[d]=uniq((loc[d]||[]).concat(rem[d]||[])); });
+      setLS(kk, JSON.stringify(loc));
+    }
+  }catch(e){} }
+
+  /* 3) Estado y score inicial */
+  var status=""; try{ status=API.LMSGetValue("cmi.core.lesson_status"); }catch(e){}
+  if(status===""||status==="not attempted"||status==="unknown"||status==="browsed"){ try{ API.LMSSetValue("cmi.core.lesson_status","incomplete"); }catch(e){} }
+  try{ API.LMSSetValue("cmi.core.score.min","0"); API.LMSSetValue("cmi.core.score.max","100"); }catch(e){}
+  try{ API.LMSCommit(""); }catch(e){}
+})();
+</script>
 
 <div id="welcome" class="welcome" role="dialog" aria-modal="true" aria-label="Bienvenida al curso">
   <div class="welcome-bg" aria-hidden="true"></div>
@@ -1233,10 +1292,10 @@
     <text x="30" y="195" font-size="9" fill="#97A5BE">Día 0</text>
     <text x="270" y="195" font-size="9" fill="#97A5BE">Día 7</text>
     <g transform="translate(255,40)">
-      <ellipse cx="0" cy="0" rx="22" ry="20" fill="#EAEFF7" stroke="#097BB3" stroke-width="1.4"/>
-      <path d="M -8 -2 Q -12 -10, -4 -12 Q 4 -16, 10 -10 Q 16 -8, 14 0 Q 10 8, 0 8 Q -10 8, -8 -2 Z" fill="#097BB3" opacity=".7"/>
-      <circle cx="-3" cy="2" r="1.4" fill="#1F2D46"/>
-      <circle cx="6" cy="2" r="1.4" fill="#1F2D46"/>
+      <ellipse cx="0" cy="0" rx="22" ry="20" fill="#EAEFF7" stroke="#6366f1" stroke-width="1.4"/>
+      <path d="M -8 -2 Q -12 -10, -4 -12 Q 4 -16, 10 -10 Q 16 -8, 14 0 Q 10 8, 0 8 Q -10 8, -8 -2 Z" fill="#6366f1" opacity=".7"/>
+      <circle cx="-3" cy="2" r="1.4" fill="#1e1b4b"/>
+      <circle cx="6" cy="2" r="1.4" fill="#1e1b4b"/>
     </g>
   </symbol>
   <symbol id="illo-compare" viewBox="0 0 320 200">
@@ -1249,70 +1308,70 @@
     <text x="65" y="59" text-anchor="middle" font-size="9" font-weight="700" fill="#fff">★</text>
     <circle cx="90" cy="56" r="9" fill="#F02850"/>
     <text x="90" y="59" text-anchor="middle" font-size="9" font-weight="700" fill="#fff">★</text>
-    <text x="115" y="60" font-size="11" font-weight="700" fill="#1F2D46">+100</text>
+    <text x="115" y="60" font-size="11" font-weight="700" fill="#1e1b4b">+100</text>
     <rect x="26" y="150" width="106" height="20" rx="4" fill="#EAEFF7"/>
     <text x="79" y="163" text-anchor="middle" font-size="8" fill="#97A5BE">RANKING · #3 de 12</text>
     <text x="79" y="24" text-anchor="middle" font-size="9" font-weight="700" fill="#F02850" letter-spacing="1.5">COSMÉTICA</text>
-    <rect x="176" y="32" width="130" height="148" rx="10" fill="#fff" stroke="#086FA1" stroke-width="1.5"/>
-    <text x="241" y="56" text-anchor="middle" font-size="10" font-weight="600" fill="#1F2D46">¿Qué hacés?</text>
-    <rect x="186" y="68" width="110" height="20" rx="6" fill="#EAEFF7" stroke="#097BB3"/>
-    <text x="241" y="82" text-anchor="middle" font-size="8.5" fill="#1F2D46">Opción A</text>
-    <rect x="186" y="94" width="110" height="20" rx="6" fill="#EAEFF7" stroke="#097BB3"/>
-    <text x="241" y="108" text-anchor="middle" font-size="8.5" fill="#1F2D46">Opción B</text>
-    <rect x="186" y="120" width="110" height="20" rx="6" fill="#EAEFF7" stroke="#097BB3"/>
-    <text x="241" y="134" text-anchor="middle" font-size="8.5" fill="#1F2D46">Opción C</text>
+    <rect x="176" y="32" width="130" height="148" rx="10" fill="#fff" stroke="#4f46e5" stroke-width="1.5"/>
+    <text x="241" y="56" text-anchor="middle" font-size="10" font-weight="600" fill="#1e1b4b">¿Qué hacés?</text>
+    <rect x="186" y="68" width="110" height="20" rx="6" fill="#EAEFF7" stroke="#6366f1"/>
+    <text x="241" y="82" text-anchor="middle" font-size="8.5" fill="#1e1b4b">Opción A</text>
+    <rect x="186" y="94" width="110" height="20" rx="6" fill="#EAEFF7" stroke="#6366f1"/>
+    <text x="241" y="108" text-anchor="middle" font-size="8.5" fill="#1e1b4b">Opción B</text>
+    <rect x="186" y="120" width="110" height="20" rx="6" fill="#EAEFF7" stroke="#6366f1"/>
+    <text x="241" y="134" text-anchor="middle" font-size="8.5" fill="#1e1b4b">Opción C</text>
     <text x="241" y="158" text-anchor="middle" font-size="9" fill="#00795A" font-weight="600">→ feedback distinto</text>
     <text x="241" y="171" text-anchor="middle" font-size="8" fill="#97A5BE">según lo que elegiste</text>
     <text x="241" y="24" text-anchor="middle" font-size="9" font-weight="700" fill="#00795A" letter-spacing="1.5">COGNITIVA</text>
-    <circle cx="160" cy="106" r="14" fill="#1F2D46"/>
+    <circle cx="160" cy="106" r="14" fill="#1e1b4b"/>
     <text x="160" y="111" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">vs</text>
   </symbol>
   <symbol id="illo-mda" viewBox="0 0 320 200">
-    <polygon points="160,30 50,165 270,165" fill="#EAEFF7" stroke="#097BB3" stroke-width="1.5" opacity=".7"/>
+    <polygon points="160,30 50,165 270,165" fill="#EAEFF7" stroke="#6366f1" stroke-width="1.5" opacity=".7"/>
     <circle cx="160" cy="30" r="22" fill="#8228C8"/>
     <text x="160" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">A</text>
-    <text x="160" y="14" text-anchor="middle" font-size="9" fill="#1F2D46" font-weight="700" letter-spacing="1.5">ESTÉTICA</text>
+    <text x="160" y="14" text-anchor="middle" font-size="9" fill="#1e1b4b" font-weight="700" letter-spacing="1.5">ESTÉTICA</text>
     <circle cx="50" cy="165" r="22" fill="#F02850"/>
     <text x="50" y="171" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">M</text>
-    <text x="50" y="197" text-anchor="middle" font-size="9" fill="#1F2D46" font-weight="700" letter-spacing="1.5">MECÁNICA</text>
+    <text x="50" y="197" text-anchor="middle" font-size="9" fill="#1e1b4b" font-weight="700" letter-spacing="1.5">MECÁNICA</text>
     <circle cx="270" cy="165" r="22" fill="#00C88C"/>
     <text x="270" y="171" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">D</text>
-    <text x="270" y="197" text-anchor="middle" font-size="9" fill="#1F2D46" font-weight="700" letter-spacing="1.5">DINÁMICA</text>
-    <path d="M 78 160 Q 110 110, 142 60" stroke="#1F2D46" stroke-width="1.2" fill="none" stroke-dasharray="3,3" opacity=".5" marker-end="url(#arrMda)"/>
-    <defs><marker id="arrMda" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1F2D46" opacity=".5"/></marker></defs>
-    <text x="100" y="95" font-size="9" fill="#1F2D46" font-weight="600" opacity=".7">diseño</text>
+    <text x="270" y="197" text-anchor="middle" font-size="9" fill="#1e1b4b" font-weight="700" letter-spacing="1.5">DINÁMICA</text>
+    <path d="M 78 160 Q 110 110, 142 60" stroke="#1e1b4b" stroke-width="1.2" fill="none" stroke-dasharray="3,3" opacity=".5" marker-end="url(#arrMda)"/>
+    <defs><marker id="arrMda" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1e1b4b" opacity=".5"/></marker></defs>
+    <text x="100" y="95" font-size="9" fill="#1e1b4b" font-weight="600" opacity=".7">diseño</text>
   </symbol>
   <symbol id="illo-fourCond" viewBox="0 0 320 200">
-    <rect x="20" y="20" width="135" height="75" rx="9" fill="#EAEFF7" stroke="#097BB3" stroke-width="1.5"/>
-    <text x="35" y="42" font-size="18" fill="#097BB3" font-weight="700">⚡</text>
-    <text x="60" y="46" font-size="12" font-weight="700" fill="#1F2D46">Feedback</text>
-    <text x="60" y="62" font-size="11" fill="#1F2D46">inmediato</text>
+    <rect x="20" y="20" width="135" height="75" rx="9" fill="#EAEFF7" stroke="#6366f1" stroke-width="1.5"/>
+    <text x="35" y="42" font-size="18" fill="#6366f1" font-weight="700">⚡</text>
+    <text x="60" y="46" font-size="12" font-weight="700" fill="#1e1b4b">Feedback</text>
+    <text x="60" y="62" font-size="11" fill="#1e1b4b">inmediato</text>
     <text x="60" y="82" font-size="9" fill="#97A5BE">cada decisión responde</text>
     <rect x="165" y="20" width="135" height="75" rx="9" fill="#FBE7E0" stroke="#F02850" stroke-width="1.5"/>
     <text x="180" y="44" font-size="18" fill="#F02850" font-weight="700">⚖</text>
-    <text x="205" y="46" font-size="12" font-weight="700" fill="#1F2D46">Dificultad</text>
-    <text x="205" y="62" font-size="11" fill="#1F2D46">calibrada</text>
+    <text x="205" y="46" font-size="12" font-weight="700" fill="#1e1b4b">Dificultad</text>
+    <text x="205" y="62" font-size="11" fill="#1e1b4b">calibrada</text>
     <text x="205" y="82" font-size="9" fill="#97A5BE">zona de "flow"</text>
     <rect x="20" y="105" width="135" height="75" rx="9" fill="#DFF5EE" stroke="#00C88C" stroke-width="1.5"/>
     <text x="35" y="128" font-size="18" fill="#00C88C" font-weight="700">→</text>
-    <text x="60" y="131" font-size="12" font-weight="700" fill="#1F2D46">Consecuencias</text>
-    <text x="60" y="147" font-size="11" fill="#1F2D46">significativas</text>
+    <text x="60" y="131" font-size="12" font-weight="700" fill="#1e1b4b">Consecuencias</text>
+    <text x="60" y="147" font-size="11" fill="#1e1b4b">significativas</text>
     <text x="60" y="167" font-size="9" fill="#97A5BE">las decisiones importan</text>
     <rect x="165" y="105" width="135" height="75" rx="9" fill="#F0E8FB" stroke="#8228C8" stroke-width="1.5"/>
     <text x="180" y="129" font-size="18" fill="#8228C8" font-weight="700">↻</text>
-    <text x="205" y="131" font-size="12" font-weight="700" fill="#1F2D46">Repetición</text>
-    <text x="205" y="147" font-size="11" fill="#1F2D46">voluntaria</text>
+    <text x="205" y="131" font-size="12" font-weight="700" fill="#1e1b4b">Repetición</text>
+    <text x="205" y="147" font-size="11" fill="#1e1b4b">voluntaria</text>
     <text x="205" y="167" font-size="9" fill="#97A5BE">querés volver a intentar</text>
   </symbol>
   <symbol id="illo-quiz" viewBox="0 0 320 200">
-    <rect x="40" y="30" width="240" height="140" rx="12" fill="#fff" stroke="#097BB3" stroke-width="2"/>
-    <text x="160" y="58" text-anchor="middle" font-size="11" font-weight="700" fill="#1F2D46">Recuperación activa</text>
+    <rect x="40" y="30" width="240" height="140" rx="12" fill="#fff" stroke="#6366f1" stroke-width="2"/>
+    <text x="160" y="58" text-anchor="middle" font-size="11" font-weight="700" fill="#1e1b4b">Recuperación activa</text>
     <rect x="55" y="72" width="210" height="22" rx="6" fill="#EAEFF7"/>
-    <text x="160" y="86" text-anchor="middle" font-size="9" fill="#1F2D46">Olvido lineal y parejo</text>
+    <text x="160" y="86" text-anchor="middle" font-size="9" fill="#1e1b4b">Olvido lineal y parejo</text>
     <rect x="55" y="100" width="210" height="22" rx="6" fill="#DFF5EE" stroke="#00C88C" stroke-width="1.4"/>
     <text x="160" y="114" text-anchor="middle" font-size="9" fill="#00795A" font-weight="700">✓ Olvido exponencial, 24–48h</text>
     <rect x="55" y="128" width="210" height="22" rx="6" fill="#EAEFF7"/>
-    <text x="160" y="142" text-anchor="middle" font-size="9" fill="#1F2D46">Mejor cuanto más largo el curso</text>
+    <text x="160" y="142" text-anchor="middle" font-size="9" fill="#1e1b4b">Mejor cuanto más largo el curso</text>
     <circle cx="278" cy="48" r="14" fill="#00C88C"/>
     <text x="278" y="53" text-anchor="middle" font-size="14" fill="#fff" font-weight="700">✓</text>
   </symbol>
@@ -1389,7 +1448,7 @@
    ============================================================ */
 const COURSE = {
   weeks:[
-    {n:1, title:"Marco y diseño", range:[1,5], accent:"#097bb3"},
+    {n:1, title:"Marco y diseño", range:[1,5], accent:"#6366f1"},
     {n:2, title:"Producción y prototipo", range:[6,10], accent:"#8228C8"}
   ],
   days:[
@@ -1734,7 +1793,7 @@ const COURSE = {
             type:"familyCards", tag:"Identificá", title:"Tocá cada familia para ver ejemplos concretos",
             desc:"Tres mecánicas por familia, todas usables en cursos del área.",
             families:[
-              {tag:"Feedback inmediato", color:"#097bb3", items:["Quiz con corrección instantánea por pregunta","Score que cambia con cada decisión","Simulador que valida cada paso (ej. atención al cliente)"]},
+              {tag:"Feedback inmediato", color:"#6366f1", items:["Quiz con corrección instantánea por pregunta","Score que cambia con cada decisión","Simulador que valida cada paso (ej. atención al cliente)"]},
               {tag:"Retos progresivos", color:"#F02850", items:["Niveles desbloqueables por dominio","Tres intentos: si fallás, repasás","Tiempo límite que baja en cada ronda"]},
               {tag:"Narrativa", color:"#8228C8", items:["Caso de cliente discutiendo una devolución","Personaje recurrente (Sofía, María) con consecuencias","Escenario de turno (apertura → cierre de caja)"]},
               {tag:"Recompensas", color:"#F0BE00", items:["Medalla anclada a competencia real demostrada","Ranking de equipo (con cuidado)","Badge canjeable por símbolo (no por dinero ni por tiempo)"]}
@@ -1794,7 +1853,7 @@ const COURSE = {
             type:"retailPrinciples", tag:"Tocá cada principio", title:"3 reglas + 1 anti-patrón",
             desc:"Cada principio con su consecuencia concreta en el piso.",
             principles:[
-              {tag:"Tiempo real es escaso", color:"#097bb3", text:"Las mecánicas largas no entran. <strong>Píldoras de 5–10 minutos</strong> con cierre fuerte. La cajera tiene 5 minutos antes de abrir caja, no 30."},
+              {tag:"Tiempo real es escaso", color:"#6366f1", text:"Las mecánicas largas no entran. <strong>Píldoras de 5–10 minutos</strong> con cierre fuerte. La cajera tiene 5 minutos antes de abrir caja, no 30."},
               {tag:"Repetición útil", color:"#00C88C", text:"Las personas vuelven al puesto, no a casa a 'seguir jugando'. La mecánica debe ser <strong>corta y reabrible</strong>. Mini-caso por día, no arco semanal."},
               {tag:"Aplicación inmediata", color:"#F0BE00", text:"Lo que se aprende, se aplica <strong>esa semana</strong>. El escenario debe parecerse al piso: casos reales, no abstracciones."},
               {tag:"⚠ Anti-patrón", color:"#F02850", text:"Trasladar mecánicas de juegos de consumo — logros largos, narrativas épicas — a contextos de 10 minutos. Sin tiempo para el arco, queda <strong>solo la cosmética</strong>."}
@@ -2082,7 +2141,7 @@ const COURSE = {
             desc:"Tocá cada mecánica para ver su criterio. Pensá cuáles sobreviven el recorte.",
             families:[
               {tag:"Decisión con feedback ramificado", color:"#00C88C", items:["Alto impacto cognitivo: obliga a procesar","Factible en HTML, posible en Storyline","Prioridad ALTA si el contenido pide criterio"]},
-              {tag:"Quiz de recuperación espaciada", color:"#097bb3", items:["Combate directo a la curva del olvido","Barato y rápido de producir","Prioridad ALTA casi siempre — bajo costo, alto retorno"]},
+              {tag:"Quiz de recuperación espaciada", color:"#6366f1", items:["Combate directo a la curva del olvido","Barato y rápido de producir","Prioridad ALTA casi siempre — bajo costo, alto retorno"]},
               {tag:"Escenario narrativo con personaje", color:"#8228C8", items:["Engancha y contextualiza","Costoso de producir bien","Prioridad MEDIA: usalo en el contenido estrella"]},
               {tag:"Ranking competitivo", color:"#F0BE00", items:["Motiva a competidores, ignora al resto","Riesgo de cosmética si no mide dominio real","Prioridad BAJA: solo si la cultura del equipo lo pide"]}
             ]
@@ -2192,7 +2251,7 @@ const COURSE = {
             type:"familyCards", tag:"Los 3 principios", title:"Tocá cada principio del guion gamificado",
             desc:"Cómo se ve un guion que ya nace con la mecánica adentro.",
             families:[
-              {tag:"Anotá la mecánica en el guion", color:"#097bb3", items:["Cada bloque del guion dice qué mecánica usa: «acá decisión con feedback», «acá quiz de recuperación»","No es decoración posterior: es estructura","Si el guion no la nombra, no existe"]},
+              {tag:"Anotá la mecánica en el guion", color:"#6366f1", items:["Cada bloque del guion dice qué mecánica usa: «acá decisión con feedback», «acá quiz de recuperación»","No es decoración posterior: es estructura","Si el guion no la nombra, no existe"]},
               {tag:"Escribí el feedback, no solo la pregunta", color:"#00C88C", items:["Para cada decisión, escribí qué pasa si acierta y qué pasa si falla","El feedback es contenido, no un «¡correcto!» genérico","Es donde realmente se enseña"]},
               {tag:"Pensá el flujo, no la secuencia", color:"#8228C8", items:["Un guion gamificado tiene ramas, no solo orden","«Si elige A → va acá; si elige B → va allá»","Dibujá el flujo antes de escribir el detalle"]}
             ]
@@ -2222,7 +2281,7 @@ const COURSE = {
             type:"feedbackDesigner", tag:"Compará los 3 tipos", title:"El mismo error, tres feedbacks distintos",
             desc:"Una cajera eligió mal frente a un reclamo. Mirá cada tipo de respuesta.",
             cases:[
-              {tag:"Corrector", color:"#097bb3", verdict:"Útil pero seco",
+              {tag:"Corrector", color:"#6366f1", verdict:"Útil pero seco",
                 example:"«Incorrecto. La respuesta correcta es ofrecer la nota de crédito antes de escalar al supervisor.»",
                 when:"<strong>Cuándo usarlo:</strong> contenido normativo donde hay una respuesta correcta clara y el porqué ya se explicó. Rápido de producir. Riesgo: no profundiza."},
               {tag:"Narrativo", color:"#00C88C", verdict:"El que más enseña",
@@ -2432,7 +2491,7 @@ const COURSE = {
             type:"familyCards", tag:"Las 3 herramientas", title:"Lo que Storyline puede (y casi nadie usa)",
             desc:"Variables, capas y triggers — el motor de juego escondido.",
             families:[
-              {tag:"Variables numéricas", color:"#097bb3", items:["Guardan estado: puntaje, intentos, vidas, progreso","Permiten lógica: «si puntaje > 80, mostrar X»","Ejemplo: un score que sube con cada decisión correcta"]},
+              {tag:"Variables numéricas", color:"#6366f1", items:["Guardan estado: puntaje, intentos, vidas, progreso","Permiten lógica: «si puntaje > 80, mostrar X»","Ejemplo: un score que sube con cada decisión correcta"]},
               {tag:"Capas con estados", color:"#00C88C", items:["Una misma slide con múltiples estados visuales","Correcto / incorrecto / neutro sin cambiar de slide","Ejemplo: el personaje cambia de cara según tu respuesta"]},
               {tag:"Triggers condicionales", color:"#8228C8", items:["«Cuando pasa X, hacé Y» — la lógica del juego","Ramificación: distintos caminos según decisiones","Ejemplo: si fallás 3 veces, te manda a repasar"]}
             ]
@@ -2513,7 +2572,7 @@ const COURSE = {
             type:"familyCards", tag:"Los 4 pasos", title:"El flujo HTML con Claude, paso a paso",
             desc:"De brief a Moodle, sin perderte en el camino.",
             families:[
-              {tag:"1 · Brief", color:"#097bb3", items:["Definí ANTES: mecánica, objetivo de aprendizaje, contenido","Tené el guion gamificado del Día 4 a mano","No improvises el qué mientras pedís el cómo"]},
+              {tag:"1 · Brief", color:"#6366f1", items:["Definí ANTES: mecánica, objetivo de aprendizaje, contenido","Tené el guion gamificado del Día 4 a mano","No improvises el qué mientras pedís el cómo"]},
               {tag:"2 · Prompt", color:"#00C88C", items:["Pedí el resultado, no el código línea por línea","Dale el contexto: «curso del área, single-file, sin dependencias»","Incluí ejemplos de contenido real, no placeholders"]},
               {tag:"3 · Iteración", color:"#F0BE00", items:["Probá, anotá qué falla, pedí cambios concretos","«El feedback es muy genérico» mejor que «no me gusta»","Iterá pieza por pieza, no todo de nuevo"]},
               {tag:"4 · Integración", color:"#8228C8", items:["Empaquetá el HTML como SCORM (lo vemos el Día 9)","Subí a Moodle como paquete","Probá el tracking de completitud antes de publicar"]}
@@ -2671,7 +2730,7 @@ ESTILO:
             type:"familyCards", tag:"Los 3 vértices", title:"El triángulo que sostiene tu prototipo",
             desc:"Tema, mecánica y objetivo: ninguno se decide solo.",
             families:[
-              {tag:"Objetivo de aprendizaje", color:"#097bb3", items:["Qué tiene que poder HACER la persona al terminar","Verbo de acción: «decidir», «detectar», «aplicar» — no «conocer»","Es el ancla: todo lo demás sirve a esto"]},
+              {tag:"Objetivo de aprendizaje", color:"#6366f1", items:["Qué tiene que poder HACER la persona al terminar","Verbo de acción: «decidir», «detectar», «aplicar» — no «conocer»","Es el ancla: todo lo demás sirve a esto"]},
               {tag:"Tema / contenido", color:"#00C88C", items:["Un contenido real de la organización que importe y se use","Acotado: un prototipo no cubre un curso entero","Elegí algo donde la brecha (Día 3) sea grande"]},
               {tag:"Mecánica central", color:"#8228C8", items:["UNA mecánica que sostenga el objetivo","Cognitiva, del menú del Día 2","Si no podés nombrarla en una frase, está difusa"]}
             ]
@@ -2746,7 +2805,7 @@ CIERRE
             type:"familyCards", tag:"Los 4 estados", title:"Los estados de tu guion",
             desc:"Cada pantalla del juego cumple una función. Tocá para ver qué va en cada una.",
             families:[
-              {tag:"Inicio / Setup", color:"#097bb3", items:["Presenta personaje, situación y objetivo","Engancha sin abrumar — corto","Deja claro qué va a tener que hacer la persona"]},
+              {tag:"Inicio / Setup", color:"#6366f1", items:["Presenta personaje, situación y objetivo","Engancha sin abrumar — corto","Deja claro qué va a tener que hacer la persona"]},
               {tag:"Decisión", color:"#8228C8", items:["El corazón del juego: la persona elige","Opciones realistas, ninguna obviamente correcta","Cada opción lleva a un feedback distinto"]},
               {tag:"Feedback", color:"#00C88C", items:["Narrativo: muestra la consecuencia (Día 4)","Distinto según la decisión","Ofrece reintentar o avanzar según el caso"]},
               {tag:"Cierre", color:"#F0BE00", items:["Resolución según el desempeño","Síntesis de lo aprendido","El insight que se lleva (alimenta el cuaderno / SCORM)"]}
@@ -2777,7 +2836,7 @@ CIERRE
             desc:"Tres frentes que avanzan en paralelo sobre el mismo guion.",
             families:[
               {tag:"Diseño visual", color:"#F02850", items:["Pantallas base y estados visuales (Illustrator)","Correcto / incorrecto / neutro del personaje","Entrega: assets exportados, listos para integrar"]},
-              {tag:"Lógica de juego", color:"#097bb3", items:["Estructura e implementación de la mecánica","Storyline (variables/triggers) o HTML (con Claude)","Entrega: prototipo funcional con las rutas de decisión"]},
+              {tag:"Lógica de juego", color:"#6366f1", items:["Estructura e implementación de la mecánica","Storyline (variables/triggers) o HTML (con Claude)","Entrega: prototipo funcional con las rutas de decisión"]},
               {tag:"Producción audiovisual", color:"#00C88C", items:["Audio, locución (Audition), video si aplica","Coordina con diseño visual el tono","Entrega: piezas AV integradas al flujo"]}
             ]
           },
@@ -2886,7 +2945,7 @@ CIERRE
             type:"statesToggle", tag:"Tocá cada estado", title:"Los 3 estados de tu personaje",
             desc:"El mínimo viable para feedback visual. Cambiá entre ellos.",
             states:[
-              {id:"neutro", tag:"Neutro", color:"#097bb3", mood:"neutral", text:"<strong>Neutro.</strong> El estado de partida: presenta la situación, espera la decisión. Sin emoción marcada. Es el rostro de «te toca a vos»."},
+              {id:"neutro", tag:"Neutro", color:"#6366f1", mood:"neutral", text:"<strong>Neutro.</strong> El estado de partida: presenta la situación, espera la decisión. Sin emoción marcada. Es el rostro de «te toca a vos»."},
               {id:"correcto", tag:"Correcto", color:"#00C88C", mood:"happy", text:"<strong>Correcto.</strong> La persona acertó. El personaje refuerza positivamente — pero el feedback narrativo explica POR QUÉ estuvo bien, no solo celebra."},
               {id:"incorrecto", tag:"Incorrecto", color:"#F02850", mood:"sad", text:"<strong>Incorrecto.</strong> La persona falló. El personaje muestra la consecuencia — preocupación, no reto. Acompaña el error, no lo castiga."}
             ]
@@ -2917,7 +2976,7 @@ CIERRE
             type:"familyCards", tag:"El esqueleto", title:"Qué va en la estructura base",
             desc:"Lo que armás en el Sprint I, antes de la lógica.",
             families:[
-              {tag:"Las pantallas existen", color:"#097bb3", items:["Cada estado del guion es una pantalla real","Con sus assets colocados (los 3 estados del personaje)","Vacías de lógica, pero visualmente completas"]},
+              {tag:"Las pantallas existen", color:"#6366f1", items:["Cada estado del guion es una pantalla real","Con sus assets colocados (los 3 estados del personaje)","Vacías de lógica, pero visualmente completas"]},
               {tag:"La navegación funciona", color:"#00C88C", items:["Se puede ir de una pantalla a otra","Los botones de decisión existen y llevan a algún lado","Aunque todavía no haya feedback diferenciado"]},
               {tag:"Sin lógica todavía", color:"#F0BE00", items:["No hay puntaje, intentos ni ramificación real","Los estados visuales están, pero no reaccionan aún","Eso es el Sprint II (mañana)"]}
             ]
@@ -3104,7 +3163,7 @@ ESTILO:
             desc:"De navegación a mecánica reactiva.",
             families:[
               {tag:"Decisiones que ramifican", color:"#8228C8", items:["Cada opción lleva a un resultado distinto, real","No todos los caminos llevan al mismo lado","El corazón de la mecánica cognitiva"]},
-              {tag:"Puntaje / estado", color:"#097bb3", items:["Variable que guarda cómo va la persona","Puede ser score, aciertos, o un estado narrativo","Permite adaptar el cierre al desempeño"]},
+              {tag:"Puntaje / estado", color:"#6366f1", items:["Variable que guarda cómo va la persona","Puede ser score, aciertos, o un estado narrativo","Permite adaptar el cierre al desempeño"]},
               {tag:"Intentos", color:"#F0BE00", items:["Cuántas veces puede reintentar","Si falla, ¿repite o avanza con consecuencia?","La repetición voluntaria del Día 1, hecha mecánica"]},
               {tag:"Estados que reaccionan", color:"#00C88C", items:["Los assets visuales del Día 7 ahora cambian","Neutro → correcto / incorrecto según la decisión","El feedback visual cobra vida"]}
             ]
@@ -3139,7 +3198,7 @@ ESTILO:
               {tag:"Error", color:"#F02850", verdict:"Muestra la consecuencia",
                 example:"«El cliente se va molesto y publica una queja. Tu supervisor te pregunta por qué escalaste algo que podías resolver con la nota de crédito. La teníamos disponible.»",
                 when:"<strong>Cómo escribirlo:</strong> mostrá la consecuencia real, sin retar. La persona aprende del resultado, no del «incorrecto». Ofrecé reintentar."},
-              {tag:"Cierre", color:"#097bb3", verdict:"Sintetiza el aprendizaje",
+              {tag:"Cierre", color:"#6366f1", verdict:"Sintetiza el aprendizaje",
                 example:"«Resolviste 4 de 5 casos ofreciendo la solución antes de escalar. Te llevás esto: la nota de crédito es tu primera herramienta, no el supervisor.»",
                 when:"<strong>Cómo escribirlo:</strong> sintetizá según el desempeño. El insight final, en una frase memorable. Alimenta el cuaderno y el tracking SCORM."}
             ]
@@ -3170,7 +3229,7 @@ ESTILO:
             desc:"El mismo criterio cognitivo/cosmético, aplicado al sonido.",
             families:[
               {tag:"Sí: feedback sonoro breve", color:"#00C88C", items:["Un tono al acertar/fallar refuerza la decisión","Corto, sutil, opcional (con toggle de silencio)","Es feedback inmediato, no decoración"]},
-              {tag:"Sí: locución del personaje", color:"#097bb3", items:["La voz del personaje en momentos clave da inmersión","Da personalidad y acompaña la narrativa","Generada (TTS/IA) o grabada, consistente"]},
+              {tag:"Sí: locución del personaje", color:"#6366f1", items:["La voz del personaje en momentos clave da inmersión","Da personalidad y acompaña la narrativa","Generada (TTS/IA) o grabada, consistente"]},
               {tag:"⚠ Con cuidado: música de fondo", color:"#F0BE00", items:["Puede ayudar a la inmersión o puede saturar","Siempre con control de volumen / silencio","Si distrae de la decisión, sacala"]},
               {tag:"No: voz en off de todo el texto", color:"#F02850", items:["Leer en voz alta cada slide cansa y no enseña","La persona lee más rápido de lo que escucha","Reservá la voz para momentos, no para todo"]}
             ]
@@ -3363,7 +3422,7 @@ ESTILO:
             type:"familyCards", tag:"Las piezas del paquete", title:"Qué lleva un paquete SCORM",
             desc:"El sobre que Moodle sabe abrir y trackear.",
             families:[
-              {tag:"Tu contenido", color:"#097bb3", items:["El HTML del juego (o el export de Storyline)","Todos los assets: imágenes, audio, etc.","Auto-contenido: nada que dependa de internet externo"]},
+              {tag:"Tu contenido", color:"#6366f1", items:["El HTML del juego (o el export de Storyline)","Todos los assets: imágenes, audio, etc.","Auto-contenido: nada que dependa de internet externo"]},
               {tag:"El manifiesto (imsmanifest.xml)", color:"#8228C8", items:["El índice que le dice a Moodle qué hay adentro","Define cuál es la pantalla de inicio","En Storyline se genera solo; en HTML lo armás"]},
               {tag:"La API de tracking", color:"#00C88C", items:["El puente que reporta progreso a Moodle","«La persona completó / sacó tal puntaje»","Storyline la incluye; en HTML, unas líneas de JS"]},
               {tag:"El criterio de completitud", color:"#F0BE00", items:["Cuándo se considera «completado»","¿Al terminar? ¿Al aprobar el quiz?","Lo definís vos según el objetivo"]}
@@ -3579,7 +3638,7 @@ ESTILO:
             desc:"Una demo que muestra valor, no solo trabajo.",
             families:[
               {tag:"Empezá por la brecha", color:"#F02850", items:["«Este contenido se enseñaba con 8 slides que nadie retenía»","Mostrá el antes — el problema real","Sin problema claro, la solución no impresiona"]},
-              {tag:"Mostrá la decisión de diseño", color:"#097bb3", items:["«Elegí mecánica de decisión porque el objetivo pedía criterio»","Conectá la elección con lo aprendido en el programa","El porqué importa más que el cómo"]},
+              {tag:"Mostrá la decisión de diseño", color:"#6366f1", items:["«Elegí mecánica de decisión porque el objetivo pedía criterio»","Conectá la elección con lo aprendido en el programa","El porqué importa más que el cómo"]},
               {tag:"Dejá que jueguen", color:"#00C88C", items:["No narres cada click: dales el control","Que sientan la mecánica, no que la miren","La experiencia convence más que la explicación"]}
             ]
           },
@@ -3651,7 +3710,7 @@ Equipo de Aprendizaje
             type:"threeWayCompare", tag:"Compará los 3", title:"Los tres enfoques, lado a lado",
             desc:"Cambiá de dimensión para ver cómo se comparan.",
             columns:["Storyline puro","HTML con Claude","Prototipo gamificado"],
-            colColors:["#097bb3","#8228C8","#00C88C"],
+            colColors:["#6366f1","#8228C8","#00C88C"],
             dims:[
               {label:"En qué brilla", values:[
                 "Rápido para cursos estándar. Quizzes, slides, ramificaciones simples. Todo el equipo ya lo sabe usar.",
@@ -3811,14 +3870,14 @@ const progressKey=()=>PREFIX+":progress:"+slug(state.name);
 
 function loadProfile(){ try{state.name=localStorage.getItem(PROFILE_KEY)||"";}catch(e){state.name="";} }
 function loadProgress(){ try{const r=localStorage.getItem(progressKey());state.completed=new Set(r?JSON.parse(r):[]);}catch(e){state.completed=new Set();} }
-function saveProgress(){ try{localStorage.setItem(progressKey(),JSON.stringify([...state.completed]));}catch(e){} }
+function saveProgress(){ try{localStorage.setItem(progressKey(),JSON.stringify([...state.completed]));}catch(e){} if(window.__scormSync) window.__scormSync(); }
 function setName(n){ state.name=n.trim(); try{localStorage.setItem(PROFILE_KEY,state.name);}catch(e){} loadProgress(); loadQuiz(); loadSections(); }
 
 /* Quiz state: aprobado o no por día, por usuario */
 const quizKey=()=>PREFIX+":quiz:"+slug(state.name);
 const quizState={passed:new Set()};
 function loadQuiz(){ try{const r=localStorage.getItem(quizKey());quizState.passed=new Set(r?JSON.parse(r):[]);}catch(e){quizState.passed=new Set();} }
-function saveQuiz(){ try{localStorage.setItem(quizKey(),JSON.stringify([...quizState.passed]));}catch(e){} }
+function saveQuiz(){ try{localStorage.setItem(quizKey(),JSON.stringify([...quizState.passed]));}catch(e){} if(window.__scormSync) window.__scormSync(); }
 function quizPassed(n){ return quizState.passed.has(n); }
 function markQuizPassed(n){ quizState.passed.add(n); saveQuiz(); }
 
@@ -3996,7 +4055,7 @@ function renderHome(){
         <section class="progress-hero">
           <div class="ph-ring">
             <svg viewBox="0 0 120 120" class="ring-svg" aria-hidden="true">
-              <defs><linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#097bb3"/><stop offset="1" stop-color="#F02850"/></linearGradient></defs>
+              <defs><linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#F02850"/></linearGradient></defs>
               <circle cx="60" cy="60" r="${R}" class="ring-track"/>
               <circle cx="60" cy="60" r="${R}" class="ring-prog" id="ringProg"
                 style="stroke-dasharray:${C.toFixed(1)};stroke-dashoffset:${C.toFixed(1)};transform:rotate(-90deg);transform-origin:center"/>
@@ -4123,6 +4182,7 @@ function saveSections(){
   const obj={};
   for(const k in sectionsState) obj[k]=[...sectionsState[k]];
   try{localStorage.setItem(sectionsKey(),JSON.stringify(obj));}catch(e){}
+  if(window.__scormSync) window.__scormSync();
 }
 function isSectionDone(dN,i){ return sectionsState[dN]?.has(i); }
 function markSectionDone(dN,i){
@@ -4343,7 +4403,7 @@ function renderInteractiveV2(int, dayN, secIdx){
   const head=`<p class="interactive-tag">${int.tag}</p><h3>${int.title}</h3><p class="interactive-desc">${int.desc}</p>`;
   let body='';
   if(int.type==='curve'){ body = renderCurveSvg(); }
-  else if(int.type==='dnd'){ body = `<div class="dnd-v2"><div class="dnd-pool-v2" id="dnd-pool-${secIdx}"><p class="pool-label">Por clasificar</p></div><div class="dnd-zones-v2"><div class="dnd-zone-v2 cog" data-zone="cog"><p class="zone-label cog">Cognitiva — la mecánica enseña</p></div><div class="dnd-zone-v2 cos" data-zone="cos"><p class="zone-label cos">Cosmética — recompensa pegada encima</p></div></div></div><p class="dnd-feedback-v2" id="dnd-feedback-${secIdx}" aria-live="polite">Arrastrá los seis ítems.</p>`; }
+  else if(int.type==='dnd'){ body = `<div class="dnd-v2"><div class="dnd-pool-v2" id="dnd-pool-${secIdx}"><p class="pool-label">Por clasificar</p></div><div class="dnd-zones-v2"><div class="dnd-zone-v2 cog" data-zone="cog"><p class="zone-label cog">Cognitiva — la mecánica enseña</p></div><div class="dnd-zone-v2 cos" data-zone="cos"><p class="zone-label cos">Cosmética — recompensa pegada encima</p></div></div></div><p class="dnd-feedback-v2" id="dnd-feedback-${secIdx}" aria-live="polite">Arrastrá los seis ítems —o tocá uno y después su categoría.</p>`; }
   else if(int.type==='mda'){ body = `<div class="mda-grid"><button class="mda-card" data-mda="mecanica" type="button"><div class="mda-card-letter">M</div><div class="mda-card-name">Mecánica</div></button><button class="mda-card" data-mda="dinamica" type="button"><div class="mda-card-letter">D</div><div class="mda-card-name">Dinámica</div></button><button class="mda-card" data-mda="estetica" type="button"><div class="mda-card-letter">A</div><div class="mda-card-name">Estética</div></button></div><div class="mda-detail" id="mda-detail-${secIdx}">Hacé click en una de las tres letras para ver qué incluye.</div>`; }
   else if(int.type==='fourCheck'){ body = `<div class="cond-grid"><button class="cond-card" data-cond="0" type="button"><div class="cond-card-head"><span class="cond-card-num">1</span><span>Feedback inmediato y específico</span></div><p class="cond-card-ex">El juego responde a cada decisión, no recién al final. <strong>Ejemplo:</strong> en Duolingo, cada respuesta se evalúa en el momento — no esperás al cierre del módulo.</p></button><button class="cond-card" data-cond="1" type="button"><div class="cond-card-head"><span class="cond-card-num">2</span><span>Dificultad calibrada (zona de flow)</span></div><p class="cond-card-ex">Ni tan fácil que aburra, ni tan difícil que frustre. <strong>Ejemplo:</strong> los puzzles de Foldit ajustan su dificultad a tu nivel de juego previo.</p></button><button class="cond-card" data-cond="2" type="button"><div class="cond-card-head"><span class="cond-card-num">3</span><span>Consecuencias significativas</span></div><p class="cond-card-ex">Las decisiones importan y cambian lo que pasa. <strong>Ejemplo:</strong> en un escenario de atención al cliente, lo que elegís ramifica la conversación en vez de volverte al mismo lugar.</p></button><button class="cond-card" data-cond="3" type="button"><div class="cond-card-head"><span class="cond-card-num">4</span><span>Repetición voluntaria</span></div><p class="cond-card-ex">Querés volver a intentar, y ahí ocurre el repaso espaciado. <strong>Ejemplo:</strong> Habitica te invita a hacer las tareas hoy y mañana sin presionarte — el ciclo es atractivo.</p></button></div>`; }
   else if(int.type==='scenario'){ body = `<div class="scenario" data-scenario><div class="scenario-setup">${int.scenario.setup}</div><div class="scenario-stage" data-stage></div></div>`; }
@@ -4356,10 +4416,10 @@ function renderInteractiveV2(int, dayN, secIdx){
       <text x="250" y="370" text-anchor="middle" font-size="11" font-weight="700" fill="#666" letter-spacing="2">INTERACTUAR</text>
       <text x="30" y="195" text-anchor="middle" font-size="11" font-weight="700" fill="#666" letter-spacing="2" transform="rotate(-90 30 195)">MUNDO</text>
       <text x="480" y="195" text-anchor="middle" font-size="11" font-weight="700" fill="#666" letter-spacing="2" transform="rotate(90 480 195)">PERSONAS</text>
-      <g class="bartle-quad" data-bartle="achiever"><rect x="60" y="35" width="190" height="155" rx="14" fill="#097bb3" fill-opacity=".12" stroke="#097bb3" stroke-width="2.5"/><text x="155" y="105" text-anchor="middle" font-size="30">⭐</text><text x="155" y="138" text-anchor="middle" font-size="15" font-weight="700" fill="#1f2d46">Logrador</text><text x="155" y="160" text-anchor="middle" font-size="10" fill="#666">actuar · mundo</text></g>
-      <g class="bartle-quad" data-bartle="killer"><rect x="250" y="35" width="190" height="155" rx="14" fill="#F02850" fill-opacity=".12" stroke="#F02850" stroke-width="2.5"/><text x="345" y="105" text-anchor="middle" font-size="30">🏆</text><text x="345" y="138" text-anchor="middle" font-size="15" font-weight="700" fill="#1f2d46">Competidor</text><text x="345" y="160" text-anchor="middle" font-size="10" fill="#666">actuar · personas</text></g>
-      <g class="bartle-quad" data-bartle="explorer"><rect x="60" y="190" width="190" height="155" rx="14" fill="#8228C8" fill-opacity=".12" stroke="#8228C8" stroke-width="2.5"/><text x="155" y="260" text-anchor="middle" font-size="30">🔍</text><text x="155" y="293" text-anchor="middle" font-size="15" font-weight="700" fill="#1f2d46">Explorador</text><text x="155" y="315" text-anchor="middle" font-size="10" fill="#666">interactuar · mundo</text></g>
-      <g class="bartle-quad" data-bartle="socializer"><rect x="250" y="190" width="190" height="155" rx="14" fill="#00C88C" fill-opacity=".12" stroke="#00C88C" stroke-width="2.5"/><text x="345" y="260" text-anchor="middle" font-size="30">💬</text><text x="345" y="293" text-anchor="middle" font-size="15" font-weight="700" fill="#1f2d46">Social</text><text x="345" y="315" text-anchor="middle" font-size="10" fill="#666">interactuar · personas</text></g>
+      <g class="bartle-quad" data-bartle="achiever"><rect x="60" y="35" width="190" height="155" rx="14" fill="#6366f1" fill-opacity=".12" stroke="#6366f1" stroke-width="2.5"/><text x="155" y="105" text-anchor="middle" font-size="30">⭐</text><text x="155" y="138" text-anchor="middle" font-size="15" font-weight="700" fill="#1e1b4b">Logrador</text><text x="155" y="160" text-anchor="middle" font-size="10" fill="#666">actuar · mundo</text></g>
+      <g class="bartle-quad" data-bartle="killer"><rect x="250" y="35" width="190" height="155" rx="14" fill="#F02850" fill-opacity=".12" stroke="#F02850" stroke-width="2.5"/><text x="345" y="105" text-anchor="middle" font-size="30">🏆</text><text x="345" y="138" text-anchor="middle" font-size="15" font-weight="700" fill="#1e1b4b">Competidor</text><text x="345" y="160" text-anchor="middle" font-size="10" fill="#666">actuar · personas</text></g>
+      <g class="bartle-quad" data-bartle="explorer"><rect x="60" y="190" width="190" height="155" rx="14" fill="#8228C8" fill-opacity=".12" stroke="#8228C8" stroke-width="2.5"/><text x="155" y="260" text-anchor="middle" font-size="30">🔍</text><text x="155" y="293" text-anchor="middle" font-size="15" font-weight="700" fill="#1e1b4b">Explorador</text><text x="155" y="315" text-anchor="middle" font-size="10" fill="#666">interactuar · mundo</text></g>
+      <g class="bartle-quad" data-bartle="socializer"><rect x="250" y="190" width="190" height="155" rx="14" fill="#00C88C" fill-opacity=".12" stroke="#00C88C" stroke-width="2.5"/><text x="345" y="260" text-anchor="middle" font-size="30">💬</text><text x="345" y="293" text-anchor="middle" font-size="15" font-weight="700" fill="#1e1b4b">Social</text><text x="345" y="315" text-anchor="middle" font-size="10" fill="#666">interactuar · personas</text></g>
     </svg><div class="bartle-detail" id="bartle-detail-${secIdx}"><p class="bartle-detail-empty">Hacé click en un cuadrante para ver el perfil, ejemplos del equipo tu organización, y qué mecánicas le funcionan.</p></div></div>`;
   }
   else if(int.type==='retailPrinciples'){
@@ -4387,7 +4447,7 @@ function renderInteractiveV2(int, dayN, secIdx){
     const zones=p.map((ph,i)=>{
       const x=20+i*167, w=160;
       const h=[40,75,120][i], y=170-h;
-      return `<g class="dramp-zone" data-phase="${i}"><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="8" fill="${ph.color}" fill-opacity=".12" stroke="${ph.color}" stroke-width="2"/><text x="${x+w/2}" y="${y+h/2}" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2d46">${ph.tag}</text><text x="${x+w/2}" y="${y+h/2+16}" text-anchor="middle" font-size="9" fill="#97a5be">${ph.slides}</text></g>`;
+      return `<g class="dramp-zone" data-phase="${i}"><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="8" fill="${ph.color}" fill-opacity=".12" stroke="${ph.color}" stroke-width="2"/><text x="${x+w/2}" y="${y+h/2}" text-anchor="middle" font-size="13" font-weight="700" fill="#1e1b4b">${ph.tag}</text><text x="${x+w/2}" y="${y+h/2+16}" text-anchor="middle" font-size="9" fill="#97a5be">${ph.slides}</text></g>`;
     }).join("");
     body = `<div class="dramp"><svg class="dramp-svg" viewBox="0 0 540 195" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="178" x2="520" y2="178" stroke="#97a5be" stroke-width="1.2"/><text x="20" y="192" font-size="9" fill="#97a5be">inicio</text><text x="500" y="192" font-size="9" fill="#97a5be" text-anchor="end">final</text><text x="8" y="100" font-size="9" fill="#97a5be" transform="rotate(-90 8 100)" text-anchor="middle">dificultad</text>${zones}</svg><div class="dramp-detail" id="dramp-detail-${secIdx}"><p class="dramp-detail-empty">Tocá una fase de la curva para ver qué dificultad corresponde y por qué.</p></div></div>`;
   }
@@ -4407,7 +4467,7 @@ function renderInteractiveV2(int, dayN, secIdx){
     const cols=int.columns.map((c,i)=>`<div class="twcompare-col" style="border-top-color:${int.colColors[i]}"><div class="twcompare-col-name">${c}</div><div class="twcompare-col-val" data-col="${i}"></div></div>`).join("");
     body = `<div class="twcompare"><div class="twcompare-dims">${dims}</div><div class="twcompare-cols" id="twcompare-cols-${secIdx}">${cols}</div></div>`;
   }
-  else if(int.type==='quiz'){ body = `<div class="quiz" id="quiz-d1"></div><div class="quiz-actions"><button class="btn btn-primary" id="quiz-submit" type="button">Corregir respuestas</button><button class="btn btn-ghost" id="quiz-retry" type="button" style="display:none">Reintentar</button><p class="quiz-result" id="quiz-result"></p></div><div class="quiz-gate" id="quiz-gate"><strong>Aún no aprobaste el quiz.</strong> Respondé y corregí; con 3 aciertos o más se desbloquea el día siguiente.</div>`; }
+  else if(int.type==='quiz'){ body = `<div class="quiz" id="quiz-d1"></div><div class="quiz-actions"><button class="btn btn-primary" id="quiz-submit" type="button">Corregir respuestas</button><button class="btn btn-ghost" id="quiz-retry" type="button" style="display:none">Reintentar</button><p class="quiz-result" id="quiz-result" role="status" aria-live="polite"></p></div><div class="quiz-gate" id="quiz-gate" aria-live="polite"><strong>Aún no aprobaste el quiz.</strong> Respondé y corregí; con 3 aciertos o más se desbloquea el día siguiente.</div>`; }
   return `<div class="interactive" data-interactive="${int.type}" data-int-section="${secIdx}">${head}${body}</div>`;
 }
 
@@ -4568,14 +4628,39 @@ function initDndV2(block,dayN,secIdx,items,alreadyDone){
     const el=document.createElement('div');
     el.className='dnd-item-v2';
     el.draggable=true;
+    el.tabIndex=0;
+    el.setAttribute('role','button');
     el.dataset.id=item.id;
     el.dataset.cat=item.cat;
     el.textContent=item.text;
+    el.setAttribute('aria-label', item.text+'. Sin clasificar. Presioná Enter para tomar este ítem.');
     pool.appendChild(el);
   });
-  let dragged=null, firstTry=true, completed=alreadyDone;
+  let dragged=null, firstTry=true, completed=alreadyDone, selected=null;
+  /* Selección por teclado/click: "tomar" un ítem y luego elegir su categoría */
+  function setSelected(it){
+    if(selected && selected!==it){ selected.classList.remove('selected'); selected.removeAttribute('aria-pressed'); }
+    selected=it;
+    if(it){ it.classList.add('selected'); it.setAttribute('aria-pressed','true'); feedback.textContent='Tomaste «'+it.textContent+'». Elegí una categoría: Cognitiva o Cosmética.'; }
+  }
+  function clearSelected(){ if(selected){ selected.classList.remove('selected'); selected.removeAttribute('aria-pressed'); } selected=null; }
+  function toggleSelect(it){ if(it.classList.contains('correct')) return; (selected===it)?clearSelected():setSelected(it); }
+  function placeSelected(zone){
+    if(!selected) return;
+    const it=selected;
+    drop(it,zone);
+    if(it.classList.contains('correct')){
+      clearSelected();
+      const nextItem=pool.querySelector('.dnd-item-v2:not(.correct)');
+      if(nextItem) nextItem.focus(); else zone.focus();
+    } else {
+      it.focus(); /* quedó en el pool: mantenemos selección para reintentar */
+    }
+  }
   const allItems=block.querySelectorAll('.dnd-item-v2');
   allItems.forEach(it=>{
+    it.addEventListener('click',()=>toggleSelect(it));
+    it.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggleSelect(it); } });
     it.addEventListener('dragstart',e=>{
       dragged=it; it.classList.add('dragging');
       e.dataTransfer.effectAllowed='move';
@@ -4620,6 +4705,12 @@ function initDndV2(block,dayN,secIdx,items,alreadyDone){
     });
   });
   zones.forEach(z=>{
+    z.tabIndex=0;
+    z.setAttribute('role','button');
+    const zl=z.querySelector('.zone-label');
+    z.setAttribute('aria-label', (zl?zl.textContent:'Categoría')+'. Soltá acá el ítem que tomaste.');
+    z.addEventListener('click',()=>placeSelected(z));
+    z.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); placeSelected(z); } });
     z.addEventListener('dragover',e=>{ e.preventDefault(); z.classList.add('dragover'); });
     z.addEventListener('dragleave',()=>z.classList.remove('dragover'));
     z.addEventListener('drop',e=>{
@@ -4634,6 +4725,9 @@ function initDndV2(block,dayN,secIdx,items,alreadyDone){
       item.classList.remove('incorrect');
       item.classList.add('correct');
       item.draggable=false;
+      item.tabIndex=-1;
+      item.removeAttribute('aria-pressed');
+      item.setAttribute('aria-label', item.textContent+'. Clasificado correctamente en '+(zone.querySelector('.zone-label')?zone.querySelector('.zone-label').textContent:zone.dataset.zone)+'.');
       zone.appendChild(item);
       sfx.dropCorrect();
     } else {
@@ -4716,7 +4810,7 @@ function initBartleV2(block,dayN,secIdx,alreadyDone){
   const visited=new Set();
   let completed=alreadyDone;
   const data={
-    achiever:{icon:'⭐',name:'Logrador',color:'#097bb3',desc:'Busca <strong>completar, dominar, acumular</strong> evidencia de progreso.',examples:'En tu equipo: el que mira métricas y dice "ya hice 8 de 10". El que termina cursos por el certificado.',mechanics:'Niveles, retos progresivos, criterios claros de dominio, badges anclados a competencia real.'},
+    achiever:{icon:'⭐',name:'Logrador',color:'#6366f1',desc:'Busca <strong>completar, dominar, acumular</strong> evidencia de progreso.',examples:'En tu equipo: el que mira métricas y dice "ya hice 8 de 10". El que termina cursos por el certificado.',mechanics:'Niveles, retos progresivos, criterios claros de dominio, badges anclados a competencia real.'},
     killer:{icon:'🏆',name:'Competidor',color:'#F02850',desc:'Busca <strong>medirse contra otros</strong>. Gana al verse mejor.',examples:'El que mira el ranking y dice "a ver cuánto sacaste vos". El que toma cualquier marcador como duelo.',mechanics:'Rankings (con cuidado), torneos, comparativas — siempre que reflejen dominio real.'},
     explorer:{icon:'🔍',name:'Explorador',color:'#8228C8',desc:'Disfruta <strong>descubrir, conectar piezas, entender el sistema</strong>.',examples:'El que lee toda la documentación. El que pregunta "¿y si hago esto?" en lugar de seguir el camino marcado.',mechanics:'Ramificaciones, mapas conceptuales, casos abiertos, sandbox, easter eggs.'},
     socializer:{icon:'💬',name:'Social',color:'#00C88C',desc:'Aprende mejor <strong>con otras personas</strong>.',examples:'El que arma grupo de estudio. El que aprende explicándole al de al lado.',mechanics:'Discusiones, trabajo en equipo, role-play, casos compartidos, peer-review.'}
@@ -4953,18 +5047,18 @@ function initPromptBuilderV2(block,dayN,secIdx,alreadyDone){
 
 function charFaceSvg(mood){
   const faces={
-    neutral:`<path d="M 36 56 Q 50 54, 64 56" stroke="#1F2D46" stroke-width="2.5" fill="none" stroke-linecap="round"/>`,
+    neutral:`<path d="M 36 56 Q 50 54, 64 56" stroke="#1e1b4b" stroke-width="2.5" fill="none" stroke-linecap="round"/>`,
     happy:`<path d="M 36 54 Q 50 66, 64 54" stroke="#00795a" stroke-width="2.5" fill="none" stroke-linecap="round"/>`,
     sad:`<path d="M 36 60 Q 50 50, 64 60" stroke="#c0392b" stroke-width="2.5" fill="none" stroke-linecap="round"/>`
   };
   const brows={
-    neutral:`<path d="M 32 38 L 42 38 M 58 38 L 68 38" stroke="#1F2D46" stroke-width="2.5" stroke-linecap="round"/>`,
-    happy:`<path d="M 32 37 Q 37 34, 42 37 M 58 37 Q 63 34, 68 37" stroke="#1F2D46" stroke-width="2.5" fill="none" stroke-linecap="round"/>`,
-    sad:`<path d="M 32 35 Q 37 39, 42 40 M 58 40 Q 63 39, 68 35" stroke="#1F2D46" stroke-width="2.5" fill="none" stroke-linecap="round"/>`
+    neutral:`<path d="M 32 38 L 42 38 M 58 38 L 68 38" stroke="#1e1b4b" stroke-width="2.5" stroke-linecap="round"/>`,
+    happy:`<path d="M 32 37 Q 37 34, 42 37 M 58 37 Q 63 34, 68 37" stroke="#1e1b4b" stroke-width="2.5" fill="none" stroke-linecap="round"/>`,
+    sad:`<path d="M 32 35 Q 37 39, 42 40 M 58 40 Q 63 39, 68 35" stroke="#1e1b4b" stroke-width="2.5" fill="none" stroke-linecap="round"/>`
   };
   const bg={neutral:'#EAEFF7',happy:'#DFF5EE',sad:'#FBE7E0'};
-  const ring={neutral:'#097bb3',happy:'#00C88C',sad:'#F02850'};
-  return `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="46" fill="${bg[mood]}" stroke="${ring[mood]}" stroke-width="3"/><circle cx="38" cy="46" r="4" fill="#1F2D46"/><circle cx="62" cy="46" r="4" fill="#1F2D46"/>${brows[mood]}${faces[mood]}</svg>`;
+  const ring={neutral:'#6366f1',happy:'#00C88C',sad:'#F02850'};
+  return `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="46" fill="${bg[mood]}" stroke="${ring[mood]}" stroke-width="3"/><circle cx="38" cy="46" r="4" fill="#1e1b4b"/><circle cx="62" cy="46" r="4" fill="#1e1b4b"/>${brows[mood]}${faces[mood]}</svg>`;
 }
 
 function initStatesToggleV2(block,dayN,secIdx,states,alreadyDone){
@@ -5113,24 +5207,30 @@ function initQuizV2(dayN, questions, secIdx){
   const passedAlready=quizPassed(dayN);
   let retryCount=0;
 
-  container.innerHTML=questions.map((q,i)=>`
-    <div class="quiz-q" data-q="${i}">
-      <p class="quiz-q-text"><span class="quiz-q-num">${i+1}</span>${q.q}</p>
-      <div class="quiz-options">
-        ${q.opts.map((o,j)=>`<label class="quiz-opt" data-opt="${j}"><input type="radio" name="q${i}" value="${j}"><span>${o}</span></label>`).join("")}
+  /* Orden de opciones barajado en cada intento: evita memorizar la posición
+     (mantiene el feedback, que el curso valora; solo corta la fuerza bruta). */
+  const shuffleOrder=n=>{ const a=[...Array(n).keys()]; for(let k=a.length-1;k>0;k--){ const j=Math.floor(Math.random()*(k+1)); [a[k],a[j]]=[a[j],a[k]]; } return a; };
+  function renderQuestions(){
+    container.innerHTML=questions.map((q,i)=>`
+      <div class="quiz-q" data-q="${i}">
+        <p class="quiz-q-text"><span class="quiz-q-num">${i+1}</span>${q.q}</p>
+        <div class="quiz-options">
+          ${shuffleOrder(q.opts.length).map(j=>`<label class="quiz-opt" data-opt="${j}"><input type="radio" name="q${i}" value="${j}"><span>${q.opts[j]}</span></label>`).join("")}
+        </div>
+        <div class="quiz-feedback" id="qfb-${i}"></div>
       </div>
-      <div class="quiz-feedback" id="qfb-${i}"></div>
-    </div>
-  `).join("");
-
-  container.querySelectorAll('.quiz-opt').forEach(opt=>{
-    opt.addEventListener('click',()=>{
-      const q=opt.closest('.quiz-q');
-      q.querySelectorAll('.quiz-opt').forEach(o=>o.classList.remove('selected'));
-      opt.classList.add('selected');
-      sfx.quizSelect();
+    `).join("");
+    container.querySelectorAll('.quiz-opt').forEach(opt=>{
+      opt.addEventListener('click',()=>{
+        const q=opt.closest('.quiz-q');
+        q.querySelectorAll('.quiz-opt').forEach(o=>o.classList.remove('selected'));
+        opt.classList.add('selected');
+        sfx.quizSelect();
+      });
     });
-  });
+  }
+  const optByVal=(i,val)=>container.querySelector(`.quiz-q[data-q="${i}"] .quiz-opt[data-opt="${val}"]`);
+  renderQuestions();
 
   function correctAll(){
     let score=0;
@@ -5142,18 +5242,18 @@ function initQuizV2(dayN, questions, secIdx){
       if(!sel){
         fb.textContent='Sin respuesta. La correcta es: «'+q.opts[q.correct]+'». '+q.explain;
         fb.className='quiz-feedback bad show';
-        opts[q.correct].classList.add('correct');
+        optByVal(i,q.correct).classList.add('correct');
         return;
       }
       const picked=parseInt(sel.value,10);
       if(picked===q.correct){
         score++;
-        opts[picked].classList.add('correct');
+        optByVal(i,picked).classList.add('correct');
         fb.textContent='Correcto. '+q.explain;
         fb.className='quiz-feedback ok show';
       } else {
-        opts[picked].classList.add('incorrect');
-        opts[q.correct].classList.add('correct');
+        optByVal(i,picked).classList.add('incorrect');
+        optByVal(i,q.correct).classList.add('correct');
         fb.textContent='La correcta es: «'+q.opts[q.correct]+'». '+q.explain;
         fb.className='quiz-feedback bad show';
       }
@@ -5162,6 +5262,7 @@ function initQuizV2(dayN, questions, secIdx){
     if(pass) sfx.quizCorrect(); else sfx.quizIncorrect();
     result.textContent=`${score} / ${questions.length} respuestas correctas${pass?' — aprobado':''}`;
     result.className='quiz-result '+(pass?'pass':'fail');
+    if(typeof announce==='function') announce(`Quiz corregido: ${score} de ${questions.length} correctas${pass?', aprobado.':'. No alcanzó, podés reintentar.'}`);
     submitBtn.style.display='none';
     retryBtn.style.display='';
     if(pass){
@@ -5192,12 +5293,13 @@ function initQuizV2(dayN, questions, secIdx){
   submitBtn.addEventListener('click',correctAll);
   retryBtn.addEventListener('click',()=>{
     retryCount++;
-    container.querySelectorAll('.quiz-opt').forEach(o=>{ o.classList.remove('selected','correct','incorrect','disabled'); });
-    container.querySelectorAll('.quiz-feedback').forEach(fb=>{ fb.textContent=''; fb.className='quiz-feedback'; });
-    container.querySelectorAll('input').forEach(i=>i.checked=false);
     if(!quizPassed(dayN)){
+      renderQuestions(); /* re-baraja opciones y limpia el estado */
       result.textContent=''; result.className='quiz-result';
       submitBtn.style.display=''; retryBtn.style.display='none';
+    } else {
+      /* repaso tras aprobar: solo re-baraja para volver a practicar */
+      renderQuestions();
     }
   });
 }
@@ -5299,6 +5401,7 @@ function showDayCelebration(dayN){
         <p class="celebration-deliverable-title">${d.deliverable}</p>
         ${d.deliverableNote ? `<p class="celebration-deliverable-note">${d.deliverableNote}</p>` : ''}
       </div>
+      ${nextN ? `<p class="celebration-spacing-note">💡 <strong>Aplicá lo del Día 1:</strong> el repaso espaciado vence a la curva del olvido. Si podés, hacé una pausa y retomá el Día ${nextN} mañana — rinde más que maratonear hoy.</p>` : ''}
       <div class="celebration-actions">
         <button class="btn btn-ghost" id="celebration-copy" type="button">📋 Copiar insights</button>
         ${nextN ? `<a class="btn btn-primary" href="#dia-${nextN}">Pasar al Día ${nextN} <span class="arr">→</span></a>` : '<a class="btn btn-primary" href="#" data-home>Volver al índice →</a>'}
@@ -5387,7 +5490,7 @@ function fireConfetti(){
   document.body.appendChild(canvas);
   const ctx=canvas.getContext('2d');
   canvas.width=window.innerWidth; canvas.height=window.innerHeight;
-  const colors=['#F02850','#00C88C','#097bb3','#F0BE00','#8228C8','#fff'];
+  const colors=['#F02850','#00C88C','#6366f1','#F0BE00','#8228C8','#fff'];
   const N=140, particles=[];
   const cx=window.innerWidth/2, cy=window.innerHeight*.45;
   for(let i=0;i<N;i++){
@@ -5553,6 +5656,29 @@ document.addEventListener('click',e=>{
 });
 
 /* ============================================================
+   ACCESIBILIDAD · anuncio de vista + foco al navegar
+   ============================================================ */
+let _srRegion=null;
+function announce(msg){
+  if(!msg) return;
+  if(!_srRegion){
+    _srRegion=document.createElement('div');
+    _srRegion.className='sr-only';
+    _srRegion.setAttribute('aria-live','polite');
+    _srRegion.setAttribute('role','status');
+    document.body.appendChild(_srRegion);
+  }
+  _srRegion.textContent='';
+  setTimeout(()=>{ _srRegion.textContent=msg; },60);
+}
+/* Mueve el foco al encabezado de la vista recién cargada (solo en navegación real)
+   para que teclado y lectores de pantalla no queden "perdidos" en el contenido anterior. */
+function focusView(){
+  const h=document.querySelector('#app h1');
+  if(h){ h.setAttribute('tabindex','-1'); try{ h.focus({preventScroll:true}); }catch(e){ h.focus(); } announce(h.textContent.trim()); }
+}
+
+/* ============================================================
    ROUTER
    ============================================================ */
 const parseHash=()=>{ const m=location.hash.match(/^#dia-(\d+)$/); return m?parseInt(m[1],10):null; };
@@ -5564,6 +5690,7 @@ function route(){
   } else renderHome();
   updateTopbar();
   window.scrollTo(0,0);
+  focusView();
 }
 
 /* ============================================================
@@ -5640,7 +5767,7 @@ window.addEventListener("scroll",onScroll,{passive:true});
 /* Links "volver al inicio" */
 document.addEventListener("click",e=>{
   const home=e.target.closest("[data-home]");
-  if(home){ e.preventDefault(); if(location.hash){ location.hash=""; } else { renderHome(); updateTopbar(); window.scrollTo(0,0); } }
+  if(home){ e.preventDefault(); if(location.hash){ location.hash=""; } else { renderHome(); updateTopbar(); window.scrollTo(0,0); focusView(); } }
 });
 
 /* ============================================================
@@ -6039,28 +6166,66 @@ route(); onScroll();
 })();
 </script>
 <script>
-/* ===== Wrapper SCORM 1.2 (white-label · completa al terminar los 10 dias) ===== */
+/* ===== Wrapper SCORM 1.2 — score + suspend_data + session_time ===== */
 (function(){
-  function findAPI(w){var n=0;while(w&&(w.API==null)&&(w.parent!=null)&&(w.parent!=w)){n++;if(n>500)return null;w=w.parent;}return w?w.API:null;}
-  function getAPI(){var a=findAPI(window);if(a==null&&window.opener!=null&&typeof window.opener!="undefined")a=findAPI(window.opener);return a;}
-  var API=getAPI();
-  if(!API){console.info("[SCORM] API no encontrada - modo standalone.");return;}
-  var TOTAL=10; try{ if(typeof COURSE!=="undefined" && COURSE.days) TOTAL=COURSE.days.length; }catch(e){}
-  try{ API.LMSInitialize(""); }catch(e){}
-  try{ var sn=API.LMSGetValue("cmi.core.student_name"); if(sn && typeof window.setUserName==="function") window.setUserName(sn); }catch(e){}
-  var status=""; try{ status=API.LMSGetValue("cmi.core.lesson_status"); }catch(e){}
-  var finished=(status==="completed"||status==="passed");
-  if(!finished && (status===""||status==="not attempted"||status==="unknown"||status==="browsed")){ try{ API.LMSSetValue("cmi.core.lesson_status","incomplete"); API.LMSCommit(""); }catch(e){} }
-  function courseDone(){
-    try{ if(typeof doneCount==="function" && doneCount()>=TOTAL) return true; }catch(e){}
-    try{ for(var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); if(k && k.indexOf("gam-elearn:progress:")===0){ var arr=JSON.parse(localStorage.getItem(k)||"[]"); if(Array.isArray(arr)&&arr.length>=TOTAL) return true; } } }catch(e){}
-    return false;
+  var API = (window.__SCORM && window.__SCORM.api) || null;
+  if(!API){ window.__scormSync=function(){}; return; }  /* standalone: no-op */
+  var start = (window.__SCORM && window.__SCORM.start) || Date.now();
+  var PREFIX="gam-elearn";
+  function slug(s){ return (""+(s||"")).toLowerCase().trim().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"default"; }
+  function getLS(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+  function arr(s){ try{ var a=JSON.parse(s||"[]"); return Array.isArray(a)?a:[]; }catch(e){ return []; } }
+  function TOTAL(){ try{ if(typeof COURSE!=="undefined" && COURSE.days) return COURSE.days.length; }catch(e){} return 10; }
+  var finished=false;
+  try{ var st0=API.LMSGetValue("cmi.core.lesson_status"); finished=(st0==="completed"||st0==="passed"); }catch(e){}
+
+  /* Sincroniza progreso del curso hacia el LMS (lo llama el curso tras cada guardado) */
+  var pending=null;
+  window.__scormSync=function(){
+    if(pending) return; /* coalesce */
+    pending=setTimeout(function(){
+      pending=null;
+      try{
+        var sg=slug(getLS(PREFIX+":profile"));
+        var progress=arr(getLS(PREFIX+":progress:"+sg));
+        var quiz=arr(getLS(PREFIX+":quiz:"+sg));
+        var sections={}; try{ sections=JSON.parse(getLS(PREFIX+":sections:"+sg)||"{}")||{}; }catch(e){ sections={}; }
+        var total=TOTAL();
+        var pct=Math.max(0,Math.min(100,Math.round(progress.length/total*100)));
+        API.LMSSetValue("cmi.core.score.raw", String(pct));
+        var payload=JSON.stringify({v:1,progress:progress,quiz:quiz,sections:sections});
+        if(payload.length<=4096) API.LMSSetValue("cmi.suspend_data", payload);
+        if(!finished && progress.length>=total){ finished=true; API.LMSSetValue("cmi.core.lesson_status","completed"); }
+        else if(!finished){ API.LMSSetValue("cmi.core.lesson_status","incomplete"); }
+        API.LMSCommit("");
+      }catch(e){}
+    },400);
+  };
+
+  /* Respaldo: si el curso no llama a sync, igual detectamos avance */
+  var timer=setInterval(function(){ window.__scormSync(); },4000);
+
+  /* session_time en formato CMITimespan HHHH:MM:SS.SS */
+  function sessionTime(){
+    var s=(Date.now()-start)/1000;
+    var hh=Math.floor(s/3600), mm=Math.floor((s%3600)/60), ss=(s%60);
+    function p(n){ return (n<10?"0":"")+n; }
+    var cs=String(Math.round((ss%1)*100));
+    if(cs.length<2) cs=("0"+cs).slice(-2);
+    return p(hh)+":"+p(mm)+":"+p(Math.floor(ss))+"."+cs;
   }
-  var timer=null;
-  function markComplete(){ if(finished) return; finished=true; try{ API.LMSSetValue("cmi.core.lesson_status","completed"); API.LMSCommit(""); }catch(e){} if(timer){clearInterval(timer);timer=null;} }
-  if(!finished){ if(courseDone()) markComplete(); else timer=setInterval(function(){ if(courseDone()) markComplete(); },2000); }
-  var done=false; function finish(){ if(done)return; done=true; try{ API.LMSCommit(""); API.LMSFinish(""); }catch(e){} }
+  var done=false;
+  function finish(){
+    if(done) return; done=true;
+    if(timer){ clearInterval(timer); timer=null; }
+    try{ var sg=slug(getLS(PREFIX+":profile")); var progress=arr(getLS(PREFIX+":progress:"+sg)); var quiz=arr(getLS(PREFIX+":quiz:"+sg)); var sections=JSON.parse(getLS(PREFIX+":sections:"+sg)||"{}")||{}; API.LMSSetValue("cmi.core.score.raw", String(Math.round(progress.length/TOTAL()*100))); var payload=JSON.stringify({v:1,progress:progress,quiz:quiz,sections:sections}); if(payload.length<=4096) API.LMSSetValue("cmi.suspend_data", payload); }catch(e){}
+    try{ API.LMSSetValue("cmi.core.session_time", sessionTime()); }catch(e){}
+    try{ API.LMSCommit(""); API.LMSFinish(""); }catch(e){}
+  }
   window.addEventListener("pagehide",finish); window.addEventListener("beforeunload",finish); window.addEventListener("unload",finish);
+
+  /* Primer sync al cargar (refleja lo restaurado) */
+  window.__scormSync();
 })();
 </script>
 <script>

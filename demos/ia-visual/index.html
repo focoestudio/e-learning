@@ -18,7 +18,7 @@
   /* Tema antes del primer pintado, para evitar parpadeo */
   (function(){
     try{
-      var stored = localStorage.getItem('ia-visual:theme');
+      var stored = localStorage.getItem('ia-visual-10:theme');
       var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       document.documentElement.setAttribute('data-theme', stored || (prefersDark ? 'dark' : 'light'));
     }catch(e){ document.documentElement.setAttribute('data-theme','light'); }
@@ -475,53 +475,6 @@
   .step-next:hover:not(:disabled) .arr{transform:translateX(4px)}
   .step-next-hint{display:block;margin-top:.4rem;font-size:.78rem;color:var(--gray)}
 
-  /* ---------- DnD V2 (pool izquierda · zonas derecha) ---------- */
-  .dnd-v2{display:grid;grid-template-columns:1fr 1.1fr;gap:1rem;margin-top:.8rem}
-  .dnd-pool-v2,.dnd-zone-v2{background:var(--surface);border:1.5px dashed var(--gray-light);border-radius:12px;padding:.75rem;display:flex;flex-direction:column;gap:.45rem}
-  .pool-label,.zone-label{font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray);margin-bottom:.25rem;display:flex;align-items:center;gap:.4rem}
-  .dnd-item-v2{background:var(--surface-2);border:1px solid var(--gray-light);border-radius:9px;padding:.55rem .75rem;font-size:.82rem;color:var(--navy);cursor:grab;line-height:1.4;transition:all .15s;user-select:none}
-  .dnd-item-v2:hover{border-color:var(--blue-light);box-shadow:0 2px 6px rgba(99,102,241,.1)}
-  .dnd-item-v2:active,.dnd-item-v2.dragging{cursor:grabbing;opacity:.5}
-  .dnd-item-v2.correct{background:var(--green-soft);border-color:var(--green);color:var(--green-ink);cursor:default}
-  .dnd-item-v2.incorrect{background:#fde7eb;border-color:var(--pink);color:#9a1d36;animation:shake .3s}
-  .dnd-zones-v2{display:flex;flex-direction:column;gap:.7rem}
-  .dnd-zone-v2{min-height:90px}
-  .dnd-zone-v2.cog{border-color:var(--green)}
-  .dnd-zone-v2.cos{border-color:var(--gray)}
-  .dnd-zone-v2.dragover{background:var(--cream);transform:scale(1.01)}
-  .zone-label.cog::before{content:'';width:9px;height:9px;border-radius:50%;background:var(--green);flex:none}
-  .zone-label.cos::before{content:'';width:9px;height:9px;border-radius:50%;background:var(--gray);flex:none}
-  .dnd-feedback-v2{margin-top:.8rem;font-size:.85rem;color:var(--gray);text-align:center;min-height:1.2em}
-  .dnd-feedback-v2.done{color:var(--green-ink);font-weight:600}
-  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
-
-  /* ---------- MDA interactive ---------- */
-  .mda-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-top:.8rem}
-  .mda-card{background:var(--surface);border:2px solid var(--gray-light);border-radius:12px;padding:.9rem;cursor:pointer;transition:all .2s;text-align:center;font-family:inherit}
-  .mda-card:hover{transform:translateY(-2px);border-color:var(--blue-light)}
-  .mda-card.active{border-color:var(--blue);background:rgba(99,102,241,.06);box-shadow:0 4px 12px rgba(99,102,241,.15)}
-  .mda-card-letter{font-size:1.6rem;font-weight:700;color:var(--blue-light);line-height:1;margin-bottom:.3rem;font-variant-numeric:tabular-nums}
-  .mda-card.active .mda-card-letter{color:var(--blue)}
-  .mda-card-name{font-size:.85rem;font-weight:600;color:var(--navy);letter-spacing:-.2px}
-  .mda-detail{margin-top:.9rem;padding:1rem 1.1rem;background:var(--surface-2);border:1px solid var(--gray-light);border-radius:12px;min-height:80px;font-size:.92rem;color:var(--navy);line-height:1.55}
-  .mda-detail strong{color:var(--blue);font-weight:700}
-
-  /* ---------- Four conditions interactive ---------- */
-  .cond-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-top:.8rem}
-  .cond-card{background:var(--surface);border:2px solid var(--gray-light);border-radius:12px;padding:.9rem 1rem;cursor:pointer;transition:all .2s;text-align:left;font-family:inherit;width:100%}
-  .cond-card:hover{transform:translateY(-1px);border-color:var(--blue-light)}
-  .cond-card.open{border-color:var(--blue);background:rgba(99,102,241,.04)}
-  .cond-card-head{display:flex;align-items:center;gap:.55rem;font-weight:700;color:var(--navy);font-size:.92rem}
-  .cond-card-num{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--blue-light);color:#fff;font-size:.72rem;font-weight:700;flex:none}
-  .cond-card.open .cond-card-num{background:var(--blue)}
-  .cond-card-ex{font-size:.85rem;color:var(--gray);margin-top:.5rem;line-height:1.5;display:none}
-  .cond-card.open .cond-card-ex{display:block;animation:fadeUp .3s ease}
-  .cond-card-ex strong{color:var(--navy)}
-
-  /* ---------- Avatar img (PNG fallback) ---------- */
-  .sofia-avatar img{width:100%;height:100%;display:block;object-fit:cover}
-  .sofia-mini img{width:100%;height:100%;display:block;object-fit:cover}
-
   /* ---------- Narrative V2 — section flow ---------- */
   .section-head{display:flex;gap:1.2rem;align-items:flex-start;margin-bottom:1.4rem;padding-bottom:1.1rem;border-bottom:1px solid var(--gray-light)}
   .section-head-text{flex:1;min-width:0}
@@ -614,118 +567,6 @@
   .family-card.open .family-card-items{display:block;animation:fadeUp .3s ease}
   .family-card-items li{font-size:.85rem;color:var(--navy);padding:.32rem 0 .32rem 1.1rem;line-height:1.5;position:relative}
   .family-card-items li::before{content:'•';color:var(--accent,var(--blue-light));font-weight:700;position:absolute;left:0;top:.3rem;font-size:1rem;line-height:1}
-
-  /* ---------- Bartle quadrant (Día 2 · BESPOKE) ---------- */
-  .bartle-wrap{margin-top:.6rem}
-  .bartle-svg{width:100%;height:auto;display:block;max-width:560px;margin:0 auto}
-  .bartle-quad{cursor:pointer;transition:opacity .2s}
-  .bartle-quad rect{transition:fill-opacity .2s,stroke-width .2s}
-  .bartle-quad:hover rect{fill-opacity:.22}
-  .bartle-quad.active rect{fill-opacity:.30;stroke-width:3.5}
-  .bartle-quad:not(.active):not(:hover) text{opacity:.85}
-  .bartle-detail{margin-top:.9rem;padding:1.1rem 1.2rem;background:var(--surface-2);border:1px solid var(--gray-light);border-left:4px solid var(--blue-light);border-radius:0 12px 12px 0;font-size:.92rem;color:var(--navy);line-height:1.6;min-height:120px;transition:border-left-color .3s}
-  .bartle-detail-empty{color:var(--gray);font-style:italic}
-  .bartle-d-name{display:flex;align-items:center;gap:.5rem;font-weight:700;font-size:1.05rem;color:var(--navy);margin-bottom:.55rem}
-  .bartle-d-name-icon{font-size:1.5rem;line-height:1}
-  .bartle-d-row{margin-bottom:.45rem;display:flex;gap:.5rem}
-  .bartle-d-row:last-child{margin-bottom:0}
-  .bartle-d-label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray);min-width:80px;padding-top:.18rem;flex:none}
-  .bartle-d-text{flex:1;color:var(--navy);line-height:1.5}
-  .bartle-d-text strong{font-weight:700;color:var(--navy)}
-
-  /* ---------- Retail principles (Día 2 · sec 3) ---------- */
-  .principles-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-top:.8rem}
-  .principle-card-text{font-size:.88rem;color:var(--navy);line-height:1.55;margin:.6rem 0 0;display:none}
-  .family-card.open .principle-card-text{display:block;animation:fadeUp .3s ease}
-  .principle-card-text strong{font-weight:700;color:var(--navy)}
-
-  /* ---------- Tool picker (Día 2 · sec 4) ---------- */
-  .tool-picker{margin-top:.8rem}
-  .tool-check{display:flex;align-items:flex-start;gap:.7rem;background:var(--surface);border:1.5px solid var(--gray-light);border-radius:10px;padding:.7rem .9rem;margin-bottom:.5rem;cursor:pointer;transition:all .15s}
-  .tool-check:hover{border-color:var(--blue-light);background:rgba(99,102,241,.03)}
-  .tool-check input{margin-top:.18rem;accent-color:var(--blue);flex:none;width:16px;height:16px;cursor:pointer}
-  .tool-check span{flex:1;font-size:.92rem;color:var(--navy);line-height:1.5}
-  .tool-check.checked{border-color:var(--blue);background:rgba(99,102,241,.06)}
-  .tool-score{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--gray);margin-top:.8rem;font-weight:500}
-  .tool-score strong{color:var(--navy);font-weight:700;font-size:.95rem;letter-spacing:-.2px}
-  .tool-result{margin-top:1rem;padding:1rem 1.2rem;border-radius:12px;font-size:.95rem;line-height:1.55;display:none;animation:fadeUp .3s ease}
-  .tool-result.shown{display:block}
-  .tool-result.html{background:var(--green-soft);border:1px solid var(--green);color:var(--navy)}
-  .tool-result.storyline{background:rgba(99,102,241,.08);border:1px solid var(--blue-light);color:var(--navy)}
-  .tool-result strong{font-weight:700;color:var(--navy)}
-  .tool-result-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;padding:.25em .65em;border-radius:5px;margin-right:.6rem;vertical-align:middle}
-  .tool-result.html .tool-result-tag{background:var(--green-ink)}
-  .tool-result.storyline .tool-result-tag{background:var(--blue)}
-
-  /* ---------- Game Analyzer (Día 3 · sec 1) ---------- */
-  .analyzer{margin-top:.8rem}
-  .analyzer-tabs{display:flex;gap:.4rem;margin-bottom:.9rem;flex-wrap:wrap}
-  .analyzer-tab{background:var(--surface);border:1.5px solid var(--gray-light);border-radius:10px;padding:.55rem .9rem;cursor:pointer;font-family:inherit;font-size:.85rem;font-weight:600;color:var(--gray);transition:all .2s;display:flex;flex-direction:column;gap:.1rem;text-align:left}
-  .analyzer-tab:hover{border-color:var(--blue-light)}
-  .analyzer-tab.active{border-color:var(--blue);background:rgba(99,102,241,.06);color:var(--navy)}
-  .analyzer-tab small{font-size:9.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--blue-light)}
-  .analyzer-layers{display:flex;flex-direction:column;gap:.55rem}
-  .analyzer-layer{background:var(--surface);border:1.5px solid var(--gray-light);border-left-width:4px;border-radius:0 10px 10px 0;padding:.8rem 1rem;cursor:pointer;transition:all .2s}
-  .analyzer-layer[data-layer="m"]{border-left-color:#F02850}
-  .analyzer-layer[data-layer="d"]{border-left-color:#00C88C}
-  .analyzer-layer[data-layer="a"]{border-left-color:#8228C8}
-  .analyzer-layer:hover{box-shadow:var(--shadow-card)}
-  .analyzer-layer-head{display:flex;align-items:center;gap:.6rem;font-weight:700;color:var(--navy);font-size:.92rem}
-  .analyzer-layer-badge{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:7px;color:#fff;font-weight:700;font-size:.85rem;flex:none}
-  .analyzer-layer[data-layer="m"] .analyzer-layer-badge{background:#F02850}
-  .analyzer-layer[data-layer="d"] .analyzer-layer-badge{background:#00C88C}
-  .analyzer-layer[data-layer="a"] .analyzer-layer-badge{background:#8228C8}
-  .analyzer-layer-arrow{margin-left:auto;color:var(--gray);font-size:.75rem;transition:transform .2s}
-  .analyzer-layer.open .analyzer-layer-arrow{transform:rotate(180deg)}
-  .analyzer-layer-body{font-size:.88rem;color:var(--navy);line-height:1.55;margin-top:.6rem;display:none}
-  .analyzer-layer.open .analyzer-layer-body{display:block;animation:fadeUp .3s ease}
-  .analyzer-layer-body strong{font-weight:700}
-
-  /* ---------- Gap Map (Día 3 · sec 2) ---------- */
-  .gapmap{margin-top:.8rem}
-  .gapmap-toggle{display:flex;background:var(--surface);border:1px solid var(--gray-light);border-radius:99px;padding:3px;margin:0 auto 1rem;width:fit-content}
-  .gapmap-btn{background:none;border:none;padding:.5rem 1.1rem;font:inherit;font-size:.85rem;font-weight:600;color:var(--gray);border-radius:99px;cursor:pointer;transition:all .2s}
-  .gapmap-btn.active[data-gap="before"]{background:var(--gray);color:#fff}
-  .gapmap-btn.active[data-gap="after"]{background:var(--green);color:#fff;box-shadow:0 2px 8px rgba(0,200,140,.3)}
-  .gapmap-panel{background:var(--surface);border:1px solid var(--gray-light);border-radius:12px;padding:1.1rem 1.2rem;transition:border-color .3s}
-  .gapmap-panel.after{border-color:var(--green)}
-  .gapmap-panel.before{border-color:var(--gray)}
-  .gapmap-rows{display:flex;flex-direction:column;gap:.7rem}
-  .gapmap-row{display:flex;gap:.7rem;align-items:flex-start}
-  .gapmap-row-label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#fff;padding:.25em .5em;border-radius:5px;flex:none;min-width:74px;text-align:center;margin-top:.1rem}
-  .gapmap-row[data-l="m"] .gapmap-row-label{background:#F02850}
-  .gapmap-row[data-l="d"] .gapmap-row-label{background:#00C88C}
-  .gapmap-row[data-l="a"] .gapmap-row-label{background:#8228C8}
-  .gapmap-row-text{flex:1;font-size:.9rem;color:var(--navy);line-height:1.5}
-  .gapmap-retention{margin-top:1rem;padding-top:.9rem;border-top:1px solid var(--gray-light);display:flex;align-items:center;gap:.7rem}
-  .gapmap-retention-label{font-size:.82rem;color:var(--gray);font-weight:600}
-  .gapmap-retention-bar{flex:1;height:12px;background:var(--gray-light);border-radius:99px;overflow:hidden}
-  .gapmap-retention-fill{height:100%;border-radius:99px;transition:width .6s cubic-bezier(.2,.7,.3,1)}
-  .gapmap-panel.before .gapmap-retention-fill{background:linear-gradient(90deg,#c0392b,#F02850)}
-  .gapmap-panel.after .gapmap-retention-fill{background:linear-gradient(90deg,#00C88C,#1EAADC)}
-  .gapmap-retention-val{font-size:1.1rem;font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums;letter-spacing:-.5px;min-width:44px;text-align:right}
-
-  /* ---------- Decision Tree (Día 3 · sec 3) ---------- */
-  .dtree{margin-top:.8rem}
-  .dtree-q{font-size:1rem;font-weight:600;color:var(--navy);line-height:1.5;margin-bottom:.9rem}
-  .dtree-q strong{font-weight:700}
-  .dtree-options{display:flex;flex-direction:column;gap:.5rem}
-  .dtree-opt{background:var(--surface);border:1.5px solid var(--gray-light);border-radius:10px;padding:.7rem 1rem;font:inherit;font-size:.92rem;color:var(--navy);text-align:left;cursor:pointer;transition:all .15s;width:100%}
-  .dtree-opt:hover{border-color:var(--blue);background:rgba(99,102,241,.04);transform:translateX(2px)}
-  .dtree-progress{font-size:.78rem;color:var(--gray);margin-bottom:.7rem;font-weight:600;letter-spacing:.3px}
-  .dtree-verdict{border-radius:12px;padding:1.1rem 1.2rem;animation:fadeUp .35s ease}
-  .dtree-verdict.si{background:var(--green-soft);border:1px solid var(--green)}
-  .dtree-verdict.no{background:#fde7eb;border:1px solid var(--pink)}
-  .dtree-verdict.partial{background:rgba(240,190,0,.1);border:1px solid #F0BE00}
-  .dtree-verdict-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;padding:.25em .7em;border-radius:5px;margin-bottom:.5rem}
-  .dtree-verdict.si .dtree-verdict-tag{background:var(--green-ink)}
-  .dtree-verdict.no .dtree-verdict-tag{background:#c0392b}
-  .dtree-verdict.partial .dtree-verdict-tag{background:#a16207}
-  .dtree-verdict-title{font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:.4rem;letter-spacing:-.3px}
-  .dtree-verdict-text{font-size:.92rem;color:var(--navy);line-height:1.6}
-  .dtree-verdict-text strong{font-weight:700}
-  .dtree-reset{margin-top:.9rem;background:none;border:1px solid var(--gray-light);color:var(--gray);font:inherit;font-size:.82rem;padding:.4rem .9rem;border-radius:8px;cursor:pointer;transition:all .2s}
-  .dtree-reset:hover{border-color:var(--blue);color:var(--blue)}
 
   /* ---------- Feedback Designer (Día 4 · sec 2) ---------- */
   .fbdes{margin-top:.8rem}
@@ -1752,6 +1593,17 @@
 /* ============================================================
    CONTENIDO DEL CURSO
    ============================================================ */
+/* ============================================================
+   DATOS VOLÁTILES — verificar/actualizar al sacar nueva versión
+   Un solo lugar para la fecha de vigencia de lo que cambia rápido
+   (planes gratis, límites y precios de herramientas de IA).
+   Cifras a revisar (grep): HeyGen ~3 video/mes · Kling ~66 créd/día ·
+   Gemini ~100 img/día · Firefly/Kling ~US$10 · Veo ~US$20 · Colossyan ~US$19.
+   ============================================================ */
+const VIGENCIA = "junio de 2026";        // forma larga (títulos)
+const VIGENCIA_CORTA = "jun 2026";       // forma corta (chips/desc)
+const VIGENCIA_PRECIOS = "mediados de 2026"; // referencia de precios
+
 const COURSE = {
   weeks:[
     {n:1, title:"Fundamentos: dirigir la IA", range:[1,5], accent:"#6366f1"},
@@ -1844,7 +1696,7 @@ const COURSE = {
           title:"El panorama gratuito hoy",
           concept:{
             eyebrow:"Sección 3 · El panorama gratuito",
-            title:"Qué podés hacer gratis en junio de 2026",
+            title:"Qué podés hacer gratis en "+VIGENCIA,
             punch:"Sí, gratis de verdad. Los planes gratuitos de hoy alcanzan para producir <strong>recursos reales para un curso</strong> — con límites que conviene conocer.",
             illo:"gratis"
           },
@@ -1860,7 +1712,7 @@ const COURSE = {
             dims:[
               {label:"Cómo se renueva", values:["Cada día (ej. ~100 imágenes/día)","Cada mes (cupo de créditos)","Una sola vez (tope de por vida)"]},
               {label:"Para qué sirve", values:["Producción continua y constante","Proyectos puntuales del mes","Probar la herramienta, no producir"]},
-              {label:"Ejemplos hoy (jun 2026)","values":["Google Gemini, Microsoft Designer","Ideogram, Leonardo, Kling","Algunos planes de Canva"]},
+              {label:"Ejemplos hoy ("+VIGENCIA_CORTA+")","values":["Google Gemini, Microsoft Designer","Ideogram, Leonardo, Kling","Algunos planes de Canva"]},
               {label:"Cuidado con","values":["Cola lenta en horas pico","Se agota a mitad de mes","No alcanza para un curso entero"]}
             ],
             columns:["Límite diario","Cupo mensual","Tope de por vida"],
@@ -2042,10 +1894,10 @@ const COURSE = {
             name:"Foco · Capacitadora · Formación y Desarrollo"
           },
           reading:`<p>Dos preguntas en una, Foco. Para la <strong>consistencia</strong>, tres técnicas: (1) reutilizá una <strong>«receta de estilo» fija</strong> —las mismas palabras de estilo/luz/paleta en todos los prompts—; (2) generá variaciones a partir de una imagen que te gustó con <span class="term" data-tip="Image-to-image: partís de una imagen existente y la herramienta genera variaciones manteniendo su estilo/composición. Leonardo y muchas otras lo permiten gratis.">image-to-image</span>; y (3) para personajes que se repiten, usá una imagen de referencia para mantener la cara.</p>
-<p>Para <strong>qué herramienta</strong>: hoy (jun 2026) no hay una sola mejor, hay una mejor por caso. <strong>Google Gemini</strong> (modelo Nano Banana) es el todoterreno de mayor volumen gratis y mejor realismo. <strong>Microsoft Designer</strong> (basado en DALL·E 3) no requiere casi nada y da generaciones lentas ilimitadas. <strong>Ideogram</strong> es el rey del <strong>texto dentro de la imagen</strong> (carteles, encabezados con palabras legibles). <strong>Adobe Firefly</strong> está entrenado para ser seguro para uso comercial. <strong>Leonardo</strong> brilla en image-to-image y estilos finos.</p>`,
+<p>Para <strong>qué herramienta</strong>: hoy (${VIGENCIA_CORTA}) no hay una sola mejor, hay una mejor por caso. <strong>Google Gemini</strong> (modelo Nano Banana) es el todoterreno de mayor volumen gratis y mejor realismo. <strong>Microsoft Designer</strong> (basado en DALL·E 3) no requiere casi nada y da generaciones lentas ilimitadas. <strong>Ideogram</strong> es el rey del <strong>texto dentro de la imagen</strong> (carteles, encabezados con palabras legibles). <strong>Adobe Firefly</strong> está entrenado para ser seguro para uso comercial. <strong>Leonardo</strong> brilla en image-to-image y estilos finos.</p>`,
           interactive:{
             type:"threeWayCompare", tag:"Elegí", title:"Qué herramienta gratis para qué caso",
-            desc:"Tocá cada necesidad y mirá cuál conviene. (Vigente a junio 2026 — verificá límites actuales antes de producir.)",
+            desc:"Tocá cada necesidad y mirá cuál conviene. (Vigente a "+VIGENCIA+" — verificá límites actuales antes de producir.)",
             dims:[
               {label:"Volumen y realismo general", values:["Google Gemini (Nano Banana): ~100/día, 4K","Microsoft Designer: lentas ilimitadas","Leonardo: ~15–35/día"]},
               {label:"Texto legible dentro de la imagen", values:["Ideogram: el mejor para carteles y palabras","Designer: aceptable","Gemini: bueno, mejorando"]},
@@ -2224,7 +2076,7 @@ const COURSE = {
 <p>Una nota clave para vos que trabajás con <span class="term" data-tip="LMS: Learning Management System. Moodle es uno. Algunas herramientas como Colossyan exportan directamente en formato SCORM, listo para subir al LMS.">Moodle</span>: <strong>Colossyan</strong> está pensado para L&D y <strong>exporta SCORM</strong>, lo que simplifica la integración. Tocá cada tipo para ver la herramienta gratis y su límite real hoy.</p>`,
           interactive:{
             type:"familyCards", tag:"Explorá", title:"Cuatro tipos de video IA",
-            desc:"Tocá cada uno para ver herramienta gratis y límites (vigente jun 2026 — verificá antes de producir).",
+            desc:"Tocá cada uno para ver herramienta gratis y límites (vigente "+VIGENCIA_CORTA+" — verificá antes de producir).",
             families:[
               {tag:"🗣️ Presentador / Avatar", color:"#006EA0", items:[
                 "Un avatar lee tu guion a cámara. Ideal para bienvenidas y explicaciones.",
@@ -2521,9 +2373,9 @@ ej. «Cuando termines el video, probá la primera respuesta en el simulador de a
             name:"Estudio · Capacitador · Formación y Desarrollo"
           },
           reading:`<p>Buena pregunta, Estudio, y la respuesta es un criterio, no una herramienta. <strong>Lo gratuito es el punto de partida y el foco de este curso</strong>: con eso aprendés, probás y producís la mayoría de tus recursos. Pagás cuando lo gratis choca contra una pared concreta, y solo en esa categoría. Cinco señales de que llegó el momento: topás los <strong>límites diarios</strong> seguido; te molesta la <strong>marca de agua</strong>; necesitás <strong>licencia comercial</strong> sin letra chica; te falta <strong>calidad o consistencia</strong> para un curso que importa; o el <strong>tiempo</strong> que perdés peleándola ya cuesta más que la suscripción.</p>
-<p>La regla de oro: pagás para <strong>escalar</strong> algo que ya sabés hacer, no para empezar. Y pagás por categoría, no todo junto — quizás te conviene pagar imagen y seguir con video gratis, o al revés. Abajo te dejo, por categoría, la opción con mejor relación precio-calidad para e-learning a mediados de 2026. <span class="term" data-tip="El mercado de herramientas de IA se mueve muy rápido: precios, planes y nombres cambian cada pocos meses. Tomá estos datos como referencia y verificá en la web oficial antes de pagar.">Ojo: precios y planes cambian rápido</span>, así que tomalo como referencia y confirmá antes de suscribirte.</p>`,
+<p>La regla de oro: pagás para <strong>escalar</strong> algo que ya sabés hacer, no para empezar. Y pagás por categoría, no todo junto — quizás te conviene pagar imagen y seguir con video gratis, o al revés. Abajo te dejo, por categoría, la opción con mejor relación precio-calidad para e-learning a ${VIGENCIA_PRECIOS}. <span class="term" data-tip="El mercado de herramientas de IA se mueve muy rápido: precios, planes y nombres cambian cada pocos meses. Tomá estos datos como referencia y verificá en la web oficial antes de pagar.">Ojo: precios y planes cambian rápido</span>, así que tomalo como referencia y confirmá antes de suscribirte.</p>`,
           interactive:{
-            type:"threeWayCompare", tag:"Compará", title:"Mejor relación precio-calidad por categoría (e-learning · mediados 2026)",
+            type:"threeWayCompare", tag:"Compará", title:"Mejor relación precio-calidad por categoría (e-learning · "+VIGENCIA_PRECIOS+")",
             desc:"Tocá cada categoría: qué usar gratis, qué conviene pagar y cuándo da el salto.",
             columns:["Imágenes","Video","Avatar + voz"],
             colColors:["#6366f1","#f59e0b","#10b981"],
@@ -3753,70 +3605,11 @@ function renderHome(){
 /* ============================================================
    RENDER — DÍA
    ============================================================ */
-function dayBody(d){
-  if(d.sections) return d.sections.map(s=>`<section class="block"><h2>${s.h}</h2>${s.html}</section>`).join("");
-  return `
-    <div class="note"><strong>Versión de muestra.</strong> Este día está listo en su temario; el contenido completo se desarrolla igual que el Día 1. Abajo, lo que vas a trabajar.</div>
-    <section class="block"><h2>Lo que vas a trabajar</h2><ul class="ticks">${d.outline.map(i=>`<li>${i}</li>`).join("")}</ul></section>`;
-}
 
 function renderDay(n){
-  const d=COURSE.days[n-1];
-  if(d.format==="v2") return renderDayV2(n);
-  return renderDayLegacy(n);
+  return renderDayV2(n);
 }
 
-function renderDayLegacy(n){
-  const d=COURSE.days[n-1], w=weekOf(n), done=isDone(n);
-  const hasQuiz=Array.isArray(d.quiz)&&d.quiz.length>0;
-  const passed=hasQuiz?quizPassed(n):true;
-
-  let completeBtn;
-  if(done){
-    completeBtn='<span class="btn btn-done">✓ Día completado</span>';
-  } else if(hasQuiz&&!passed){
-    completeBtn=`<button class="btn btn-primary" disabled title="Aprobá el quiz de cierre para habilitar">Marcar como completado</button>`;
-  } else {
-    completeBtn=`<button class="btn btn-primary" data-complete="${n}">Marcar como completado</button>`;
-  }
-  const prevBtn=n>1 ? `<a class="btn-link" href="#dia-${n-1}">← Día ${n-1}</a>` : `<a class="btn-link" href="#" data-home>← Índice</a>`;
-  let nextBtn="";
-  if(n<TOTAL){
-    nextBtn=done ? `<a class="btn btn-ghost" href="#dia-${n+1}">Día ${n+1} →</a>`
-                 : `<button class="btn btn-ghost" disabled title="Completá este día para continuar">Día ${n+1} →</button>`;
-  } else if(done){
-    nextBtn=`<a class="btn btn-ghost" href="#" data-home>Volver al índice →</a>`;
-  }
-
-  app.innerHTML=`
-    <div class="view">
-      <div class="day-wrap">
-        <a class="back" href="#" data-home>← Índice del programa</a>
-        <header class="day-header">
-          <p class="eyebrow">Semana ${w.n} · Día ${n} de ${TOTAL}</p>
-          <h1 class="day-title">${d.title}</h1>
-          <div class="day-meta">
-            <span>⏱ ${d.duration}</span><span class="dot"></span><span>${w.title}</span>
-          </div>
-        </header>
-        ${d.lead?`<p class="day-lead">${d.lead}</p>`:""}
-        ${dayBody(d)}
-        <aside class="deliverable">
-          <p class="deliverable-tag">Entregable del día</p>
-          <p class="deliverable-text">${d.deliverable}</p>
-          ${d.deliverableNote?`<p class="deliverable-note">${d.deliverableNote}</p>`:""}
-        </aside>
-        <nav class="daynav">
-          ${prevBtn}<span class="spacer"></span>${completeBtn}${nextBtn}
-        </nav>
-      </div>
-    </div>`;
-
-  const btn=app.querySelector("[data-complete]");
-  if(btn) btn.addEventListener("click",()=>{ state.completed.add(n); saveProgress(); updateTopbar(); renderDay(n); });
-
-  initInteractives(n);
-}
 
 /* ============================================================
    STATE: SECTIONS V2 (disclosure progresivo)
@@ -4055,41 +3848,9 @@ function renderInteractiveV2(int, dayN, secIdx){
   if(!int) return '';
   const head=`<p class="interactive-tag">${int.tag}</p><h3>${int.title}</h3><p class="interactive-desc">${int.desc}</p>`;
   let body='';
-  if(int.type==='curve'){ body = renderCurveSvg(); }
-  else if(int.type==='dnd'){ body = `<div class="dnd-v2"><div class="dnd-pool-v2" id="dnd-pool-${secIdx}"><p class="pool-label">Por clasificar</p></div><div class="dnd-zones-v2"><div class="dnd-zone-v2 cog" data-zone="cog"><p class="zone-label cog">Cognitiva — la mecánica enseña</p></div><div class="dnd-zone-v2 cos" data-zone="cos"><p class="zone-label cos">Cosmética — recompensa pegada encima</p></div></div></div><p class="dnd-feedback-v2" id="dnd-feedback-${secIdx}" aria-live="polite">Arrastrá los seis ítems.</p>`; }
-  else if(int.type==='mda'){ body = `<div class="mda-grid"><button class="mda-card" data-mda="mecanica" type="button"><div class="mda-card-letter">M</div><div class="mda-card-name">Mecánica</div></button><button class="mda-card" data-mda="dinamica" type="button"><div class="mda-card-letter">D</div><div class="mda-card-name">Dinámica</div></button><button class="mda-card" data-mda="estetica" type="button"><div class="mda-card-letter">A</div><div class="mda-card-name">Estética</div></button></div><div class="mda-detail" id="mda-detail-${secIdx}">Hacé click en una de las tres letras para ver qué incluye.</div>`; }
-  else if(int.type==='fourCheck'){ body = `<div class="cond-grid"><button class="cond-card" data-cond="0" type="button"><div class="cond-card-head"><span class="cond-card-num">1</span><span>Feedback inmediato y específico</span></div><p class="cond-card-ex">El juego responde a cada decisión, no recién al final. <strong>Ejemplo:</strong> en Duolingo, cada respuesta se evalúa en el momento — no esperás al cierre del módulo.</p></button><button class="cond-card" data-cond="1" type="button"><div class="cond-card-head"><span class="cond-card-num">2</span><span>Dificultad calibrada (zona de flow)</span></div><p class="cond-card-ex">Ni tan fácil que aburra, ni tan difícil que frustre. <strong>Ejemplo:</strong> los puzzles de Foldit ajustan su dificultad a tu nivel de juego previo.</p></button><button class="cond-card" data-cond="2" type="button"><div class="cond-card-head"><span class="cond-card-num">3</span><span>Consecuencias significativas</span></div><p class="cond-card-ex">Las decisiones importan y cambian lo que pasa. <strong>Ejemplo:</strong> en un escenario de atención al cliente, lo que elegís ramifica la conversación en vez de volverte al mismo lugar.</p></button><button class="cond-card" data-cond="3" type="button"><div class="cond-card-head"><span class="cond-card-num">4</span><span>Repetición voluntaria</span></div><p class="cond-card-ex">Querés volver a intentar, y ahí ocurre el repaso espaciado. <strong>Ejemplo:</strong> Habitica te invita a hacer las tareas hoy y mañana sin presionarte — el ciclo es atractivo.</p></button></div>`; }
-  else if(int.type==='scenario'){ body = `<div class="scenario" data-scenario><div class="scenario-setup">${int.scenario.setup}</div><div class="scenario-stage" data-stage></div></div>`; }
+  if(int.type==='scenario'){ body = `<div class="scenario" data-scenario><div class="scenario-setup">${int.scenario.setup}</div><div class="scenario-stage" data-stage></div></div>`; }
   else if(int.type==='familyCards'){
     body = `<div class="family-grid">${int.families.map((f,i)=>`<button class="family-card" data-family="${i}" type="button" style="--accent:${f.color};border-left-color:${f.color};border-left-width:5px"><div class="family-card-head"><span>${f.tag}</span><span class="family-card-arrow">▼</span></div><ul class="family-card-items">${f.items.map(it=>`<li>${it}</li>`).join("")}</ul></button>`).join("")}</div>`;
-  }
-  else if(int.type==='bartle'){
-    body = `<div class="bartle-wrap"><svg class="bartle-svg" viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cuadrante de Bartle">
-      <text x="250" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#666" letter-spacing="2">ACTUAR</text>
-      <text x="250" y="370" text-anchor="middle" font-size="11" font-weight="700" fill="#666" letter-spacing="2">INTERACTUAR</text>
-      <text x="30" y="195" text-anchor="middle" font-size="11" font-weight="700" fill="#666" letter-spacing="2" transform="rotate(-90 30 195)">MUNDO</text>
-      <text x="480" y="195" text-anchor="middle" font-size="11" font-weight="700" fill="#666" letter-spacing="2" transform="rotate(90 480 195)">PERSONAS</text>
-      <g class="bartle-quad" data-bartle="achiever"><rect x="60" y="35" width="190" height="155" rx="14" fill="#097bb3" fill-opacity=".12" stroke="#097bb3" stroke-width="2.5"/><text x="155" y="105" text-anchor="middle" font-size="30">⭐</text><text x="155" y="138" text-anchor="middle" font-size="15" font-weight="700" fill="#1f2d46">Logrador</text><text x="155" y="160" text-anchor="middle" font-size="10" fill="#666">actuar · mundo</text></g>
-      <g class="bartle-quad" data-bartle="killer"><rect x="250" y="35" width="190" height="155" rx="14" fill="#F02850" fill-opacity=".12" stroke="#F02850" stroke-width="2.5"/><text x="345" y="105" text-anchor="middle" font-size="30">🏆</text><text x="345" y="138" text-anchor="middle" font-size="15" font-weight="700" fill="#1f2d46">Competidor</text><text x="345" y="160" text-anchor="middle" font-size="10" fill="#666">actuar · personas</text></g>
-      <g class="bartle-quad" data-bartle="explorer"><rect x="60" y="190" width="190" height="155" rx="14" fill="#8228C8" fill-opacity=".12" stroke="#8228C8" stroke-width="2.5"/><text x="155" y="260" text-anchor="middle" font-size="30">🔍</text><text x="155" y="293" text-anchor="middle" font-size="15" font-weight="700" fill="#1f2d46">Explorador</text><text x="155" y="315" text-anchor="middle" font-size="10" fill="#666">interactuar · mundo</text></g>
-      <g class="bartle-quad" data-bartle="socializer"><rect x="250" y="190" width="190" height="155" rx="14" fill="#00C88C" fill-opacity=".12" stroke="#00C88C" stroke-width="2.5"/><text x="345" y="260" text-anchor="middle" font-size="30">💬</text><text x="345" y="293" text-anchor="middle" font-size="15" font-weight="700" fill="#1f2d46">Social</text><text x="345" y="315" text-anchor="middle" font-size="10" fill="#666">interactuar · personas</text></g>
-    </svg><div class="bartle-detail" id="bartle-detail-${secIdx}"><p class="bartle-detail-empty">Hacé click en un cuadrante para ver el perfil, ejemplos del equipo tu organización, y qué mecánicas le funcionan.</p></div></div>`;
-  }
-  else if(int.type==='retailPrinciples'){
-    body = `<div class="principles-grid">${int.principles.map((p,i)=>`<button class="family-card" data-principle="${i}" type="button" style="--accent:${p.color};border-left-color:${p.color};border-left-width:5px"><div class="family-card-head"><span>${p.tag}</span><span class="family-card-arrow">▼</span></div><p class="principle-card-text">${p.text}</p></button>`).join("")}</div>`;
-  }
-  else if(int.type==='toolPicker'){
-    body = `<div class="tool-picker">${int.checks.map((c,i)=>`<label class="tool-check" data-tool="${i}" data-weight="${c.html}"><input type="checkbox"><span>${c.label}</span></label>`).join("")}<p class="tool-score" id="tool-score-${secIdx}"></p><div class="tool-result" id="tool-result-${secIdx}"></div></div>`;
-  }
-  else if(int.type==='gameAnalyzer'){
-    const tabs=int.games.map((g,i)=>`<button class="analyzer-tab${i===0?' active':''}" data-game="${i}" type="button"><small>${g.tag}</small>${g.name}</button>`).join("");
-    body = `<div class="analyzer"><div class="analyzer-tabs">${tabs}</div><div class="analyzer-layers" id="analyzer-layers-${secIdx}"></div></div>`;
-  }
-  else if(int.type==='gapMap'){
-    body = `<div class="gapmap"><div class="gapmap-toggle"><button class="gapmap-btn active" data-gap="before" type="button">${int.before.label}</button><button class="gapmap-btn" data-gap="after" type="button">${int.after.label}</button></div><div class="gapmap-panel before" id="gapmap-panel-${secIdx}"></div></div>`;
-  }
-  else if(int.type==='decisionTree'){
-    body = `<div class="dtree" id="dtree-${secIdx}"></div>`;
   }
   else if(int.type==='feedbackDesigner'){
     const tabs=int.cases.map((c,i)=>`<button class="fbdes-tab${i===0?' active':''}" data-fb="${i}" type="button" style="border-bottom-color:${c.color}">${c.tag}</button>`).join("");
@@ -4124,53 +3885,6 @@ function renderInteractiveV2(int, dayN, secIdx){
   return `<div class="interactive" data-interactive="${int.type}" data-int-section="${secIdx}">${head}${body}</div>`;
 }
 
-function renderCurveSvg(){
-  return `<svg class="curve-svg" viewBox="0 0 540 280" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="gradNoX" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F02850" stop-opacity=".25"/><stop offset="100%" stop-color="#F02850" stop-opacity="0"/></linearGradient>
-      <linearGradient id="gradYesX" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#00C88C" stop-opacity=".22"/><stop offset="100%" stop-color="#00C88C" stop-opacity="0"/></linearGradient>
-    </defs>
-    <line x1="50" y1="240" x2="510" y2="240" stroke="#97a5be" stroke-width="1.2"/>
-    <line x1="50" y1="20" x2="50" y2="240" stroke="#97a5be" stroke-width="1.2"/>
-    <line x1="50" y1="64" x2="510" y2="64" stroke="#d8dff0" stroke-width=".8" stroke-dasharray="3,3"/>
-    <line x1="50" y1="108" x2="510" y2="108" stroke="#d8dff0" stroke-width=".8" stroke-dasharray="3,3"/>
-    <line x1="50" y1="152" x2="510" y2="152" stroke="#d8dff0" stroke-width=".8" stroke-dasharray="3,3"/>
-    <line x1="50" y1="196" x2="510" y2="196" stroke="#d8dff0" stroke-width=".8" stroke-dasharray="3,3"/>
-    <text x="42" y="24" text-anchor="end" font-size="10" fill="#97a5be">100%</text>
-    <text x="42" y="68" text-anchor="end" font-size="10" fill="#97a5be">75%</text>
-    <text x="42" y="112" text-anchor="end" font-size="10" fill="#97a5be">50%</text>
-    <text x="42" y="156" text-anchor="end" font-size="10" fill="#97a5be">25%</text>
-    <text x="42" y="244" text-anchor="end" font-size="10" fill="#97a5be">0%</text>
-    <text x="50" y="258" text-anchor="middle" font-size="10" fill="#97a5be">0</text>
-    <text x="142" y="258" text-anchor="middle" font-size="10" fill="#97a5be">1</text>
-    <text x="234" y="258" text-anchor="middle" font-size="10" fill="#97a5be">2</text>
-    <text x="326" y="258" text-anchor="middle" font-size="10" fill="#97a5be">5</text>
-    <text x="418" y="258" text-anchor="middle" font-size="10" fill="#97a5be">10</text>
-    <text x="510" y="258" text-anchor="middle" font-size="10" fill="#97a5be">30</text>
-    <text x="280" y="274" text-anchor="middle" font-size="10.5" fill="#97a5be" font-weight="600">Días desde el aprendizaje</text>
-    <path d="M 50 22 Q 90 80, 142 130 T 234 178 T 326 210 T 418 224 T 510 232 L 510 240 L 50 240 Z" fill="url(#gradNoX)"/>
-    <path d="M 50 22 Q 90 80, 142 130 T 234 178 T 326 210 T 418 224 T 510 232" fill="none" stroke="#F02850" stroke-width="2.4" stroke-linecap="round"/>
-    <g class="curve-yes" opacity="0">
-      <path d="M 50 22 Q 90 80, 142 130 L 142 60 Q 188 75, 234 95 L 234 50 Q 280 62, 326 78 L 326 40 Q 372 50, 418 65 L 418 35 Q 464 42, 510 55 L 510 240 L 50 240 Z" fill="url(#gradYesX)"/>
-      <path d="M 50 22 Q 90 80, 142 130 L 142 60 Q 188 75, 234 95 L 234 50 Q 280 62, 326 78 L 326 40 Q 372 50, 418 65 L 418 35 Q 464 42, 510 55" fill="none" stroke="#00C88C" stroke-width="2.4" stroke-linecap="round"/>
-      <circle cx="142" cy="60" r="4" fill="#00C88C"/>
-      <circle cx="234" cy="50" r="4" fill="#00C88C"/>
-      <circle cx="326" cy="40" r="4" fill="#00C88C"/>
-      <circle cx="418" cy="35" r="4" fill="#00C88C"/>
-      <text x="142" y="48" text-anchor="middle" font-size="9" fill="#00795a" font-weight="600">repaso</text>
-    </g>
-  </svg>
-  <div class="curve-controls">
-    <div class="toggle-group" role="tablist">
-      <button class="toggle-btn active" data-curve="no" type="button">Sin refuerzo</button>
-      <button class="toggle-btn" data-curve="yes" type="button">Con refuerzo espaciado</button>
-    </div>
-  </div>
-  <div class="curve-legend">
-    <span><span style="width:14px;height:3px;border-radius:2px;display:inline-block;background:#F02850"></span>Olvido natural</span>
-    <span><span style="width:14px;height:3px;border-radius:2px;display:inline-block;background:#00C88C"></span>Retención con repaso</span>
-  </div>`;
-}
 
 /* ============================================================
    INTERACTIVES V2
@@ -4185,18 +3899,8 @@ function initInteractivesV2(dayN){
     if(!block) continue;
     const type=block.dataset.interactive;
     const alreadyDone=isSectionDone(dayN,i);
-    if(type==='curve') initCurveV2(block,dayN,i,alreadyDone);
-    else if(type==='dnd') initDndV2(block,dayN,i,sec.interactive.items,alreadyDone);
-    else if(type==='mda') initMdaV2(block,dayN,i,alreadyDone);
-    else if(type==='fourCheck') initFourCheckV2(block,dayN,i,alreadyDone);
-    else if(type==='scenario') initScenarioV2(block,dayN,i,sec.interactive.scenario,alreadyDone);
+    if(type==='scenario') initScenarioV2(block,dayN,i,sec.interactive.scenario,alreadyDone);
     else if(type==='familyCards') initFamilyCardsV2(block,dayN,i,sec.interactive.families,alreadyDone);
-    else if(type==='bartle') initBartleV2(block,dayN,i,alreadyDone);
-    else if(type==='retailPrinciples') initRetailV2(block,dayN,i,alreadyDone);
-    else if(type==='toolPicker') initToolPickerV2(block,dayN,i,sec.interactive.checks,alreadyDone);
-    else if(type==='gameAnalyzer') initGameAnalyzerV2(block,dayN,i,sec.interactive.games,alreadyDone);
-    else if(type==='gapMap') initGapMapV2(block,dayN,i,sec.interactive,alreadyDone);
-    else if(type==='decisionTree') initDecisionTreeV2(block,dayN,i,sec.interactive.tree,alreadyDone);
     else if(type==='feedbackDesigner') initFeedbackDesignerV2(block,dayN,i,sec.interactive.cases,alreadyDone);
     else if(type==='difficultyRamp') initDifficultyRampV2(block,dayN,i,sec.interactive.phases,alreadyDone);
     else if(type==='promptBuilder') initPromptBuilderV2(block,dayN,i,alreadyDone);
@@ -4249,166 +3953,6 @@ function updateSofiaFeedback(dayN, secIdx, performance){
   }
 }
 
-function initCurveV2(block,dayN,secIdx,alreadyDone){
-  const btns=block.querySelectorAll('.toggle-btn');
-  const yesG=block.querySelector('.curve-yes');
-  const clicked=new Set();
-  let interacted=alreadyDone;
-  btns.forEach(b=>{
-    b.addEventListener('click',()=>{
-      btns.forEach(x=>x.classList.remove('active'));
-      b.classList.add('active');
-      if(b.dataset.curve==='yes'){ yesG.style.transition='opacity .5s'; yesG.style.opacity='1'; }
-      else { yesG.style.opacity='0'; }
-      clicked.add(b.dataset.curve);
-      if(!interacted){
-        interacted=true;
-        const perf = clicked.size===2 ? 'curious' : 'default';
-        showSectionExtras(dayN,secIdx,perf);
-      } else if(clicked.size===2){
-        updateSofiaFeedback(dayN,secIdx,'curious');
-      }
-    });
-  });
-}
-
-function initDndV2(block,dayN,secIdx,items,alreadyDone){
-  const pool=block.querySelector('.dnd-pool-v2');
-  const zones=block.querySelectorAll('.dnd-zone-v2');
-  const feedback=block.querySelector('.dnd-feedback-v2');
-  const shuffled=[...items].sort(()=>Math.random()-0.5);
-  shuffled.forEach(item=>{
-    const el=document.createElement('div');
-    el.className='dnd-item-v2';
-    el.draggable=true;
-    el.dataset.id=item.id;
-    el.dataset.cat=item.cat;
-    el.textContent=item.text;
-    pool.appendChild(el);
-  });
-  let dragged=null, firstTry=true, completed=alreadyDone;
-  const allItems=block.querySelectorAll('.dnd-item-v2');
-  allItems.forEach(it=>{
-    it.addEventListener('dragstart',e=>{
-      dragged=it; it.classList.add('dragging');
-      e.dataTransfer.effectAllowed='move';
-      e.dataTransfer.setData('text/plain',it.dataset.id);
-    });
-    it.addEventListener('dragend',()=>{ it.classList.remove('dragging'); dragged=null; });
-    let touchClone=null, offX=0, offY=0;
-    it.addEventListener('touchstart',e=>{
-      const t=e.touches[0], r=it.getBoundingClientRect();
-      offX=t.clientX-r.left; offY=t.clientY-r.top;
-      dragged=it; it.classList.add('dragging');
-    },{passive:true});
-    it.addEventListener('touchmove',e=>{
-      if(!dragged) return; e.preventDefault();
-      const t=e.touches[0];
-      if(!touchClone){
-        touchClone=it.cloneNode(true);
-        touchClone.style.position='fixed';
-        touchClone.style.zIndex='9999';
-        touchClone.style.pointerEvents='none';
-        touchClone.style.width=it.offsetWidth+'px';
-        touchClone.style.opacity='.85';
-        document.body.appendChild(touchClone);
-      }
-      touchClone.style.left=(t.clientX-offX)+'px';
-      touchClone.style.top=(t.clientY-offY)+'px';
-      zones.forEach(z=>z.classList.remove('dragover'));
-      const el=document.elementFromPoint(t.clientX,t.clientY);
-      const z=el?el.closest('.dnd-zone-v2'):null;
-      if(z) z.classList.add('dragover');
-    },{passive:false});
-    it.addEventListener('touchend',e=>{
-      if(!dragged) return;
-      const t=e.changedTouches[0];
-      const el=document.elementFromPoint(t.clientX,t.clientY);
-      const z=el?el.closest('.dnd-zone-v2'):null;
-      zones.forEach(zn=>zn.classList.remove('dragover'));
-      if(touchClone){ touchClone.remove(); touchClone=null; }
-      it.classList.remove('dragging');
-      if(z) drop(it,z);
-      dragged=null;
-    });
-  });
-  zones.forEach(z=>{
-    z.addEventListener('dragover',e=>{ e.preventDefault(); z.classList.add('dragover'); });
-    z.addEventListener('dragleave',()=>z.classList.remove('dragover'));
-    z.addEventListener('drop',e=>{
-      e.preventDefault(); z.classList.remove('dragover');
-      if(!dragged) return;
-      drop(dragged,z);
-    });
-  });
-  function drop(item,zone){
-    const correct=item.dataset.cat===zone.dataset.zone;
-    if(correct){
-      item.classList.remove('incorrect');
-      item.classList.add('correct');
-      item.draggable=false;
-      zone.appendChild(item);
-      sfx.dropCorrect();
-    } else {
-      item.classList.add('incorrect');
-      firstTry=false;
-      sfx.dropIncorrect();
-      setTimeout(()=>item.classList.remove('incorrect'),600);
-    }
-    update();
-  }
-  function update(){
-    const correct=block.querySelectorAll('.dnd-item-v2.correct').length;
-    if(correct===items.length){
-      feedback.textContent='¡Listo! Los seis están bien clasificados.';
-      feedback.classList.add('done');
-      if(!completed){
-        completed=true;
-        const perf = firstTry ? 'allCorrect' : 'mixed';
-        showSectionExtras(dayN,secIdx,perf);
-      }
-    } else {
-      feedback.textContent=`Llevás ${correct} de ${items.length} bien clasificados.`;
-    }
-  }
-}
-
-function initMdaV2(block,dayN,secIdx,alreadyDone){
-  const detail=block.querySelector('.mda-detail');
-  const cards=block.querySelectorAll('.mda-card');
-  const visited=new Set();
-  let completed=alreadyDone;
-  const data={
-    mecanica:{title:'Mecánica',text:'Las reglas y los componentes del juego: puntos, turnos, vidas, decisiones, mapas. <strong>Lo que el diseñador construye directamente.</strong> Es el nivel más concreto.'},
-    dinamica:{title:'Dinámica',text:'El comportamiento que emerge cuando alguien juega: tensión, estrategia, exploración, competencia. <strong>No la diseñás directamente: la provocás eligiendo bien la mecánica.</strong>'},
-    estetica:{title:'Estética',text:'La experiencia y la emoción resultante: desafío, descubrimiento, dominio, fantasía, narrativa. <strong>Es donde vive el aprendizaje. Empezá el diseño acá.</strong>'}
-  };
-  cards.forEach(c=>{
-    c.addEventListener('click',()=>{
-      cards.forEach(x=>x.classList.remove('active'));
-      c.classList.add('active');
-      const key=c.dataset.mda;
-      visited.add(key);
-      const d=data[key];
-      detail.innerHTML=`<strong>${d.title}.</strong> ${d.text}`;
-      if(visited.size===3 && !completed){ completed=true; showSectionExtras(dayN,secIdx,'default'); }
-    });
-  });
-}
-
-function initFourCheckV2(block,dayN,secIdx,alreadyDone){
-  const cards=block.querySelectorAll('.cond-card');
-  const opened=new Set();
-  let completed=alreadyDone;
-  cards.forEach(c=>{
-    c.addEventListener('click',()=>{
-      c.classList.toggle('open');
-      opened.add(c.dataset.cond);
-      if(opened.size===4 && !completed){ completed=true; showSectionExtras(dayN,secIdx,'default'); }
-    });
-  });
-}
-
 function initFamilyCardsV2(block,dayN,secIdx,families,alreadyDone){
   const cards=block.querySelectorAll('.family-card');
   const visited=new Set();
@@ -4421,185 +3965,6 @@ function initFamilyCardsV2(block,dayN,secIdx,families,alreadyDone){
       else if(visited.size>=2 && !completed){ completed=true; showSectionExtras(dayN,secIdx,'default'); }
     });
   });
-}
-
-function initBartleV2(block,dayN,secIdx,alreadyDone){
-  const detail=block.querySelector('.bartle-detail');
-  const quads=block.querySelectorAll('.bartle-quad');
-  const visited=new Set();
-  let completed=alreadyDone;
-  const data={
-    achiever:{icon:'⭐',name:'Logrador',color:'#097bb3',desc:'Busca <strong>completar, dominar, acumular</strong> evidencia de progreso.',examples:'En tu equipo: el que mira métricas y dice "ya hice 8 de 10". El que termina cursos por el certificado.',mechanics:'Niveles, retos progresivos, criterios claros de dominio, badges anclados a competencia real.'},
-    killer:{icon:'🏆',name:'Competidor',color:'#F02850',desc:'Busca <strong>medirse contra otros</strong>. Gana al verse mejor.',examples:'El que mira el ranking y dice "a ver cuánto sacaste vos". El que toma cualquier marcador como duelo.',mechanics:'Rankings (con cuidado), torneos, comparativas — siempre que reflejen dominio real.'},
-    explorer:{icon:'🔍',name:'Explorador',color:'#8228C8',desc:'Disfruta <strong>descubrir, conectar piezas, entender el sistema</strong>.',examples:'El que lee toda la documentación. El que pregunta "¿y si hago esto?" en lugar de seguir el camino marcado.',mechanics:'Ramificaciones, mapas conceptuales, casos abiertos, sandbox, easter eggs.'},
-    socializer:{icon:'💬',name:'Social',color:'#00C88C',desc:'Aprende mejor <strong>con otras personas</strong>.',examples:'El que arma grupo de estudio. El que aprende explicándole al de al lado.',mechanics:'Discusiones, trabajo en equipo, role-play, casos compartidos, peer-review.'}
-  };
-  quads.forEach(q=>{
-    q.addEventListener('click',()=>{
-      quads.forEach(x=>x.classList.remove('active'));
-      q.classList.add('active');
-      const k=q.dataset.bartle;
-      visited.add(k);
-      const d=data[k];
-      detail.style.borderLeftColor=d.color;
-      detail.innerHTML=`<div class="bartle-d-name"><span class="bartle-d-name-icon">${d.icon}</span><span>${d.name}</span></div><div class="bartle-d-row"><span class="bartle-d-label">Busca</span><span class="bartle-d-text">${d.desc}</span></div><div class="bartle-d-row"><span class="bartle-d-label">En el equipo</span><span class="bartle-d-text">${d.examples}</span></div><div class="bartle-d-row"><span class="bartle-d-label">Mecánicas</span><span class="bartle-d-text">${d.mechanics}</span></div>`;
-      if(visited.size===4 && !completed){ completed=true; showSectionExtras(dayN,secIdx,'allFour'); }
-      else if(visited.size>=2 && !completed){ completed=true; showSectionExtras(dayN,secIdx,'default'); }
-    });
-  });
-}
-
-function initRetailV2(block,dayN,secIdx,alreadyDone){
-  const cards=block.querySelectorAll('.family-card');
-  const visited=new Set();
-  let completed=alreadyDone;
-  cards.forEach(c=>{
-    c.addEventListener('click',()=>{
-      c.classList.toggle('open');
-      visited.add(c.dataset.principle);
-      if(visited.size>=3 && !completed){ completed=true; showSectionExtras(dayN,secIdx,'default'); }
-    });
-  });
-}
-
-function initToolPickerV2(block,dayN,secIdx,checks,alreadyDone){
-  const items=block.querySelectorAll('.tool-check');
-  const score=block.querySelector('.tool-score');
-  const result=block.querySelector('.tool-result');
-  let completed=alreadyDone;
-  let interactions=0;
-  function update(){
-    let htmlScore=0, totalChecked=0;
-    items.forEach((it,i)=>{
-      const checked=it.querySelector('input').checked;
-      it.classList.toggle('checked',checked);
-      if(checked){ totalChecked++; htmlScore+=parseInt(it.dataset.weight,10)||0; }
-    });
-    if(totalChecked===0){ score.textContent=''; result.classList.remove('shown'); return; }
-    score.innerHTML=`Características marcadas: <strong>${totalChecked}</strong> · Puntaje de complejidad: <strong>${htmlScore}</strong>`;
-    let cls, msg;
-    if(htmlScore>=3){
-      cls='html';
-      msg=`<span class="tool-result-tag">HTML</span><strong>Conviene HTML con Claude.</strong> La mecánica que pensaste tiene lógica conectada, narrativa con estados o animaciones específicas. Storyline va a quedar corto o se va a volver inmantenible.`;
-    } else if(htmlScore>=2){
-      cls='html';
-      msg=`<span class="tool-result-tag">HTML</span><strong>Storyline puede, pero HTML te da más respiro.</strong> Hay 2+ características de complejidad. Si tenés el tiempo y querés algo robusto, HTML.`;
-    } else {
-      cls='storyline';
-      msg=`<span class="tool-result-tag">Storyline</span><strong>Storyline alcanza.</strong> Tu mecánica entra en lo que Storyline maneja bien: quizzes, capas, variables simples, ramificaciones cortas. No hay razón para complicarlo con HTML.`;
-    }
-    result.className='tool-result shown '+cls;
-    result.innerHTML=msg;
-  }
-  items.forEach(it=>{
-    it.addEventListener('click',e=>{
-      const inp=it.querySelector('input');
-      if(e.target!==inp) inp.checked=!inp.checked;
-      interactions++;
-      update();
-      if(interactions>=2 && !completed){ completed=true; showSectionExtras(dayN,secIdx,'default'); }
-    });
-  });
-}
-
-function initGameAnalyzerV2(block,dayN,secIdx,games,alreadyDone){
-  const tabs=block.querySelectorAll('.analyzer-tab');
-  const layersEl=block.querySelector('.analyzer-layers');
-  const gamesOpened=new Set();
-  let completed=alreadyDone;
-  const layerMeta={m:{badge:'M',name:'Mecánica'},d:{badge:'D',name:'Dinámica'},a:{badge:'A',name:'Estética'}};
-  function renderGame(gi){
-    const g=games[gi];
-    layersEl.innerHTML=['m','d','a'].map(l=>`
-      <div class="analyzer-layer" data-layer="${l}">
-        <div class="analyzer-layer-head"><span class="analyzer-layer-badge">${layerMeta[l].badge}</span><span>${layerMeta[l].name}</span><span class="analyzer-layer-arrow">▼</span></div>
-        <div class="analyzer-layer-body">${g[l]}</div>
-      </div>`).join("");
-    layersEl.querySelectorAll('.analyzer-layer').forEach(layer=>{
-      layer.addEventListener('click',()=>{
-        layer.classList.toggle('open');
-        gamesOpened.add(gi);
-        if(gamesOpened.size>=games.length && !completed){ completed=true; showSectionExtras(dayN,secIdx,'allThree'); }
-        else if(!completed && layersEl.querySelectorAll('.analyzer-layer.open').length>=2){ completed=true; showSectionExtras(dayN,secIdx,'default'); }
-      });
-    });
-  }
-  tabs.forEach(t=>{
-    t.addEventListener('click',()=>{
-      tabs.forEach(x=>x.classList.remove('active'));
-      t.classList.add('active');
-      renderGame(parseInt(t.dataset.game,10));
-    });
-  });
-  renderGame(0);
-}
-
-function initGapMapV2(block,dayN,secIdx,data,alreadyDone){
-  const btns=block.querySelectorAll('.gapmap-btn');
-  const panel=block.querySelector('.gapmap-panel');
-  const seen=new Set();
-  let completed=alreadyDone;
-  function render(which){
-    const d=data[which];
-    panel.className='gapmap-panel '+which;
-    panel.innerHTML=`
-      <div class="gapmap-rows">
-        <div class="gapmap-row" data-l="m"><span class="gapmap-row-label">Mecánica</span><span class="gapmap-row-text">${d.m}</span></div>
-        <div class="gapmap-row" data-l="d"><span class="gapmap-row-label">Dinámica</span><span class="gapmap-row-text">${d.d}</span></div>
-        <div class="gapmap-row" data-l="a"><span class="gapmap-row-label">Estética</span><span class="gapmap-row-text">${d.a}</span></div>
-      </div>
-      <div class="gapmap-retention">
-        <span class="gapmap-retention-label">Retención estimada</span>
-        <span class="gapmap-retention-bar"><span class="gapmap-retention-fill" style="width:0"></span></span>
-        <span class="gapmap-retention-val">${d.retention}</span>
-      </div>`;
-    requestAnimationFrame(()=>{ const fill=panel.querySelector('.gapmap-retention-fill'); if(fill) fill.style.width=d.retention; });
-  }
-  btns.forEach(b=>{
-    b.addEventListener('click',()=>{
-      btns.forEach(x=>x.classList.remove('active'));
-      b.classList.add('active');
-      const which=b.dataset.gap;
-      seen.add(which);
-      render(which);
-      if(seen.size===2 && !completed){ completed=true; showSectionExtras(dayN,secIdx,'default'); }
-    });
-  });
-  render('before');
-}
-
-function initDecisionTreeV2(block,dayN,secIdx,tree,alreadyDone){
-  const root=block.querySelector('.dtree');
-  let completed=alreadyDone, depth=0;
-  function renderNode(id){
-    const node=tree.nodes[id];
-    depth++;
-    root.innerHTML=`
-      <p class="dtree-progress">Pregunta ${depth}</p>
-      <p class="dtree-q">${node.q}</p>
-      <div class="dtree-options">${node.options.map((o,i)=>`<button class="dtree-opt" data-opt="${i}" type="button">${o.text}</button>`).join("")}</div>`;
-    root.querySelectorAll('.dtree-opt').forEach((btn,i)=>{
-      btn.addEventListener('click',()=>{
-        const go=node.options[i].go;
-        if(go.startsWith('v_')) renderVerdict(go);
-        else renderNode(go);
-      });
-    });
-  }
-  function renderVerdict(vid){
-    const v=tree.verdicts[vid];
-    const tagText=v.type==='si'?'Sí, gamificá':v.type==='no'?'No gamifiques':'Gamificá liviano';
-    root.innerHTML=`
-      <div class="dtree-verdict ${v.type}">
-        <span class="dtree-verdict-tag">${tagText}</span>
-        <p class="dtree-verdict-title">${v.title}</p>
-        <p class="dtree-verdict-text">${v.text}</p>
-        <button class="dtree-reset" type="button">↻ Probar con otro contenido</button>
-      </div>`;
-    root.querySelector('.dtree-reset').addEventListener('click',()=>{ depth=0; renderNode(tree.start); });
-    if(!completed){ completed=true; showSectionExtras(dayN,secIdx,'default'); }
-  }
-  renderNode(tree.start);
 }
 
 function initFeedbackDesignerV2(block,dayN,secIdx,cases,alreadyDone){
@@ -5228,23 +4593,6 @@ document.addEventListener('click',e=>{
   document.querySelectorAll('.term.open').forEach(t=>t.classList.remove('open'));
 });
 
-/* YouTube lazy-load handler */
-document.addEventListener('click',e=>{
-  const thumb=e.target.closest('.video-thumb');
-  if(!thumb) return;
-  const block=thumb.closest('.video-block');
-  if(!block) return;
-  const id=block.dataset.ytId;
-  if(!id || id==='REEMPLAZAR_ID'){
-    block.classList.add('no-id');
-    const cap=block.querySelector('.video-thumb-caption');
-    const hint=block.querySelector('.video-thumb-hint');
-    if(cap) cap.textContent='⚠ ID del video pendiente';
-    if(hint) hint.textContent='editá data-yt-id en el HTML con cualquier ID de YouTube (ej. dQw4w9WgXcQ)';
-    return;
-  }
-  block.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1" title="${block.dataset.ytTitle||'Video'}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
-});
 
 /* "Avanzar" handler */
 document.addEventListener('click',e=>{
@@ -5356,304 +4704,6 @@ document.addEventListener("click",e=>{
   if(home){ e.preventDefault(); if(location.hash){ location.hash=""; } else { renderHome(); updateTopbar(); window.scrollTo(0,0); } }
 });
 
-/* ============================================================
-   INTERACTIVOS DEL DÍA
-   ============================================================ */
-function initInteractives(dayN){
-  const d=COURSE.days[dayN-1];
-  initCurve();
-  initDnD();
-  if(d.quiz) initQuiz(dayN,d.quiz);
-}
-
-/* Curva del olvido: toggle entre dos curvas SVG */
-function initCurve(){
-  const block=app.querySelector('[data-interactive="curve"]');
-  if(!block) return;
-  const btns=block.querySelectorAll('.toggle-btn');
-  const curveYes=block.querySelector('#curveYes');
-  btns.forEach(b=>{
-    b.addEventListener('click',()=>{
-      btns.forEach(x=>x.classList.remove('active'));
-      b.classList.add('active');
-      if(b.dataset.curve==='yes'){
-        curveYes.style.transition='opacity .5s';
-        curveYes.style.opacity='1';
-      } else {
-        curveYes.style.opacity='0';
-      }
-    });
-  });
-}
-
-/* Drag & drop: clasificar cosmética vs cognitiva */
-const DND_ITEMS=[
-  {id:1,text:"Cada slide muestra un trofeo cuando hacés click en \"siguiente\"",cat:"cos"},
-  {id:2,text:"El curso muestra un caso, pedís decidir y según la elección abre un escenario distinto con feedback",cat:"cog"},
-  {id:3,text:"Ranking público de quién terminó el módulo más rápido",cat:"cos"},
-  {id:4,text:"Después de cada bloque de contenido, tres preguntas de recuperación que tenés que aprobar para seguir",cat:"cog"},
-  {id:5,text:"Una mecánica de \"vidas\": si no acertás en pocos intentos, el módulo te devuelve al contenido a repasar el punto débil",cat:"cog"},
-  {id:6,text:"Una barra de XP que sube cada vez que entrás al curso, sin importar si aprendiste algo",cat:"cos"}
-];
-
-function initDnD(){
-  const block=app.querySelector('[data-interactive="dnd"]');
-  if(!block) return;
-  const pool=block.querySelector('#dnd-pool');
-  const zones=block.querySelectorAll('.dnd-zone');
-  const feedback=block.querySelector('#dnd-feedback');
-
-  /* Mezclar y renderizar items */
-  const shuffled=[...DND_ITEMS].sort(()=>Math.random()-0.5);
-  shuffled.forEach(item=>{
-    const el=document.createElement('div');
-    el.className='dnd-item';
-    el.draggable=true;
-    el.dataset.id=item.id;
-    el.dataset.cat=item.cat;
-    el.textContent=item.text;
-    pool.appendChild(el);
-  });
-
-  let dragged=null;
-  const items=block.querySelectorAll('.dnd-item');
-
-  items.forEach(it=>{
-    it.addEventListener('dragstart',e=>{
-      dragged=it;
-      it.classList.add('dragging');
-      e.dataTransfer.effectAllowed='move';
-      e.dataTransfer.setData('text/plain',it.dataset.id);
-    });
-    it.addEventListener('dragend',()=>{
-      it.classList.remove('dragging');
-      dragged=null;
-    });
-  });
-
-  /* Soporte touch básico */
-  items.forEach(it=>{
-    let touchClone=null,startX=0,startY=0,offsetX=0,offsetY=0;
-    it.addEventListener('touchstart',e=>{
-      const t=e.touches[0];
-      const r=it.getBoundingClientRect();
-      startX=t.clientX;startY=t.clientY;
-      offsetX=t.clientX-r.left;offsetY=t.clientY-r.top;
-      dragged=it;
-      it.classList.add('dragging');
-    },{passive:true});
-    it.addEventListener('touchmove',e=>{
-      if(!dragged) return;
-      e.preventDefault();
-      const t=e.touches[0];
-      if(!touchClone){
-        touchClone=it.cloneNode(true);
-        touchClone.style.position='fixed';
-        touchClone.style.zIndex='9999';
-        touchClone.style.pointerEvents='none';
-        touchClone.style.width=it.offsetWidth+'px';
-        touchClone.style.opacity='.85';
-        document.body.appendChild(touchClone);
-      }
-      touchClone.style.left=(t.clientX-offsetX)+'px';
-      touchClone.style.top=(t.clientY-offsetY)+'px';
-      /* highlight zona */
-      zones.forEach(z=>z.classList.remove('dragover'));
-      const el=document.elementFromPoint(t.clientX,t.clientY);
-      const z=el?el.closest('.dnd-zone'):null;
-      if(z) z.classList.add('dragover');
-    },{passive:false});
-    it.addEventListener('touchend',e=>{
-      if(!dragged) return;
-      const t=e.changedTouches[0];
-      const el=document.elementFromPoint(t.clientX,t.clientY);
-      const z=el?el.closest('.dnd-zone'):null;
-      zones.forEach(zn=>zn.classList.remove('dragover'));
-      if(touchClone){ touchClone.remove(); touchClone=null; }
-      it.classList.remove('dragging');
-      if(z) dropItem(it,z);
-      dragged=null;
-    });
-  });
-
-  zones.forEach(z=>{
-    z.addEventListener('dragover',e=>{
-      e.preventDefault();
-      z.classList.add('dragover');
-    });
-    z.addEventListener('dragleave',()=>z.classList.remove('dragover'));
-    z.addEventListener('drop',e=>{
-      e.preventDefault();
-      z.classList.remove('dragover');
-      if(!dragged) return;
-      dropItem(dragged,z);
-    });
-  });
-
-  function dropItem(item,zone){
-    const correct=item.dataset.cat===zone.dataset.zone;
-    if(correct){
-      item.classList.remove('incorrect');
-      item.classList.add('correct');
-      item.draggable=false;
-      zone.appendChild(item);
-    } else {
-      item.classList.add('incorrect');
-      setTimeout(()=>item.classList.remove('incorrect'),600);
-    }
-    updateFeedback();
-  }
-
-  function updateFeedback(){
-    const total=DND_ITEMS.length;
-    const correct=block.querySelectorAll('.dnd-item.correct').length;
-    if(correct===total){
-      feedback.textContent='¡Listo! Los seis están bien clasificados.';
-      feedback.classList.add('done');
-      if(!block.querySelector('.dnd-reset')){
-        const btn=document.createElement('button');
-        btn.className='dnd-reset';
-        btn.type='button';
-        btn.textContent='Reintentar';
-        btn.addEventListener('click',()=>{
-          block.querySelector('.dnd-wrap').remove();
-          feedback.classList.remove('done');
-          feedback.textContent='Arrastrá los seis ítems para empezar.';
-          btn.remove();
-          /* rebuild */
-          const wrap=document.createElement('div');
-          wrap.className='dnd-wrap';
-          wrap.innerHTML=`<div><p class="dnd-pool-label">Ejemplos por clasificar</p><div class="dnd-pool" id="dnd-pool"></div></div><div class="dnd-zones"><div class="dnd-zone cos" data-zone="cos"><p class="dnd-zone-title">Cosmética</p></div><div class="dnd-zone cog" data-zone="cog"><p class="dnd-zone-title">Cognitiva</p></div></div>`;
-          feedback.parentNode.insertBefore(wrap,feedback);
-          initDnD();
-        });
-        feedback.parentNode.insertBefore(btn,feedback.nextSibling);
-      }
-    } else {
-      feedback.textContent=`Llevás ${correct} de ${total} bien clasificados.`;
-    }
-  }
-}
-
-/* Quiz bloqueante */
-function initQuiz(dayN,questions){
-  const container=app.querySelector('#quiz-d1');
-  if(!container) return;
-  const submitBtn=app.querySelector('#quiz-submit');
-  const retryBtn=app.querySelector('#quiz-retry');
-  const result=app.querySelector('#quiz-result');
-  const gate=app.querySelector('#quiz-gate');
-
-  const passed=quizPassed(dayN);
-
-  container.innerHTML=questions.map((q,i)=>`
-    <div class="quiz-q" data-q="${i}">
-      <p class="quiz-q-text"><span class="quiz-q-num">${i+1}</span>${q.q}</p>
-      <div class="quiz-options">
-        ${q.opts.map((o,j)=>`
-          <label class="quiz-opt" data-opt="${j}">
-            <input type="radio" name="q${i}" value="${j}">
-            <span>${o}</span>
-          </label>
-        `).join("")}
-      </div>
-      <div class="quiz-feedback" id="qfb-${i}"></div>
-    </div>
-  `).join("");
-
-  /* Marcar selección visualmente */
-  container.querySelectorAll('.quiz-opt').forEach(opt=>{
-    opt.addEventListener('click',e=>{
-      const q=opt.closest('.quiz-q');
-      q.querySelectorAll('.quiz-opt').forEach(o=>o.classList.remove('selected'));
-      opt.classList.add('selected');
-    });
-  });
-
-  if(passed){
-    showResults(true);
-  }
-
-  submitBtn.addEventListener('click',()=>{
-    let score=0;
-    questions.forEach((q,i)=>{
-      const sel=container.querySelector(`input[name="q${i}"]:checked`);
-      const opts=container.querySelectorAll(`.quiz-q[data-q="${i}"] .quiz-opt`);
-      const fb=container.querySelector(`#qfb-${i}`);
-      opts.forEach(o=>o.classList.add('disabled'));
-      if(!sel){
-        fb.textContent='Sin respuesta. La correcta es: «'+q.opts[q.correct]+'». '+q.explain;
-        fb.className='quiz-feedback bad show';
-        opts[q.correct].classList.add('correct');
-        return;
-      }
-      const picked=parseInt(sel.value,10);
-      if(picked===q.correct){
-        score++;
-        opts[picked].classList.add('correct');
-        fb.textContent='Correcto. '+q.explain;
-        fb.className='quiz-feedback ok show';
-      } else {
-        opts[picked].classList.add('incorrect');
-        opts[q.correct].classList.add('correct');
-        fb.textContent='La correcta es: «'+q.opts[q.correct]+'». '+q.explain;
-        fb.className='quiz-feedback bad show';
-      }
-    });
-    const total=questions.length;
-    const pass=score>=3;
-    result.textContent=`${score} / ${total} respuestas correctas${pass?' — aprobado':''}`;
-    result.className='quiz-result '+(pass?'pass':'fail');
-    submitBtn.style.display='none';
-    retryBtn.style.display='';
-    if(pass){
-      markQuizPassed(dayN);
-      gate.innerHTML='<strong>¡Aprobado!</strong> Ya podés marcar el día como completado abajo.';
-      gate.style.background='var(--green-soft)';
-      gate.style.borderColor='var(--green)';
-      /* Re-render para habilitar el botón */
-      setTimeout(()=>{
-        const btnComplete=app.querySelector('.daynav .btn[disabled]');
-        if(btnComplete && btnComplete.textContent.includes('Marcar')){
-          const newBtn=document.createElement('button');
-          newBtn.className='btn btn-primary';
-          newBtn.textContent='Marcar como completado';
-          newBtn.dataset.complete=dayN;
-          newBtn.addEventListener('click',()=>{
-            state.completed.add(dayN); saveProgress(); updateTopbar(); renderDay(dayN);
-          });
-          btnComplete.replaceWith(newBtn);
-        }
-      },400);
-    }
-  });
-
-  retryBtn.addEventListener('click',()=>{
-    /* Reset */
-    container.querySelectorAll('.quiz-opt').forEach(o=>{
-      o.classList.remove('selected','correct','incorrect','disabled');
-      const inp=o.querySelector('input'); if(inp) inp.checked=false;
-    });
-    container.querySelectorAll('.quiz-feedback').forEach(f=>{
-      f.className='quiz-feedback';
-      f.textContent='';
-    });
-    result.textContent='';
-    result.className='quiz-result';
-    submitBtn.style.display='';
-    retryBtn.style.display='none';
-  });
-
-  function showResults(asPassed){
-    /* Modo solo-lectura: mostrar correctas sin tocar nada */
-    if(!asPassed) return;
-    result.textContent='Quiz aprobado. Podés reintentar para repasar.';
-    result.className='quiz-result pass';
-    gate.innerHTML='<strong>Quiz aprobado.</strong> El botón de completar el día está habilitado abajo.';
-    gate.style.background='var(--green-soft)';
-    gate.style.borderColor='var(--green)';
-  }
-}
 
 /* ============================================================
    INIT
@@ -5743,7 +4793,7 @@ route(); onScroll();
   /* --- 2) Tamaño de texto (Aa) --- */
   var aa=document.getElementById("aaFab");
   if(aa){
-    var STEPS=[1,1.12,1.24], LABELS=["normal","grande","máximo"], KEY="ia-visual:readscale", i=0;
+    var STEPS=[1,1.12,1.24], LABELS=["normal","grande","máximo"], KEY="ia-visual-10:readscale", i=0;
     try{ var ix=STEPS.indexOf(parseFloat(localStorage.getItem(KEY))); if(ix>=0) i=ix; }catch(e){}
     function apply(){ document.documentElement.style.setProperty("--read-scale",STEPS[i]); aa.title="Tamaño de texto: "+LABELS[i]; }
     apply();
@@ -5766,7 +4816,7 @@ route(); onScroll();
   if(!finished && (status===""||status==="not attempted"||status==="unknown"||status==="browsed")){ try{ API.LMSSetValue("cmi.core.lesson_status","incomplete"); API.LMSCommit(""); }catch(e){} }
   function courseDone(){
     try{ if(typeof doneCount==="function" && doneCount()>=TOTAL) return true; }catch(e){}
-    try{ for(var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); if(k && k.indexOf("ia-visual:progress:")===0){ var arr=JSON.parse(localStorage.getItem(k)||"[]"); if(Array.isArray(arr)&&arr.length>=TOTAL) return true; } } }catch(e){}
+    try{ for(var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); if(k && k.indexOf("ia-visual-10:progress:")===0){ var arr=JSON.parse(localStorage.getItem(k)||"[]"); if(Array.isArray(arr)&&arr.length>=TOTAL) return true; } } }catch(e){}
     return false;
   }
   var timer=null;
